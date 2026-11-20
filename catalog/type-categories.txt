@@ -1,0 +1,29 @@
+# Category of catalog items in pharmacy and hardware lists (grocery lists use the block in items.txt).
+# Format: "# <list type>" then "<category>: item_key, item_key, ..."
+# Items without an entry land in "Own items" on lists of that type.
+
+# pharmacy
+pharmacy_pain: painkillers, ibuprofen, paracetamol, aspirin, headache_tablets, fever_suppositories
+pharmacy_cold: cough_syrup, nasal_spray, throat_lozenges, cold_medicine, cold_tea, chest_rub, saline_solution
+pharmacy_digest: antacids, diarrhoea_medicine, laxative, probiotics, rehydration_salts
+first_aid: plasters, bandages, disinfectant, wound_ointment, cold_pack, tick_tweezers, insect_bite_gel
+vitamins: multivitamins, vitamin_c, vitamin_d, magnesium, zinc, iron, omega_3, calcium, folic_acid
+pharmacy_skin: antihistamine, eye_drops, cortisone_cream, lip_balm, moisturising_cream, foot_care, sunscreen
+dental: toothpaste, toothbrush, dental_floss, mouthwash, electric_toothbrush_heads, interdental_brushes, denture_cleaner
+personal_care: shampoo, conditioner, shower_gel, soap, deodorant, razors, shaving_foam, cotton_pads, body_lotion, face_cream, make_up, sanitary_pads, hair_styling, tissues
+baby: diapers, baby_wipes, baby_food, formula, baby_lotion
+hygiene: hand_sanitizer, face_masks, disposable_gloves, condoms
+medical_devices: thermometer, blood_pressure_monitor, pregnancy_test, covid_test, ear_plugs, contact_lens_solution
+prescriptions: prescription
+
+# hardware
+tools: hammer, screwdriver, wrench, saw, tape_measure, drill, drill_bits, utility_knife, ladder, spirit_level, pliers, toolbox, sandpaper
+fasteners: screws, nails, wall_plugs, bolts_nuts, hooks, cable_ties, hinges
+paint: paint, paint_brushes, paint_roller, masking_tape, drop_cloth, wood_stain, filler
+electrical: led_bulbs, light_bulbs, batteries, extension_cord, cable, flashlight, plug_adapter, smoke_detector, electrical_tape
+plumbing: tap, shower_head, seals, drain_cleaner, plunger, toilet_seat
+lumber: wood_boards, plywood, battens, cement, bricks
+garden: potting_soil, seeds, plants, fertilizer, plant_pots, garden_hose, garden_gloves, charcoal, firewood
+adhesives: glue, silicone, duct_tape, wd_40
+storage: storage_boxes, shelves, baskets, moving_boxes
+safety: work_gloves, safety_glasses, dust_masks

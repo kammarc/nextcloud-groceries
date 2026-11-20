@@ -1,0 +1,659 @@
+# Built-in item catalog.
+# "# <category_key>" starts a category block (see categories.txt).
+# Line format: emoji|English name|German name|English synonyms (;-separated)|German synonyms (;-separated)|flags
+# Flags: s = pantry staple (skipped by default when importing recipe ingredients)
+# The item key is derived from the English name and must be unique.
+
+# other
+🎁|Gift|Geschenk|present;gift card;voucher|Geschenkkarte;Gutschein;Mitbringsel;Präsent
+💐|Flowers|Blumenstrauss|bouquet;flower;tulips;roses|Blumen;Strauss;Tulpen;Rosen;Schnittblumen;Blümchen
+🃏|Magazine|Zeitschrift|newspaper;magazines;newspapers;comic|Zeitung;Zeitschriften;Zeitungen;Illustrierte;Magazin;Heft;Fernsehzeitung;Programmzeitschrift
+✉️|Stamps|Briefmarken|stamp;postage|Briefmarke;Porto;Marken|
+
+# produce
+🍎|Apples|Äpfel|apple;green apple;red apple;braeburn;gala;granny smith;pink lady;elstar|Apfel;Äpfel grün;Tafeläpfel;Braeburn;Gala;Elstar;Boskop;Jonagold;Granny Smith;Pink Lady
+🍌|Bananas|Bananen|banana;bunch of bananas|Banane;Bananenstaude;Bio-Bananen
+🍊|Oranges|Orangen|orange;navel oranges;blood oranges|Orange;Apfelsine;Apfelsinen;Blutorangen;Saftorangen;Navelorangen
+🍊|Mandarins|Mandarinen|mandarin;clementine;clementines;tangerine;tangerines|Mandarine;Clementine;Clementinen
+🍋|Lemons|Zitronen|lemon;lemon juice fresh|Zitrone;Zitronen unbehandelt;Bio-Zitronen
+🍋|Limes|Limetten|lime|Limette
+🍊|Grapefruit|Grapefruit|grapefruits|Grapefruits;Pampelmuse
+🍇|Grapes|Trauben|grape;table grapes;green grapes;red grapes|Traube;Weintrauben;Weintraube;helle Trauben;rote Trauben;Tafeltrauben
+🍓|Strawberries|Erdbeeren|strawberry|Erdbeere;Erdbeerschale
+🫐|Blueberries|Heidelbeeren|blueberry|Heidelbeere;Blaubeeren;Blaubeere
+🍓|Raspberries|Himbeeren|raspberry|Himbeere
+🫐|Blackberries|Brombeeren|blackberry|Brombeere
+🍇|Currants|Johannisbeeren|currant;redcurrants|Johannisbeere;Träubeli
+🍐|Pears|Birnen|pear|Birne
+🍑|Peaches|Pfirsiche|peach|Pfirsich
+🍑|Nectarines|Nektarinen|nectarine|Nektarine
+🍑|Apricots|Aprikosen|apricot|Aprikose;Marillen;Marille
+🫐|Plums|Zwetschgen|plum;damsons|Pflaumen;Pflaume;Zwetschge;Zwetschken;Damaszener
+🍒|Cherries|Kirschen|cherry;sour cherries|Kirsche;Sauerkirschen;Süsskirschen;Süßkirschen
+🥝|Kiwis|Kiwis|kiwi;kiwifruit|Kiwi
+🥭|Mangoes|Mangos|mango|Mango;Flugmango
+🍍|Pineapple|Ananas|pineapples|
+🍈|Melon|Melone|melons;honeydew;cantaloupe;galia melon|Melonen;Honigmelone;Cantaloupe;Galiamelone;Zuckermelone
+🍉|Watermelon|Wassermelone|watermelons|Wassermelonen
+🥑|Avocados|Avocados|avocado|Avocado
+🍎|Pomegranate|Granatapfel|pomegranates|Granatäpfel
+🟤|Figs|Feigen|fig|Feige
+🌴|Dates|Datteln|date|Dattel
+🥥|Coconut|Kokosnuss|coconuts|Kokosnüsse
+🍈|Passion fruit|Passionsfrucht|passionfruit;maracuja|Maracuja
+🍌|Plantains|Kochbananen|plantain|Kochbanane
+🍇|Raisins|Rosinen|raisin;sultanas|Rosine;Sultaninen;Weinbeeren;Korinthen
+🍑|Dried apricots|Getrocknete Aprikosen||Dörraprikosen
+🥗|Fruit salad|Fruchtsalat||Früchtesalat
+🍓|Rhubarb|Rhabarber||
+🍅|Tomatoes|Tomaten|tomato;vine tomatoes|Tomate;Paradeiser;Rispentomaten;Strauchtomaten;Fleischtomaten
+🍅|Cherry tomatoes|Cherrytomaten|cherry tomato;cocktail tomatoes;grape tomatoes|Cherrytomate;Kirschtomaten;Cocktailtomaten;Datteltomaten
+🥒|Cucumber|Gurke|cucumbers;mini cucumbers|Gurken;Salatgurke;Minigurken;Schlangengurke
+🫑|Bell peppers|Paprika|bell pepper;pepper red;peppers;capsicum;red pepper;green pepper;yellow pepper|Peperoni;Paprikaschote;Paprikaschoten;rote Paprika;gelbe Paprika;grüne Paprika;Peperoni süss
+🌶️|Chili peppers|Chilis|chili;chilli;chillies;jalapeno;hot peppers|Chili;Chilischote;Chilischoten;Peperoncini
+🥕|Carrots|Karotten|carrot|Karotte;Möhren;Möhre;Rüebli;Mohrrüben;Gelbe Rüben
+🥔|Potatoes|Kartoffeln|potato;baking potatoes;new potatoes|Kartoffel;Erdäpfel;Grumbeere;festkochende Kartoffeln;mehligkochende Kartoffeln;Frühkartoffeln;Drillinge
+🍠|Sweet potatoes|Süsskartoffeln|sweet potato;yam|Süsskartoffel;Süßkartoffeln;Süßkartoffel
+🧅|Onions|Zwiebeln|onion;yellow onion;yellow onions|Zwiebel;Gemüsezwiebeln;Speisezwiebeln
+🧅|Red onions|Rote Zwiebeln|red onion|Rote Zwiebel
+🧅|Shallots|Schalotten|shallot|Schalotte
+🧄|Garlic|Knoblauch|garlic clove;garlic cloves;garlic bulb|Knoblauchzehe;Knoblauchzehen;Knofi;Knoblauchknolle
+🫚|Ginger|Ingwer|ginger root|Ingwerwurzel;Ingwerknolle
+🥬|Leek|Lauch|leeks|Porree;Lauchstange
+🥬|Celery|Stangensellerie|celery sticks|Staudensellerie;Sellerie
+🥔|Celeriac|Knollensellerie|celery root|Sellerieknolle
+🥒|Zucchini|Zucchetti|courgette;courgettes;zucchinis|Zucchini;Zucchino
+🍆|Eggplant|Aubergine|aubergine;eggplants;aubergines|Auberginen;Melanzani
+🥦|Broccoli|Brokkoli||Broccoli
+🥦|Cauliflower|Blumenkohl||Karfiol
+🥬|Spinach|Spinat|baby spinach;leaf spinach|Blattspinat;Babyspinat
+🥬|Lettuce|Kopfsalat|salad;green salad;head of lettuce;butter lettuce|Salat;Blattsalat;Salatkopf;grüner Salat
+🥬|Iceberg lettuce|Eisbergsalat|iceberg|
+🥬|Romaine lettuce|Römersalat|romaine|Lattich
+🥬|Lamb's lettuce|Feldsalat|corn salad|Nüsslisalat;Rapunzel
+🥬|Rocket|Rucola|arugula|Rauke
+🥬|Mixed salad|Salatmischung|salad mix;salad leaves|Mischsalat;Pflücksalat;Blattsalatmischung
+🥬|Cabbage|Weisskohl|white cabbage|Weißkohl;Kohl;Kabis;Kraut;Weisskraut
+🥬|Red cabbage|Rotkohl||Rotkraut;Blaukraut;Rotkabis
+🥬|Savoy cabbage|Wirsing||Wirz
+🥬|Chinese cabbage|Chinakohl|napa cabbage|
+🥬|Bok choy|Pak Choi|pak choi|
+🥬|Kale|Grünkohl||Federkohl
+🥬|Brussels sprouts|Rosenkohl||Rosenkohl;Rosenchöhli
+🥬|Kohlrabi|Kohlrabi||
+🥦|Asparagus|Spargel|green asparagus;white asparagus|Grüner Spargel;Weisser Spargel;Spargel weiss;Spargel grün;Grünspargel
+🍄|Mushrooms|Champignons|mushroom;button mushrooms;brown mushrooms|Pilze;Pilz;Champignon;Egerlinge;braune Champignons
+🍄|Oyster mushrooms|Austernpilze||Austernpilz
+🍄|Porcini|Steinpilze|ceps|Steinpilz
+🌽|Corn on the cob|Maiskolben|sweet corn cob|Maiskolben
+🫛|Peas|Erbsen|green peas;garden peas|Erbse
+🫛|Snow peas|Zuckerschoten|sugar snap peas|Kefen
+🫛|Green beans|Grüne Bohnen|beans green;runner beans|Bohnen;Prinzessbohnen;Buschbohnen
+🔴|Radishes|Radieschen|radish|Radiesli
+⚪|Daikon|Rettich|white radish|Rettich
+🟣|Beetroot|Randen|beet;beets|Rote Bete;Rote Beete;Rande
+🎃|Pumpkin|Kürbis|squash;butternut;butternut squash;hokkaido|Kürbisse;Butternut;Hokkaido
+🥬|Fennel|Fenchel|fennel bulb|
+🧅|Spring onions|Frühlingszwiebeln|scallions;green onions;spring onion|Frühlingszwiebel;Lauchzwiebeln;Bundzwiebeln
+🥬|Artichokes|Artischocken|artichoke|Artischocke
+🥕|Parsnips|Pastinaken|parsnip|Pastinake
+🥕|Parsley root|Petersilienwurzel||
+🌱|Bean sprouts|Sojasprossen|sprouts|Sprossen
+🥬|Swiss chard|Mangold|chard|
+🥗|Salad kit|Salat im Beutel||
+🌿|Basil|Basilikum|fresh basil|Basilikumtopf
+🌿|Parsley|Petersilie|flat-leaf parsley;curly parsley;flat parsley|Peterli;Petersilie glatt;Petersilie kraus
+🌿|Chives|Schnittlauch||
+🌿|Coriander|Koriander|cilantro|Koriandergrün
+🌿|Dill|Dill||
+🌿|Mint|Minze|peppermint fresh|Pfefferminze
+🌿|Rosemary|Rosmarin|fresh rosemary|
+🌿|Thyme|Thymian|fresh thyme|
+🌿|Sage|Salbei||
+🌿|Oregano fresh|Oregano frisch||
+🌿|Lemongrass|Zitronengras||
+🌿|Herb pot|Kräutertopf|potted herbs|Topfkräuter
+
+# bakery
+🍞|Bread|Brot|loaf;loaf of bread|Brotlaib;Ruchbrot;Halbweissbrot;Laib Brot;Mischbrot;Graubrot;Bauernbrot;Weissbrot;Weißbrot
+🍞|Whole-grain bread|Vollkornbrot|wholemeal bread;whole wheat bread;multigrain bread|Vollkorn;Körnerbrot;Mehrkornbrot;Dinkelbrot
+🍞|Rye bread|Roggenbrot|pumpernickel|Schwarzbrot;Pumpernickel
+🍞|Sourdough bread|Sauerteigbrot|sourdough|
+🥖|Baguette|Baguette|french bread|Pariserbrot
+🥯|Bread rolls|Brötchen|rolls;buns;roll|Semmeln;Weggli;Brötli;Schrippen;Wecken;Weckle;Mutschli
+🍞|Toast bread|Toastbrot|sandwich bread;toast;sliced bread|Toast;Sandwichtoast;Vollkorntoast
+🥐|Croissants|Gipfeli|croissant|Croissant;Hörnchen;Buttercroissant
+🥨|Pretzels|Brezeln|pretzel|Brezel;Laugenbrezel;Bretzel;Breze;Brezn
+🥨|Pretzel rolls|Laugenbrötchen|lye rolls|Laugenbrötli;Silserli
+🫓|Pita bread|Pitabrot|pita;flatbread|Fladenbrot
+🍔|Burger buns|Burgerbrötchen|hamburger buns|Burgerbrot
+🌭|Hot dog buns|Hotdog-Brötchen||
+🍰|Cake|Kuchen|cakes|Torte;Kuchenstück;Gebäck;Blechkuchen
+🧁|Muffins|Muffins|muffin|Muffin
+🍩|Doughnuts|Berliner|donuts;doughnut;donut|Krapfen;Donuts;Pfannkuchen süss
+🥖|Ciabatta|Ciabatta||
+🍞|Zopf|Zopf|plaited bread;challah|Hefezopf
+
+# cereals
+🍞|Crispbread|Knäckebrot|crackerbread;crisp bread;knackebrod|Knäcke
+🍞|Rusks|Zwieback|rusk|
+🥣|Cereal|Cerealien|breakfast cereal|Frühstücksflocken;Frühstücksmüsli
+🥣|Muesli|Müesli|granola;muesli mix|Müsli;Knuspermüesli;Knuspermüsli;Granola;Früchtemüsli
+🌽|Cornflakes|Cornflakes|corn flakes|
+🌾|Oats|Haferflocken|rolled oats;oatmeal;porridge oats;oat flakes;porridge|Haferflocken zart;Porridge;Hafer
+
+# pasta_rice
+🥟|Gnocchi|Gnocchi||
+🍝|Spaghetti|Spaghetti|spaghetti pasta|Spaghettoni
+🍝|Penne|Penne||
+🍝|Fusilli|Fusilli|spirals|Spiralen
+🍝|Pasta|Nudeln|noodles;macaroni;farfalle;rigatoni;conchiglie|Teigwaren;Pasta;Hörnli;Makkaroni;Farfalle;Rigatoni;Spirelli;Maccheroni
+🍝|Tagliatelle|Tagliatelle|fettuccine|Bandnudeln;Nudeln breit
+🍝|Lasagne sheets|Lasagneblätter|lasagna sheets;lasagna|Lasagne
+🍚|Rice|Reis|long grain rice;white rice|Langkornreis;Parboiled Reis;Kochbeutelreis
+🍚|Basmati rice|Basmatireis|basmati|Basmati
+🍚|Risotto rice|Risottoreis|arborio;arborio rice|Arborio;Risotto
+🍚|Wild rice|Wildreis|brown rice|Vollkornreis;Naturreis
+🍚|Couscous|Couscous||Kuskus
+🌾|Bulgur|Bulgur||
+🌾|Quinoa|Quinoa||
+🌽|Polenta|Polenta|cornmeal|Maisgriess
+🌾|Semolina|Griess|semolina flour|Grieß;Hartweizengriess;Weichweizengriess
+🌾|Lentils|Linsen|red lentils;brown lentils;lentil;green lentils;beluga lentils|Rote Linsen;Berglinsen;Linse;Tellerlinsen;Belugalinsen
+🫘|Dried beans|Getrocknete Bohnen|dried chickpeas|Trockenbohnen
+🌾|Millet|Hirse||
+🌾|Barley|Gerste|pearl barley|Rollgerste;Graupen
+
+# snacks
+🍫|Chocolate|Schokolade|chocolate bar;dark chocolate;milk chocolate|Schoggi;Zartbitterschokolade;Milchschokolade;Tafel Schokolade;Schokoriegel
+🥔|Crisps|Chips|chips;potato chips|Kartoffelchips;Pommes-Chips;Paprikachips;Salzchips
+🥨|Pretzel sticks|Salzstangen|salt sticks|Salzstängeli;Brezeli
+🍘|Crackers|Cracker|rice cakes|Reiswaffeln;Salzgebäck
+🍪|Cookies|Kekse|biscuits;cookie|Guetzli;Plätzchen;Biskuits;Butterkekse;Cookies
+🧸|Gummy bears|Gummibärchen|gummies;jelly beans;jelly sweets|Gummibärli;Fruchtgummi;Weingummi
+🍬|Sweets|Bonbons|candy;sweet;lollipop;sweeties|Süssigkeiten;Zältli;Süßigkeiten;Naschzeug;Zuckerl
+🥜|Nuts|Nüsse|mixed nuts|Nussmischung
+🥜|Peanuts|Erdnüsse|peanut;salted peanuts|Erdnuss
+🌰|Almonds|Mandeln|almond|Mandel
+🌰|Hazelnuts|Haselnüsse|hazelnut|Haselnuss
+🌰|Walnuts|Walnüsse|walnut|Baumnüsse;Walnuss;Baumnuss
+🌰|Cashews|Cashewnüsse|cashew|Cashew
+🌰|Pine nuts|Pinienkerne||Pinienkerne
+🌻|Sunflower seeds|Sonnenblumenkerne|pumpkin seeds|Kürbiskerne;Kerne
+🍿|Popcorn|Popcorn||Puffmais|
+🍫|Cereal bars|Müsliriegel|granola bar;protein bar|Riegel;Proteinriegel
+🍦|Ice cream cones|Glace-Cornets|ice-cream cones|Waffeln;Eiswaffeln
+🥜|Trail mix|Studentenfutter|||
+🍬|Chewing gum|Kaugummi|gum|Kaugummis
+🌮|Tortilla chips|Tortilla-Chips|nachos|Nachos
+
+# dairy
+🥛|Milk|Milch|whole milk;full fat milk;fresh milk;long life milk;uht milk|Vollmilch;Frischmilch;H-Milch;Haltbare Milch;Bergmilch;Weidemilch
+🥛|Skimmed milk|Magermilch|low fat milk;semi-skimmed milk;semi skimmed milk|Halbfettmilch;Drinkmilch;fettarme Milch;teilentrahmte Milch
+🥛|Lactose-free milk|Laktosefreie Milch|lactose free milk|Milch laktosefrei
+🧈|Butter|Butter|unsalted butter;salted butter|Süssrahmbutter;Vorzugsbutter;Süßrahmbutter;Sauerrahmbutter;gesalzene Butter;Streichbutter;Kochbutter
+🥛|Cream|Rahm|heavy cream;whipping cream;double cream;cream whipping|Sahne;Schlagsahne;Vollrahm;Schlagrahm
+🥛|Cooking cream|Kochsahne|single cream|Halbrahm;Kochrahm;Cremefine
+🥛|Sour cream|Saure Sahne|soured cream|Sauerrahm;Schmand
+🥛|Crème fraîche|Crème fraîche|creme fraiche|Creme fraiche
+🥛|Yogurt|Joghurt|yoghurt;natural yogurt;plain yogurt;yogurts|Jogurt;Naturjoghurt;Joghurts;Yoghurt;Jogi
+🥛|Greek yogurt|Griechischer Joghurt|greek yoghurt|Griechisches Joghurt
+🥛|Fruit yogurt|Fruchtjoghurt||Fruchtjogurt;Erdbeerjoghurt;Kirschjoghurt
+🥛|Quark|Quark|curd cheese;fromage frais|Magerquark;Speisequark;Topfen;Sahnequark;Kräuterquark
+🥛|Cottage cheese|Hüttenkäse||Körniger Frischkäse
+🥛|Buttermilk|Buttermilch||
+🥛|Kefir|Kefir||
+🍮|Pudding|Pudding|dessert pudding;custard|Vanillepudding;Schokoladenpudding;Schokopudding;Grießpudding;Milchreis
+🥛|Milk drink|Milchdrink|chocolate milk;milkshake|Schokomilch;Milchshake
+🥚|Eggs|Eier|egg;free range eggs;dozen eggs|Ei;Freilandeier;Bio-Eier;Bodenhaltung
+🧀|Gouda|Gouda||
+🧀|Emmental|Emmentaler|swiss cheese;emmentaler|Emmental
+🧀|Gruyère|Gruyère|gruyere|Greyerzer
+🧀|Mozzarella|Mozzarella|buffalo mozzarella|Büffelmozzarella;Mozzarella-Kugel
+🧀|Parmesan|Parmesan|parmigiano;parmigiano reggiano;grana padano|Parmigiano;Sbrinz;Grana Padano;Parmesankäse
+🧀|Feta|Feta|feta cheese|Schafskäse;Fetakäse
+🧀|Cream cheese|Frischkäse|philadelphia;soft cheese|Philadelphia;Doppelrahmfrischkäse;Kräuterfrischkäse
+🧀|Camembert|Camembert||
+🧀|Brie|Brie||
+🧀|Raclette cheese|Raclettekäse|raclette|Raclette
+🧀|Grated cheese|Reibkäse|shredded cheese|Geriebener Käse;Pizzakäse;Gratinkäse;Streukäse
+🧀|Sliced cheese|Scheibenkäse|cheese slices|Käsescheiben;Toastkäse;Schmelzkäse
+🧀|Cheddar|Cheddar||
+🧀|Mascarpone|Mascarpone||
+🧀|Ricotta|Ricotta||
+🧀|Halloumi|Halloumi|grilling cheese|Grillkäse
+🧀|Goat cheese|Ziegenkäse|chevre|
+🧀|Blue cheese|Blauschimmelkäse|gorgonzola|Gorgonzola
+🧀|Fondue cheese|Fonduemischung|fondue|Fondue;Fertigfondue
+🧀|Appenzeller|Appenzeller||Tilsiter
+🧀|Cheese|Käse|cheeses|Hartkäse;Schnittkäse;Bergkäse;Weichkäse
+
+# vegan
+🥛|Oat milk|Haferdrink|oat drink;oatmilk|Hafermilch;Haferdrink Barista
+🥛|Soy milk|Sojadrink|soy drink;soya milk|Sojamilch
+🥛|Almond milk|Mandeldrink|almond drink|Mandelmilch
+🧈|Margarine|Margarine|vegan butter|Pflanzenmargarine;vegane Butter;Pflanzenbutter
+🥙|Hummus|Hummus|houmous|Humus
+🧈|Tofu|Tofu|firm tofu;silken tofu;smoked tofu|Seidentofu;Räuchertofu;Naturtofu
+🟫|Tempeh|Tempeh||
+🌱|Seitan|Seitan||
+🌱|Plant-based mince|Veganes Hack|vegan mince;veggie mince|Vegi-Hack;Pflanzliches Hack;Veggie-Hack;Pflanzenhack
+🌱|Veggie burger|Veggie-Burger|vegan burger;plant burger;plant based burger|Gemüseburger;Vegiburger;Veggieburger;vegane Burger;Burger-Patties vegan
+🌱|Falafel|Falafel||
+🌱|Quorn|Quorn|mycoprotein|
+
+# meat_fish
+🍗|Chicken breast|Hähnchenbrust|chicken fillet;chicken breasts|Pouletbrust;Hühnerbrust;Hähnchenbrustfilet;Pouletschnitzel
+🐔|Whole chicken|Ganzes Hähnchen|chicken|Poulet;Huhn;Hähnchen;Brathähnchen;Hendl;Suppenhuhn
+🍗|Chicken legs|Hähnchenschenkel|chicken thighs;drumsticks;chicken drumsticks|Pouletschenkel;Hühnerschenkel;Hähnchenkeulen;Unterschenkel
+🍗|Chicken wings|Chicken Wings|wings|Pouletflügeli;Hähnchenflügel
+🦃|Turkey breast|Putenbrust|turkey|Truthahn;Trutenbrust
+🥩|Ground beef|Rinderhackfleisch|minced beef;beef mince|Rindshackfleisch;Rinderhack;Hackfleisch Rind
+🥩|Minced meat|Hackfleisch|mince;ground meat;mixed mince|Gehacktes;Faschiertes;Hack;gemischtes Hack
+🥩|Beef steak|Rindersteak|steak;sirloin;ribeye;rump steak;entrecote|Steak;Entrecôte;Rindsplätzli;Rumpsteak;Hüftsteak;Rinderfilet
+🥩|Beef for stew|Rindsragout|stewing beef;goulash meat|Gulasch;Gulaschfleisch;Rindergulasch;Schmorfleisch
+🥩|Roast beef|Rinderbraten|beef roast|Rindsbraten
+🥩|Pork chops|Schweinekoteletts|pork chop|Kotelett;Schweinskotelett
+🥩|Pork fillet|Schweinefilet|pork tenderloin|Schweinsfilet
+🥩|Pork belly|Schweinebauch||
+🥩|Schnitzel|Schnitzel|escalope;cutlets|Schnitzel paniert;Plätzli;Schweineschnitzel;Kalbsschnitzel
+🌭|Sausages|Würstchen|sausage;frankfurters;wieners|Würste;Wienerli;Wiener;Frankfurter;Würstli;Bockwurst;Weisswurst;Weißwurst
+🌭|Bratwurst|Bratwurst|grill sausage;bratwurst sausage;grilled sausages|Bratwürste;Grillwurst;Cervelat;Rostbratwurst;Grillwürste;Nürnberger
+🥓|Bacon|Speck|streaky bacon;bacon rashers;pancetta|Frühstücksspeck;Bacon;Speckwürfel;Speckwürfeli;Lardons;Pancetta;Bauchspeck
+🍖|Lamb|Lammfleisch|lamb chops;leg of lamb|Lamm;Lammkoteletts
+🥩|Veal|Kalbfleisch|veal escalope|Kalb;Kalbsgeschnetzeltes
+🥩|Sliced meat|Geschnetzeltes|strips of meat|Geschnetzeltes Poulet
+🍖|Spare ribs|Spareribs|ribs|Rippchen
+🍖|Meatballs|Fleischbällchen|meat balls|Hackbällchen;Frikadellen
+🍖|Duck|Ente|duck breast|Entenbrust
+🍖|Ham|Schinken|cooked ham;sliced ham;boiled ham|Kochschinken;Hinterschinken;gekochter Schinken
+🍖|Prosciutto|Rohschinken|parma ham;serrano ham;cured ham|Parmaschinken;Serranoschinken;Serrano;Schwarzwälder Schinken;Katenschinken
+🍕|Salami|Salami|pepperoni|
+🦃|Turkey slices|Putenaufschnitt|turkey ham|Trutenbrust Aufschnitt
+🍖|Cold cuts|Aufschnitt|deli meat;luncheon meat;lunch meat|Wurstaufschnitt;Wurst;Fleischwurst;Bierwurst
+🍖|Liver sausage|Leberwurst|liverwurst|
+🍖|Mortadella|Mortadella|bologna|Lyoner;Fleischkäse;Leberkäse
+🥓|Chorizo|Chorizo||
+🍖|Bündnerfleisch|Bündnerfleisch|dried beef;bresaola|Trockenfleisch
+🫒|Antipasti|Antipasti|antipasto|
+🥗|Ready-made salad|Fertigsalat|potato salad|Kartoffelsalat;Nudelsalat
+🐟|Salmon|Lachs|salmon fillet|Lachsfilet
+🐟|Smoked salmon|Räucherlachs|lox|Rauchlachs;geräucherter Lachs
+🐟|Tuna steak|Thunfischsteak|fresh tuna|Thunfisch frisch
+🐟|Cod|Kabeljau|cod fillet;white fish|Dorsch;Kabeljaufilet;Weissfisch
+🐟|Trout|Forelle|trout fillet|Forellenfilet
+🐟|Pangasius|Pangasius|basa|
+🦐|Shrimp|Garnelen|prawns;shrimps;king prawns|Crevetten;Shrimps;Riesengarnelen;Scampi
+🦪|Mussels|Muscheln|clams|Miesmuscheln;Venusmuscheln
+🦑|Squid|Tintenfisch|calamari|Calamari
+🐟|Fish sticks|Fischstäbchen|fish fingers|Fischstäbli
+🐟|Herring|Hering|pickled herring|Matjes;Bismarckhering;Rollmops
+🐟|Sardines|Sardinen|sardine|Sardine;Ölsardinen
+
+# ingredients
+🍞|Breadcrumbs|Paniermehl|bread crumbs;panko|Semmelbrösel;Paniermehl
+🫒|Olive oil|Olivenöl|extra virgin olive oil|Olivenöl extra vergine;natives Olivenöl
+🌻|Sunflower oil|Sonnenblumenöl|vegetable oil;cooking oil|Pflanzenöl;Speiseöl;Bratöl
+🌼|Rapeseed oil|Rapsöl|canola oil|
+🫗|Vinegar|Essig|white vinegar;wine vinegar|Weissweinessig;Weinessig;Kräuteressig;Tafelessig;Branntweinessig
+🫗|Apple cider vinegar|Apfelessig|cider vinegar|
+🫗|Balsamic vinegar|Balsamico|balsamic|Aceto Balsamico;Balsamessig
+🍅|Ketchup|Ketchup|tomato ketchup|Tomatenketchup;Curry-Ketchup
+🥚|Mayonnaise|Mayonnaise|mayo|Mayo;Majo;Salatmayonnaise
+🟡|Mustard|Senf|dijon mustard;dijon|Dijonsenf;Mostrich;mittelscharfer Senf;süsser Senf;Süßer Senf
+🌿|Pesto|Pesto|basil pesto;pesto rosso;pesto genovese|Pesto Genovese;Basilikumpesto;Pesto rosso
+🍝|Pasta sauce|Tomatensauce|tomato sauce;marinara;pasta sauce jar;bolognese sauce|Pastasauce;Tomatensosse;Sugo;Nudelsauce;Bolognese
+🌶️|Hot sauce|Scharfe Sauce|chili sauce;sriracha;tabasco|Chilisauce;Sriracha;Tabasco
+🍖|Barbecue sauce|Barbecuesauce|bbq sauce|BBQ-Sauce;Grillsauce
+🫙|Stock cubes|Bouillon|bouillon;stock;broth;vegetable stock;chicken stock;beef stock|Brühe;Gemüsebrühe;Hühnerbouillon;Bouillonwürfel;Fond;Brühwürfel;Hühnerbrühe;Rinderbrühe;Suppenwürfel
+🫗|Maggi seasoning|Maggi Würze|seasoning sauce|Flüssigwürze;Aromat
+🥗|Salad dressing|Salatsauce|dressing|Salatdressing;French Dressing
+🍯|Mustard-mayo|Remoulade|tartar sauce|Remouladensauce
+🫗|Worcestershire sauce|Worcestersauce||
+🧂|Salt|Salz|sea salt;table salt;salt and pepper|Meersalz;Kochsalz;Speisesalz;Jodsalz|s
+🧂|Pepper|Pfeffer|black pepper;ground pepper;peppercorns|Schwarzer Pfeffer;Pfefferkörner|s
+🌶️|Paprika powder|Paprikapulver|smoked paprika;sweet paprika|Paprika edelsüss;Geräuchertes Paprikapulver;Paprika geräuchert|s
+🟡|Curry powder|Currypulver|curry|Curry|s
+🟤|Cinnamon|Zimt|ground cinnamon;cinnamon sticks|Zimtstangen|s
+🌿|Oregano|Oregano|dried oregano|Getrockneter Oregano|s
+🌶️|Chili flakes|Chiliflocken|red pepper flakes;chili powder;cayenne;cayenne pepper|Chilipulver;Cayennepfeffer|s
+🟤|Nutmeg|Muskatnuss|ground nutmeg|Muskat|s
+🟤|Cumin|Kreuzkümmel|ground cumin|Cumin|s
+🟡|Turmeric|Kurkuma|tumeric|Gelbwurz|s
+🌿|Italian herbs|Italienische Kräuter|mixed herbs;herbes de provence|Kräuter der Provence;Gewürzmischung|s
+🌿|Bay leaves|Lorbeerblätter|bay leaf|Lorbeerblatt;Lorbeer|s
+🟤|Cloves|Nelken|clove|Gewürznelken|s
+🟤|Garlic powder|Knoblauchpulver|garlic granules|Knoblauchgranulat|s
+🟤|Ginger powder|Ingwerpulver|ground ginger||s
+🌿|Dried parsley|Getrocknete Petersilie||Petersilie getrocknet|s
+🟤|Coriander seeds|Koriandersamen|ground coriander|Koriander gemahlen|s
+🟤|Caraway|Kümmel|caraway seeds||s
+🟤|Star anise|Sternanis|anise||s
+🟤|Cardamom|Kardamom|||s
+🟤|Allspice|Piment|||s
+🟤|Garam masala|Garam Masala|||s
+🧂|Seasoning salt|Gewürzsalz|herb salt|Kräutersalz;Streuwürze|s
+🌾|Flour|Mehl|plain flour;all-purpose flour;wheat flour;white flour;all purpose flour|Weissmehl;Weizenmehl;Weißmehl;Halbweissmehl;Type 405;Type 550|s
+🌾|Whole wheat flour|Vollkornmehl|wholemeal flour|Ruchmehl;Vollkornweizenmehl
+🌾|Spelt flour|Dinkelmehl|spelt||
+🍬|Sugar|Zucker|white sugar;granulated sugar;caster sugar|Kristallzucker;Weisser Zucker;Haushaltszucker;Feinzucker|s
+🍬|Brown sugar|Brauner Zucker|cane sugar|Rohrzucker;Rohzucker
+🍬|Powdered sugar|Puderzucker|icing sugar;confectioners sugar|Staubzucker
+🍬|Vanilla sugar|Vanillezucker|vanilla extract;vanilla|Vanilleextrakt;Vanille;Vanilleschote;Vanillinzucker;Bourbon-Vanillezucker
+🧁|Baking powder|Backpulver|||s
+🧁|Baking soda|Natron|bicarbonate of soda|Speisenatron;Natron
+🍞|Yeast|Hefe|dry yeast;fresh yeast|Trockenhefe;Frischhefe;Germ
+🍫|Cocoa powder|Kakaopulver|cocoa;unsweetened cocoa|Kakao;Backkakao
+🍫|Chocolate chips|Schokotropfen|chocolate drops|Schokoladenstückchen
+🍫|Baking chocolate|Kuvertüre|dark chocolate for baking;couverture|Backschokolade;Blockschokolade
+🌰|Ground almonds|Gemahlene Mandeln|almond flour;almond meal|Mandeln gemahlen
+🌰|Ground hazelnuts|Gemahlene Haselnüsse|hazelnut meal|Haselnüsse gemahlen
+🥚|Cornstarch|Speisestärke|corn starch;cornflour|Maisstärke;Maizena;Stärke
+🟡|Gelatine|Gelatine|gelatin|Gelatineblätter
+🍰|Cake mix|Backmischung|brownie mix;baking mix|Kuchenmischung;Kuchenbackmischung
+🍬|Sprinkles|Streusel|hundreds and thousands|Zuckerstreusel;Schokostreusel
+🍯|Marzipan|Marzipan|almond paste|
+🌰|Desiccated coconut|Kokosraspeln|coconut flakes|Kokosflocken
+🫙|Baking cups|Muffinförmchen|cupcake liners|Muffin-Förmchen
+🍋|Lemon juice|Zitronensaft|bottled lemon juice|
+🍓|Jam|Konfitüre|jelly;preserve;strawberry jam;marmalade|Marmelade;Konfi;Fruchtaufstrich;Gelee
+🍯|Honey|Honig||Blütenhonig;Waldhonig;Akazienhonig|
+🍫|Chocolate spread|Schokoaufstrich|nutella;hazelnut spread|Nutella;Nuss-Nougat-Creme;Schokocreme;Nussnougatcreme
+🥜|Peanut butter|Erdnussbutter|||
+🍁|Maple syrup|Ahornsirup|maple|
+🧈|Spread|Brotaufstrich|vegetable spread|Aufstrich
+🥞|Pancake mix|Pfannkuchenmix|pancakes|Crêpes-Teig;Pancakes
+
+# canned
+🥫|Canned tomatoes|Dosentomaten|chopped tomatoes;tinned tomatoes;diced tomatoes;crushed tomatoes|Gehackte Tomaten;Pelati;Geschälte Tomaten;Tomaten in Dosen;stückige Tomaten
+🥫|Tomato paste|Tomatenmark|tomato puree|Tomatenpüree
+🥫|Passata|Passata|strained tomatoes;sieved tomatoes|Passierte Tomaten;Tomatenpassata
+🫘|Chickpeas|Kichererbsen|garbanzo beans;chickpea|Kichererbse
+🫘|Kidney beans|Kidneybohnen|red beans|Rote Bohnen
+🫘|White beans|Weisse Bohnen|cannellini beans;baked beans|Weiße Bohnen;Baked Beans
+🫘|Black beans|Schwarze Bohnen||
+🌽|Sweetcorn|Mais|corn;canned corn;sweet corn|Dosenmais;Maiskörner;Zuckermais
+🐟|Canned tuna|Thunfisch|tuna;tinned tuna|Thunfisch in Dose;Thon;Thunfischdose
+🫒|Olives|Oliven|green olives;black olives|Olive;grüne Oliven;schwarze Oliven
+🥒|Pickles|Essiggurken|gherkins;pickled cucumbers;cornichons|Gewürzgurken;Cornichons;saure Gurken;Gurkerl
+🥬|Sauerkraut|Sauerkraut||
+🍑|Canned fruit|Obstkonserven|peaches in syrup|Pfirsiche in Dose;Ananas in Dose
+🫛|Canned peas & carrots|Erbsen und Karotten||Erbsli und Rüebli
+🍄|Canned mushrooms|Pilze in Dose||Champignons in Dose
+🍅|Sun-dried tomatoes|Getrocknete Tomaten|sundried tomatoes|Dörrtomaten
+🌶️|Capers|Kapern|caper|
+🫑|Roasted peppers|Geröstete Paprika|jarred peppers|Antipasti Peperoni
+🥫|Ravioli canned|Dosenravioli|canned ravioli|Ravioli in Dose
+
+# international
+🫓|Tortilla wraps|Tortilla-Wraps|wraps;tortillas;tortilla|Wraps;Tortillas;Weizentortillas
+🍜|Egg noodles|Eiernudeln|asian noodles;ramen noodles|Mie-Nudeln;Mienudeln;Asianudeln
+🍜|Rice noodles|Reisnudeln|glass noodles|Glasnudeln
+🍚|Jasmine rice|Jasminreis|jasmine|
+🍚|Sushi rice|Sushireis||
+🥥|Coconut milk|Kokosmilch|coconut cream|Kokosnussmilch;Kokoscreme
+🌽|Jalapeños|Jalapeños|jalapenos|
+🥜|Sesame oil|Sesamöl||
+🫗|Soy sauce|Sojasauce|soya sauce;shoyu|Sojasosse;Sojasoße;Shoyu
+🥜|Tahini|Tahin|sesame paste|Sesampaste
+🥥|Curry paste|Currypaste|red curry paste;green curry paste|Rote Currypaste;grüne Currypaste
+🫗|Fish sauce|Fischsauce||
+🍚|Teriyaki sauce|Teriyakisauce|hoisin;oyster sauce|Hoisinsauce;Austernsauce
+🌶️|Sambal oelek|Sambal Oelek|harissa|Harissa
+
+# drinks
+🍫|Cocoa drink powder|Kakaogetränk|hot chocolate;ovomaltine|Ovomaltine;Ovo;Trinkschokolade;Kaba
+☕|Coffee beans|Kaffeebohnen|whole bean coffee;espresso beans|Bohnenkaffee;Espressobohnen
+☕|Ground coffee|Gemahlener Kaffee|coffee;filter coffee|Kaffee;Kaffeepulver;Filterkaffee
+☕|Coffee capsules|Kaffeekapseln|nespresso;coffee pods;capsules|Kapseln;Nespresso;Kaffeepads;Pads
+☕|Instant coffee|Instantkaffee|nescafe|Pulverkaffee;Nescafé
+🍵|Black tea|Schwarztee|tea;tea bags|Tee;Teebeutel;Earl Grey
+🍵|Green tea|Grüntee|matcha|Grüner Tee;Matcha
+🍵|Herbal tea|Kräutertee|chamomile;peppermint tea;fruit tea;chamomile tea|Kamillentee;Pfefferminztee;Früchtetee;Fencheltee
+🥛|Coffee creamer|Kaffeerahm|coffee cream;creamer|Kaffeesahne;Kafirahm
+🍬|Sweetener|Süssstoff|stevia|Süßstoff;Stevia
+💧|Water|Mineralwasser|still water;mineral water|Wasser;Stilles Wasser;Tafelwasser;Wasser ohne Kohlensäure|s
+🫧|Sparkling water|Sprudel|sparkling mineral water;soda water;fizzy water|Mineral mit Kohlensäure;Sprudelwasser;Mineralwasser mit Kohlensäure;Wasser mit Kohlensäure;Medium;Selters
+🧃|Juice|Saft|fruit juice|Fruchtsaft;Multivitaminsaft;Nektar;Fruchtsaftgetränk
+🍊|Orange juice|Orangensaft|oj|O-Saft;Orangenjus;Orangennektar
+🍎|Apple juice|Apfelsaft||Süssmost;Apfelschorle;Süßmost
+🥤|Soft drinks|Softdrinks|soda;lemonade;fizzy drinks|Limonade;Limo;Süssgetränk;Brause;Erfrischungsgetränk;Spezi;Mezzo Mix
+🥤|Cola|Cola|coke;coca-cola;pepsi|Coca-Cola;Coke;Cola Zero;Cola light
+🍋|Iced tea|Eistee|ice tea|Ice Tea;Icetea
+🫙|Syrup|Sirup|cordial|Sirup Himbeer;Getränkesirup;Holunderblütensirup
+⚡|Energy drinks|Energydrinks|red bull;energy drink|Red Bull;Energydrink;Energy
+🥤|Sports drinks|Isotonische Getränke|isotonic|Iso-Getränk
+🍹|Tonic water|Tonic Water|tonic;ginger ale|Ginger Ale
+🍺|Beer|Bier|lager;ale;beers;pils;wheat beer|Lager;Pils;Weizen;Helles;Weissbier;Weißbier;Radler;Kasten Bier;Export
+🍺|Alcohol-free beer|Alkoholfreies Bier|non-alcoholic beer|Bier alkoholfrei
+🍷|Red wine|Rotwein|wine red|Rotwein trocken
+🥂|White wine|Weisswein|wine white|Weißwein
+🍷|Rosé|Rosé|rose wine|Roséwein
+🍾|Prosecco|Prosecco|sparkling wine;champagne;cava|Sekt;Schaumwein;Champagner;Crémant;Cava
+🥃|Spirits|Spirituosen|liquor;vodka;gin;rum;whisky|Schnaps;Wodka;Gin;Rum;Whisky;Likör;Korn;Obstler
+🍸|Aperitif|Aperitif|aperol;campari|Aperol;Campari
+🍺|Cider|Cidre|hard cider|Apfelwein;Most
+🍶|Cooking wine|Kochwein|wine for cooking|Wein zum Kochen
+
+# laundry
+🧺|Laundry detergent|Waschmittel|washing powder;laundry liquid;detergent|Flüssigwaschmittel;Waschpulver;Vollwaschmittel;Waschpods;Caps
+🧺|Fabric softener|Weichspüler|softener|Weichspueler
+🧺|Delicates detergent|Feinwaschmittel|wool detergent;mild detergent|Wollwaschmittel
+🧺|Colour detergent|Colorwaschmittel|color detergent|Colorwaschpulver
+🧴|Stain remover|Fleckenentferner|stain spray|Gallseife;Fleckenspray
+🧴|Laundry sanitizer|Hygienespüler|laundry disinfectant|Wäschedesinfektion
+🧼|Washing machine cleaner|Maschinenpflege|washer cleaner|Waschmaschinenreiniger;Entkalker Waschmaschine
+📎|Clothes pegs|Wäscheklammern|clothespins|Klammern
+💧|Ironing water|Bügelwasser|distilled water|Destilliertes Wasser
+
+# cleaning
+🧽|Dish soap|Spülmittel|washing-up liquid;dishwashing liquid;washing up liquid|Abwaschmittel;Geschirrspülmittel;Spüli
+🫧|Dishwasher tabs|Spülmaschinentabs|dishwasher tablets;dishwasher detergent|Geschirrspültabs;Tabs;Spültabs;Maschinentabs
+🧂|Dishwasher salt|Regeneriersalz|rinse aid|Klarspüler;Spülmaschinensalz
+🧽|Sponges|Schwämme|sponge;scouring pads;scourer|Schwamm;Putzschwamm;Spülschwamm;Spülschwämme;Topfschwamm
+🧴|All-purpose cleaner|Allzweckreiniger|cleaner;surface cleaner;multi surface cleaner|Reiniger;Putzmittel;Universalreiniger;Bodenreiniger;Badreiniger
+🚽|Toilet cleaner|WC-Reiniger|bleach|Klostein;Javel;WC-Stein;Toilettenreiniger;WC-Gel
+🪟|Glass cleaner|Glasreiniger|window cleaner|Fensterreiniger
+🧴|Descaler|Entkalker|limescale remover|Kalkentferner;Kalkreiniger;Kalklöser
+🧤|Rubber gloves|Gummihandschuhe|cleaning gloves|Haushaltshandschuhe
+🧹|Microfibre cloths|Mikrofasertücher|cleaning cloths;dishcloths|Putzlappen;Lappen;Abwaschtuch
+🧴|Drain cleaner|Abflussreiniger|unblocker|Rohrreiniger
+
+# paper
+🧻|Toilet paper|Toilettenpapier|toilet roll;loo roll;loo paper|WC-Papier;Klopapier;Klorolle
+🧻|Paper towels|Haushaltspapier|kitchen roll;kitchen towels;kitchen paper|Küchenrolle;Haushaltsrolle;Küchenpapier;Küchentücher
+🤧|Tissues|Taschentücher|facial tissues;kleenex;tissue;paper hankies|Tempo;Nastücher;Kosmetiktücher;Papiertaschentücher;Taschentuch;Nastuch
+🗑️|Trash bags|Müllbeutel|bin bags;garbage bags;bin liners|Abfallsäcke;Kehrichtsäcke;Mülltüten;Müllsäcke;Gelbe Säcke
+🍞|Aluminum foil|Alufolie|tin foil;aluminium foil|Aluminiumfolie
+🎞️|Cling film|Frischhaltefolie|plastic wrap;food wrap|Klarsichtfolie
+📜|Baking paper|Backpapier|parchment paper|Backtrennpapier
+👜|Freezer bags|Gefrierbeutel|zip bags;sandwich bags|Zipbeutel;Frühstücksbeutel;Gefriertüten
+🔋|Batteries|Batterien|aa batteries;aaa batteries;battery|Batterie;AA;AAA;Akkus;Knopfzellen
+💡|Light bulbs|Glühbirnen|light bulb;led bulb;bulb;lightbulb|Glühbirne;Leuchtmittel;Birne Lampe
+🕯️|Candles|Kerzen|tea lights;tealights;candle|Teelichter;Rechaudkerzen;Teelicht;Kerze
+🔥|Matches|Streichhölzer|lighter|Feuerzeug;Zündhölzer
+🪰|Insect spray|Insektenspray|bug spray|Mückenspray
+🌸|Air freshener|Lufterfrischer|room spray|Raumduft
+🍽️|Napkins|Servietten|serviettes|Papierservietten
+🥤|Paper plates & cups|Pappteller & Becher|disposable cups;party plates|Partygeschirr;Einweggeschirr
+🛍️|Shopping bags|Einkaufstaschen|bags|Tragtaschen;Taschen
+🎂|Birthday candles|Geburtstagskerzen|party supplies|Partyzubehör;Ballone
+
+# care
+🧴|Shampoo|Shampoo||Haarwaschmittel;Haarshampoo|
+🧴|Conditioner|Spülung|hair conditioner|Haarspülung;Conditioner;Haarkur
+🧴|Shower gel|Duschgel|body wash|Duschmittel;Duschbad;Duschcreme
+🧼|Soap|Seife|hand soap;liquid soap|Handseife;Flüssigseife;Seifenstück
+🪥|Toothpaste|Zahnpasta||Zahncreme;Zahnpaste|
+🪥|Toothbrush|Zahnbürste|toothbrushes|Zahnbürsten
+🧴|Deodorant|Deodorant|deo;antiperspirant|Deo;Deoroller;Deospray;Antitranspirant
+🪒|Razors|Rasierer|razor blades;razor|Rasierklingen;Klingen;Einwegrasierer
+🧴|Shaving foam|Rasierschaum|shaving gel;shaving cream|Rasiergel
+⚪|Cotton pads|Wattepads|cotton wool;cotton buds;q-tips;q tips|Watte;Wattestäbchen;Ohrenstäbchen
+☀️|Sunscreen|Sonnencreme|sun cream;sunblock;sun lotion|Sonnenschutz;Sonnenmilch;Sonnenspray
+🧴|Body lotion|Bodylotion|moisturizer;hand cream|Handcreme;Körperlotion;Creme;Körpermilch;Körpercreme
+🧴|Face cream|Gesichtscreme|face wash;day cream;night cream|Gesichtsreinigung;Tagescreme;Nachtcreme
+💄|Make-up|Make-up|makeup;mascara;lipstick;foundation|Schminke;Lippenstift;Mascara;Puder;Abschminktücher
+🩸|Sanitary pads|Binden|tampons;panty liners|Tampons;Slipeinlagen;Damenbinden;Hygieneartikel
+💇|Hair styling|Haarstyling|hair gel;hairspray|Haarspray;Haargel
+🦷|Dental floss|Zahnseide|floss|
+🦷|Mouthwash|Mundspülung||Mundwasser
+👶|Diapers|Windeln|nappies|Pampers;Babywindeln;Höschenwindeln
+🧻|Baby wipes|Feuchttücher|wet wipes|Feuchte Tücher
+🍼|Baby food|Babynahrung|baby jars|Babybrei;Gläschen;Babygläschen;Brei
+🍼|Formula|Säuglingsmilch|baby milk;infant formula;baby formula|Babymilch;Folgemilch;Pre-Milch;Anfangsmilch
+🧴|Baby lotion|Babypflege|nappy cream|Wundschutzcreme
+💊|Painkillers|Schmerzmittel|pain relief;pain tablets|Schmerztabletten
+💊|Ibuprofen|Ibuprofen|advil;nurofen|Algifor;Nurofen;Ibu
+💊|Paracetamol|Paracetamol|acetaminophen;tylenol|Dafalgan;Panadol;Ben-u-ron
+💊|Aspirin|Aspirin|||
+💊|Headache tablets|Kopfschmerztabletten|migraine||
+🌡️|Fever suppositories|Fieberzäpfchen|suppositories|Zäpfchen
+🤧|Cough syrup|Hustensirup|cough medicine|Hustensaft;Hustenlöser;Hustenmittel
+👃|Nasal spray|Nasenspray|nose spray|Nasentropfen
+🍬|Throat lozenges|Halstabletten|cough drops;cough sweets|Lutschtabletten;Halsbonbons;Hustenbonbons;Halspastillen
+💊|Cold medicine|Erkältungsmittel|flu medicine|Grippemittel;Neocitran;Erkältungstabletten
+🍵|Cold tea|Erkältungstee|||
+🧴|Chest rub|Erkältungsbalsam|vapor rub|Wick VapoRub
+🧂|Saline solution|Meerwasserspray|saline spray|Kochsalzlösung
+💊|Antacids|Säureblocker|heartburn tablets|Sodbrennen;Rennie
+💊|Diarrhoea medicine|Durchfallmittel|imodium|Imodium
+💊|Laxative|Abführmittel|||
+🦠|Probiotics|Probiotika|||
+💧|Rehydration salts|Elektrolyte|electrolytes|Elotrans;Normolytoral
+🩹|Plasters|Pflaster|band-aids;bandaids;adhesive bandages;band aids|Heftpflaster;Pflästerli;Wundpflaster;Pflasterstrips
+🩹|Bandages|Verbandsmaterial|gauze;elastic bandage|Mullbinden;Kompressen;Verband
+🧴|Disinfectant|Desinfektionsmittel|antiseptic|Desinfektion;Betadine;Wunddesinfektion;Desinfektionsspray
+🧴|Wound ointment|Wundsalbe|healing cream;bepanthen|Bepanthen
+❄️|Cold pack|Kühlkompresse|ice pack|Kühlpack
+🦟|Tick tweezers|Zeckenzange||
+🧴|Insect bite gel|Insektenstich-Gel|after bite|Fenistil
+💊|Multivitamins|Multivitamine|vitamins;vitamin tablets|Vitamine;Multivitamin;Vitamintabletten;Brausetabletten
+🍊|Vitamin C|Vitamin C|||
+☀️|Vitamin D|Vitamin D|||
+💊|Magnesium|Magnesium|||
+💊|Zinc|Zink|||
+💊|Iron|Eisen|iron supplement|Eisentabletten
+🐟|Omega-3|Omega-3|fish oil|Fischöl
+💊|Calcium|Calcium|||
+💊|Folic acid|Folsäure|||
+🧴|Antihistamine|Antihistaminikum|allergy tablets|Allergietabletten
+👁️|Eye drops|Augentropfen|||
+🧴|Cortisone cream|Kortisonsalbe|hydrocortisone|Cortison
+🧴|Lip balm|Lippenpflege|chapstick|Labello;Lippenbalsam
+🧴|Moisturising cream|Feuchtigkeitscreme|eczema cream|Pflegecreme
+🦶|Foot care|Fusspflege|blister plasters;foot cream|Blasenpflaster;Fusscreme
+🪥|Electric toothbrush heads|Aufsteckbürsten|brush heads|Ersatzbürsten
+🦷|Interdental brushes|Interdentalbürsten|||
+🦷|Denture cleaner|Gebissreiniger|||
+🧼|Hand sanitizer|Handdesinfektion|||
+😷|Face masks|Masken|surgical masks;ffp2|FFP2-Masken;Hygienemasken
+🧤|Disposable gloves|Einweghandschuhe|||
+🛡️|Condoms|Kondome|||
+🌡️|Thermometer|Fieberthermometer|||
+🩺|Blood pressure monitor|Blutdruckmessgerät|||
+🧪|Pregnancy test|Schwangerschaftstest|||
+🧪|Covid test|Covid-Test|rapid test;antigen test|Schnelltest;Selbsttest
+👂|Ear plugs|Ohrstöpsel|earplugs|Gehörschutz;Ohropax
+👓|Contact lens solution|Kontaktlinsenflüssigkeit|contact lenses|Kontaktlinsen
+📋|Prescription|Rezept|prescription pickup|Rezept abholen;Medikament abholen
+
+# frozen
+🥟|Fresh pasta|Frische Pasta|tortellini;ravioli|Tortellini;Ravioli;Frischteigwaren
+🍕|Pizza dough|Pizzateig|pizza base|
+🥧|Puff pastry|Blätterteig||
+🥧|Shortcrust pastry|Kuchenteig|pie crust;pastry|Mürbeteig;Wähenteig
+🥧|Filo pastry|Filoteig|phyllo|Yufkateig
+🥡|Ready meal|Fertiggericht|microwave meal;frozen meal|Fertigmahlzeit;Fertigessen;Mikrowellengericht;Tiefkühlgericht
+🥟|Spring rolls|Frühlingsrollen|spring roll|
+🍜|Soup|Suppe|fresh soup|Frischsuppe;Fertigsuppe;Tütensuppe;Dosensuppe;Eintopf
+🥪|Sandwich|Sandwich|sandwiches|Sandwiches
+🍣|Sushi|Sushi||
+🥗|Coleslaw|Krautsalat||Coleslaw
+🧀|Tzatziki|Tzatziki|dip;dips|Dip;Dips
+🥦|Frozen vegetables|Tiefkühlgemüse|frozen veg;frozen peas|TK-Gemüse;Erbsen tiefgekühlt;Buttergemüse
+🫐|Frozen berries|Tiefkühlbeeren|frozen fruit|TK-Beeren;Beerenmischung
+🍕|Frozen pizza|Tiefkühlpizza|pizza|Pizza;TK-Pizza
+🍟|Fries|Pommes frites|french fries;frozen fries;chips frozen|Pommes;Kroketten;Rösti;Kartoffelpuffer;Ofenfrites
+🍨|Ice cream|Glace|ice-cream;gelato;ice cream tub|Speiseeis;Eis;Eiscreme;Eis am Stiel;Eistüten
+🥬|Frozen spinach|Tiefkühlspinat||Rahmspinat
+🐟|Frozen fish|Tiefkühlfisch||TK-Fisch;Fischfilet tiefgekühlt
+🦐|Frozen shrimp|Tiefkühlcrevetten||TK-Garnelen
+🧊|Ice cubes|Eiswürfel|ice|Eis Würfel;Crushed Ice
+🥟|Dumplings|Teigtaschen|frozen dumplings;gyoza|Gyoza;Maultaschen
+🌿|Frozen herbs|Tiefkühlkräuter||TK-Kräuter
+🥐|Frozen croissants|Tiefkühl-Gipfeli|bake-off|Aufbackbrötchen
+
+# pet
+🐱|Cat food|Katzenfutter|cat food wet;cat food dry;cat food pouches|Katzenfutter nass;Trockenfutter Katze;Nassfutter Katze;Katzennahrung
+🐶|Dog food|Hundefutter||Nassfutter Hund;Trockenfutter Hund;Hundenahrung|
+🐱|Cat litter|Katzenstreu|kitty litter|Katzensand;Streu;Klumpstreu
+🦴|Pet treats|Leckerli|dog treats;cat treats|Hundeleckerli;Snacks für Tiere;Leckerlis;Hundekekse;Katzensnacks;Kauknochen
+🐦|Bird seed|Vogelfutter|||
+🐠|Fish food|Fischfutter|||
+
+# hardware
+🔨|Hammer|Hammer|||
+🪛|Screwdriver|Schraubenzieher|screwdrivers|Schraubendreher
+🔧|Wrench|Schraubenschlüssel|spanner|Gabelschlüssel
+🪚|Saw|Säge|handsaw|Handsäge
+📏|Tape measure|Massband|measuring tape|Maßband;Meterstab;Zollstock
+🔌|Drill|Bohrmaschine|cordless drill|Akkubohrer;Akkuschrauber
+🔩|Drill bits|Bohrer|bits|Bohrerset;Bits
+✂️|Utility knife|Cutter|box cutter|Teppichmesser;Japanmesser
+🪜|Ladder|Leiter|step ladder|Bockleiter
+📐|Spirit level|Wasserwaage|level|
+🔧|Pliers|Zange|||
+🧰|Toolbox|Werkzeugkasten|||
+🪚|Sandpaper|Schleifpapier||Schmirgelpapier
+🔩|Screws|Schrauben|wood screws|Holzschrauben;Schraube;Spax
+🔩|Nails|Nägel|nail|Nagel;Stifte
+🔩|Wall plugs|Dübel|anchors;dowels;rawl plugs|Dübel;Dübeln
+🔩|Bolts & nuts|Muttern & Bolzen|nuts and bolts;washers|Muttern;Unterlegscheiben
+🪝|Hooks|Haken|picture hooks|Bilderhaken
+🔗|Cable ties|Kabelbinder|zip ties|
+🧲|Hinges|Scharniere|hinge|Scharnier
+🎨|Paint|Farbe|wall paint;emulsion|Wandfarbe;Dispersionsfarbe;Lack;Lackfarbe
+🖌️|Paint brushes|Pinsel|brush|Pinsel
+🖌️|Paint roller|Farbroller|roller|Farbrolle
+🩹|Masking tape|Abdeckband|painter's tape|Malerkrepp;Kreppband
+🛡️|Drop cloth|Abdeckfolie|dust sheet|Malervlies
+🪵|Wood stain|Holzlasur|varnish;wood oil|Holzöl
+🧱|Filler|Spachtelmasse|spackle|Gips;Spachtel
+💡|LED bulbs|LED-Lampen|led|LED-Leuchtmittel
+🔌|Extension cord|Verlängerungskabel|power strip|Steckdosenleiste;Mehrfachsteckdose
+🔌|Cable|Kabel|wire|Stromkabel
+🔦|Flashlight|Taschenlampe|torch|
+🔌|Plug adapter|Adapter|travel adapter|Reiseadapter;Stecker
+🔔|Smoke detector|Rauchmelder|smoke alarm|
+🧷|Electrical tape|Isolierband|insulating tape|
+🚰|Tap|Wasserhahn|faucet|Armatur
+🚿|Shower head|Duschkopf|||
+🔧|Seals|Dichtungen|washers rubber;o-rings|Dichtung
+🪠|Plunger|Saugglocke|||
+🚽|Toilet seat|WC-Sitz|||
+🪵|Wood boards|Holzbretter|planks;boards|Bretter;Brett
+🪵|Plywood|Sperrholz|mdf|Spanplatte;MDF
+🪵|Battens|Dachlatten|slats|Latten
+🧱|Cement|Zement|concrete;mortar|Beton;Mörtel
+🧱|Bricks|Backsteine|||
+🪴|Potting soil|Blumenerde|compost;soil|Erde;Komposterde;Pflanzerde;Gartenerde
+🌱|Seeds|Samen|seed|Saatgut
+🌷|Plants|Pflanzen|plant|Pflanze
+🧪|Fertilizer|Dünger|plant food|Flüssigdünger;Blumendünger;Rasendünger
+🪴|Plant pots|Blumentöpfe|planters|Töpfe;Pflanzgefässe
+🚿|Garden hose|Gartenschlauch|hose|Schlauch
+🧤|Garden gloves|Gartenhandschuhe|||
+🔥|Charcoal|Grillkohle|briquettes;barbecue charcoal|Holzkohle;Briketts;Grillbriketts;Anzünder;Grillanzünder
+🪓|Firewood|Brennholz|kindling|Anzündholz
+🧪|Glue|Leim|wood glue;super glue|Kleber;Holzleim;Sekundenkleber;Klebstoff;Alleskleber
+🧴|Silicone|Silikon|sealant;caulk|Dichtmasse;Acryl
+🩹|Duct tape|Panzerband|gaffer tape;tape|Gewebeband;Klebeband;Panzertape;Paketband
+🧪|WD-40|WD-40|lubricant;oil spray|Kriechöl;Schmiermittel
+📦|Storage boxes|Aufbewahrungsboxen|boxes;containers|Boxen;Kisten
+🗂️|Shelves|Regal|shelf;shelving|Regale
+🧺|Baskets|Körbe|basket|Korb
+📦|Moving boxes|Umzugskartons|cardboard boxes|Kartons
+🧤|Work gloves|Arbeitshandschuhe|||
+🥽|Safety glasses|Schutzbrille|goggles|
+😷|Dust masks|Staubmasken|respirator|Atemschutz

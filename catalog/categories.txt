@@ -1,0 +1,47 @@
+# Store departments in default aisle order (based on the classic supermarket layout).
+# Format: key|template|emoji|English|German
+# list type: grocery (also used by "other" lists), pharmacy, hardware; "all" = available in every list type
+other|all|⭐|Own items|Eigene Artikel
+produce|grocery|🥦|Fruit & vegetables|Obst & Gemüse
+bakery|grocery|🥖|Bread & pastries|Brot & Gebäck
+cereals|grocery|🥣|Cereal products|Getreideprodukte
+pasta_rice|grocery|🍝|Pasta, rice & grains|Pasta, Reis & Getreide
+snacks|grocery|🍫|Snacks & sweets|Snacks & Süsswaren
+dairy|grocery|🧀|Milk & cheese|Milch & Käse
+vegan|grocery|🌱|Vegan|Vegan
+meat_fish|grocery|🥩|Meat & fish|Fleisch & Fisch
+ingredients|grocery|🧂|Ingredients & spices|Zutaten & Gewürze
+canned|grocery|🥫|Canned food|Konserven
+international|grocery|🌍|International corner|Internationale Küche
+drinks|grocery|🧃|Beverages|Getränke
+laundry|grocery|🧺|Laundry|Waschen
+cleaning|grocery|🧽|Cleaning & dishes|Putzen & Spülen
+paper|grocery|🧻|Paper & household goods|Papier & Haushaltsbedarf
+care|grocery|🧴|Care & health|Pflege & Gesundheit
+frozen|grocery|🧊|Ready meals & frozen|Fertig- & Tiefkühlprodukte
+pet|grocery|🐾|Pet supplies|Tierbedarf
+hardware|grocery|🔨|DIY & garden|Baumarkt & Garten
+# Pharmacy & drugstore lists
+pharmacy_pain|pharmacy|💊|Pain & fever|Schmerz & Fieber
+pharmacy_cold|pharmacy|🤧|Cold & flu|Erkältung & Grippe
+pharmacy_digest|pharmacy|🫄|Stomach & digestion|Magen & Verdauung
+first_aid|pharmacy|🩹|First aid|Erste Hilfe
+vitamins|pharmacy|🍊|Vitamins & supplements|Vitamine & Nahrungsergänzung
+pharmacy_skin|pharmacy|🧴|Skin & allergy|Haut & Allergie
+dental|pharmacy|🦷|Dental care|Zahnpflege
+personal_care|pharmacy|🧼|Personal care|Körperpflege
+baby|pharmacy|🍼|Baby|Baby
+hygiene|pharmacy|😷|Hygiene|Hygiene
+medical_devices|pharmacy|🌡️|Medical supplies|Medizinischer Bedarf
+prescriptions|pharmacy|📋|Prescriptions|Rezepte
+# Hardware store lists
+tools|hardware|🔨|Tools|Werkzeug
+fasteners|hardware|🔩|Screws & fasteners|Schrauben & Befestigung
+paint|hardware|🎨|Paint & decorating|Farbe & Malerbedarf
+electrical|hardware|💡|Electrical & lighting|Elektro & Beleuchtung
+plumbing|hardware|🚰|Plumbing & bathroom|Sanitär & Bad
+lumber|hardware|🪵|Wood & building materials|Holz & Baustoffe
+garden|hardware|🪴|Garden|Garten
+adhesives|hardware|🧪|Adhesives & sealants|Kleben & Dichten
+storage|hardware|📦|Storage & organisation|Aufbewahrung & Ordnung
+safety|hardware|🦺|Work wear & safety|Arbeitsschutz

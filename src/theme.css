@@ -1,0 +1,330 @@
+/*
+ * Groceries themes. <html data-theme="blue|red|green|purple" data-mode="dark|light">
+ * (set in src/lib/theme.ts). Each scheme defines a small palette; everything else derives from it.
+ *
+ *   --app-bg / --app-surface / --app-surface-2   page, cards, raised controls
+ *   --app-sheet                                    add-items sheet (slightly darker than the page)
+ *   --app-buy / --app-buy-strong                   tiles of items still to buy
+ *   --app-recent                                   second accent (add sheet suggestions, statistics, story)
+ *   --app-done                                     ticked items
+ *   --app-muted                                    secondary text
+ *   --app-accent (+ -rgb, -contrast)               buttons, links, toggles
+ */
+
+/* ---------- dark schemes (default) ---------- */
+:root[data-theme='green'] {
+	--app-bg: #153b33;
+	--app-bg-rgb: 21, 59, 51;
+	--app-surface: #1d4a40;
+	--app-surface-2: #26584c;
+	--app-sheet: #0e2c26;
+	--app-buy: #e8833a;
+	--app-buy-strong: #c96a24;
+	--app-recent: #4e9e4a;
+	--app-done: #2a5c51;
+	--app-muted: #a5c9c0;
+	--app-accent: #f5b84c;
+	--app-accent-rgb: 245, 184, 76;
+	--app-accent-contrast: #1b2a22;
+}
+:root,
+:root[data-theme='blue'] {
+	--app-bg: #13283f;
+	--app-bg-rgb: 19, 40, 63;
+	--app-surface: #1b3554;
+	--app-surface-2: #244366;
+	--app-sheet: #0c1c2f;
+	--app-buy: #ef7350;
+	--app-buy-strong: #d65f3e;
+	--app-recent: #3683c6;
+	--app-done: #26405e;
+	--app-muted: #a8bdd6;
+	--app-accent: #ffc65c;
+	--app-accent-rgb: 255, 198, 92;
+	--app-accent-contrast: #1d2633;
+}
+:root[data-theme='red'] {
+	--app-bg: #3a1520;
+	--app-bg-rgb: 58, 21, 32;
+	--app-surface: #4a1d2a;
+	--app-surface-2: #5a2634;
+	--app-sheet: #2a0d16;
+	--app-buy: #e39a35;
+	--app-buy-strong: #c8842a;
+	--app-recent: #b9506a;
+	--app-done: #522632;
+	--app-muted: #d8b2bb;
+	--app-accent: #ffd27a;
+	--app-accent-rgb: 255, 210, 122;
+	--app-accent-contrast: #33141c;
+}
+:root[data-theme='purple'] {
+	--app-bg: #271a3a;
+	--app-bg-rgb: 39, 26, 58;
+	--app-surface: #33244b;
+	--app-surface-2: #402e5c;
+	--app-sheet: #1b1129;
+	--app-buy: #e65a73;
+	--app-buy-strong: #cc4860;
+	--app-recent: #6b5fc6;
+	--app-done: #3a2b52;
+	--app-muted: #c2b4d8;
+	--app-accent: #7ee0c3;
+	--app-accent-rgb: 126, 224, 195;
+	--app-accent-contrast: #16242a;
+}
+
+:root {
+	color-scheme: dark;
+	--app-text: #ffffff;
+	--app-text-rgb: 255, 255, 255;
+	--app-overlay: rgba(255, 255, 255, 0.1);
+	--app-overlay-strong: rgba(255, 255, 255, 0.18);
+	--app-border: rgba(255, 255, 255, 0.08);
+	--app-toast-bg: #0a1712;
+	--app-toast-text: #f2f7f5;
+}
+
+/* ---------- light variants: the scheme's colours on light backgrounds ---------- */
+:root[data-mode='light'] {
+	color-scheme: light;
+	--app-text: #17221d;
+	--app-text-rgb: 23, 34, 29;
+	--app-overlay: rgba(0, 0, 0, 0.05);
+	--app-overlay-strong: rgba(0, 0, 0, 0.1);
+	--app-border: rgba(0, 0, 0, 0.08);
+	--app-surface: #ffffff;
+	--app-toast-bg: #1d2b25;
+	--app-toast-text: #ffffff;
+}
+:root[data-mode='light'][data-theme='green'] {
+	--app-bg: #eef5f1;
+	--app-bg-rgb: 238, 245, 241;
+	--app-surface-2: #dfece5;
+	--app-sheet: #e2ede7;
+	--app-done: #9ab8ab;
+	--app-muted: #5a7a6c;
+	--app-accent: #1f6b52;
+	--app-accent-rgb: 31, 107, 82;
+	--app-accent-contrast: #ffffff;
+}
+:root[data-mode='light'],
+:root[data-mode='light'][data-theme='blue'] {
+	--app-bg: #eef3f9;
+	--app-bg-rgb: 238, 243, 249;
+	--app-surface-2: #dde7f3;
+	--app-sheet: #e1e9f4;
+	--app-done: #9fb2c9;
+	--app-muted: #566e8a;
+	--app-accent: #1f5a99;
+	--app-accent-rgb: 31, 90, 153;
+	--app-accent-contrast: #ffffff;
+}
+:root[data-mode='light'][data-theme='red'] {
+	--app-bg: #f8eff1;
+	--app-bg-rgb: 248, 239, 241;
+	--app-surface-2: #f0dde2;
+	--app-sheet: #f1e2e6;
+	--app-done: #c2a2aa;
+	--app-muted: #84545f;
+	--app-accent: #8e2a42;
+	--app-accent-rgb: 142, 42, 66;
+	--app-accent-contrast: #ffffff;
+}
+:root[data-mode='light'][data-theme='purple'] {
+	--app-bg: #f3f0f8;
+	--app-bg-rgb: 243, 240, 248;
+	--app-surface-2: #e5def1;
+	--app-sheet: #e8e2f2;
+	--app-done: #ada2c2;
+	--app-muted: #6a5c84;
+	--app-accent: #5b3fa0;
+	--app-accent-rgb: 91, 63, 160;
+	--app-accent-contrast: #ffffff;
+}
+
+/* ---------- Ionic variables, derived from the palette ---------- */
+:root {
+	--ion-color-primary: var(--app-accent);
+	--ion-color-primary-rgb: var(--app-accent-rgb);
+	--ion-color-primary-contrast: var(--app-accent-contrast);
+	--ion-color-primary-contrast-rgb: 255, 255, 255;
+	--ion-color-primary-shade: color-mix(in srgb, var(--app-accent), #000 12%);
+	--ion-color-primary-tint: color-mix(in srgb, var(--app-accent), #fff 10%);
+
+	--ion-color-success: #4fc38a;
+	--ion-color-success-rgb: 79, 195, 138;
+	--ion-color-success-contrast: #0f2a1f;
+	--ion-color-success-contrast-rgb: 15, 42, 31;
+	--ion-color-success-shade: #45ab79;
+	--ion-color-success-tint: #61c996;
+
+	--ion-color-danger: #ff6f63;
+	--ion-color-danger-rgb: 255, 111, 99;
+	--ion-color-danger-contrast: #2b0c09;
+	--ion-color-danger-contrast-rgb: 43, 12, 9;
+	--ion-color-danger-shade: #e06257;
+	--ion-color-danger-tint: #ff7d73;
+
+	--ion-color-medium: var(--app-muted);
+	--ion-color-medium-rgb: 128, 128, 128;
+	--ion-color-medium-contrast: var(--app-bg);
+	--ion-color-medium-contrast-rgb: var(--app-bg-rgb);
+	--ion-color-medium-shade: var(--app-muted);
+	--ion-color-medium-tint: var(--app-muted);
+
+	--ion-background-color: var(--app-bg);
+	--ion-background-color-rgb: var(--app-bg-rgb);
+	--ion-text-color: var(--app-text);
+	--ion-text-color-rgb: var(--app-text-rgb);
+
+	--ion-toolbar-background: var(--app-bg);
+	--ion-toolbar-color: var(--app-text);
+	--ion-toolbar-border-color: transparent;
+	--ion-tab-bar-background: var(--app-bg);
+	--ion-item-background: var(--app-surface);
+	--ion-item-border-color: var(--app-border);
+	--ion-card-background: var(--app-surface);
+	--ion-overlay-background-color: var(--app-surface);
+	--ion-placeholder-color: var(--app-muted);
+
+	/* stepped tints used by Ionic components (both naming schemes), page colour -> text colour */
+	--ion-color-step-50: color-mix(in srgb, var(--app-bg), var(--app-text) 5%);
+	--ion-color-step-100: color-mix(in srgb, var(--app-bg), var(--app-text) 10%);
+	--ion-color-step-150: color-mix(in srgb, var(--app-bg), var(--app-text) 15%);
+	--ion-color-step-200: color-mix(in srgb, var(--app-bg), var(--app-text) 20%);
+	--ion-color-step-250: color-mix(in srgb, var(--app-bg), var(--app-text) 25%);
+	--ion-color-step-300: color-mix(in srgb, var(--app-bg), var(--app-text) 30%);
+	--ion-color-step-400: color-mix(in srgb, var(--app-bg), var(--app-text) 40%);
+	--ion-color-step-500: color-mix(in srgb, var(--app-bg), var(--app-text) 50%);
+	--ion-color-step-600: color-mix(in srgb, var(--app-bg), var(--app-text) 60%);
+	--ion-color-step-700: color-mix(in srgb, var(--app-bg), var(--app-text) 70%);
+	--ion-color-step-800: color-mix(in srgb, var(--app-bg), var(--app-text) 80%);
+	--ion-color-step-850: color-mix(in srgb, var(--app-bg), var(--app-text) 85%);
+	--ion-color-step-900: color-mix(in srgb, var(--app-bg), var(--app-text) 90%);
+	--ion-background-color-step-50: var(--ion-color-step-50);
+	--ion-background-color-step-100: var(--ion-color-step-100);
+	--ion-background-color-step-150: var(--ion-color-step-150);
+	--ion-background-color-step-200: var(--ion-color-step-200);
+	--ion-background-color-step-300: var(--ion-color-step-300);
+	--ion-background-color-step-400: var(--ion-color-step-400);
+	--ion-text-color-step-100: color-mix(in srgb, var(--app-text), var(--app-bg) 10%);
+	--ion-text-color-step-200: color-mix(in srgb, var(--app-text), var(--app-bg) 20%);
+	--ion-text-color-step-400: color-mix(in srgb, var(--app-text), var(--app-bg) 40%);
+	--ion-text-color-step-600: color-mix(in srgb, var(--app-text), var(--app-bg) 60%);
+}
+
+html,
+body {
+	background: var(--app-bg);
+	overscroll-behavior: none;
+}
+
+/* no text selection / callouts on tap-heavy UI, like native apps */
+ion-item,
+ion-chip,
+button {
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+ion-modal {
+	--background: var(--app-bg);
+}
+
+ion-action-sheet {
+	--background: var(--app-surface);
+	--button-color: var(--app-text);
+}
+
+ion-alert {
+	--background: var(--app-surface);
+}
+
+/* toasts ("Added Milk", undo): bottom of the screen, dark with light text in every theme */
+ion-toast {
+	--background: var(--app-toast-bg);
+	--color: var(--app-toast-text);
+	--button-color: #ffd27a;
+	--border-radius: 12px;
+	--box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+	font-weight: 500;
+}
+ion-toast.compact-toast {
+	--min-height: 40px;
+	--width: auto;
+	--max-width: 80%;
+	--start: 0;
+	--end: 0;
+	text-align: center;
+}
+
+ion-fab-button {
+	--background: var(--app-buy);
+	--background-activated: var(--app-buy-strong);
+	--color: #ffffff;
+}
+
+ion-searchbar {
+	--background: var(--app-surface-2) !important;
+	--color: var(--app-text) !important;
+	--icon-color: var(--app-muted) !important;
+}
+
+/* inset lists: rounded cards on the page background (both platforms) */
+ion-list.list-inset {
+	border-radius: 14px;
+}
+.md ion-list.list-inset {
+	margin-inline: 12px;
+}
+ion-list-header {
+	--color: var(--app-muted);
+}
+
+/* section headings ("Fruit & vegetables", "In the cart") */
+.section-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 22px 16px 10px;
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--app-text);
+}
+.section-title .count {
+	margin-inline-start: auto;
+	font-weight: 500;
+	color: var(--app-muted);
+}
+
+/* briefly highlights an item that was just added from the add sheet */
+.flash {
+	animation: grocery-flash 1.5s ease;
+}
+@keyframes grocery-flash {
+	0%,
+	60% {
+		box-shadow: 0 0 0 3px var(--app-accent);
+	}
+	100% {
+		box-shadow: 0 0 0 0 transparent;
+	}
+}
+
+/* the add-items sheet: a bit darker than the page, rounded top corners, visible handle */
+ion-modal.add-sheet {
+	--background: var(--app-sheet);
+	--border-radius: 20px;
+	--handle-background: color-mix(in srgb, var(--app-text) 45%, transparent);
+	--box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.35);
+}
+ion-modal.add-sheet ion-content,
+ion-modal.add-sheet ion-toolbar {
+	--background: var(--app-sheet);
+}
+ion-modal.add-sheet::part(content) {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}

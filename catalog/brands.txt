@@ -1,0 +1,415 @@
+# Brand names (mostly Germany, some Austria/Switzerland) that stand for a catalog item.
+# Line format: item_key: Brand, Brand, …
+# scripts/build-catalog.mjs adds them to the item's synonyms (German and English), so typing
+# "Nutella" files the item under the chocolate spread's category with its icon. The list shows
+# exactly what was typed. Only use brands that clearly mean one product: no umbrella brands
+# like "Dr. Oetker" alone, no ambiguous words (Kinder, Fa, Axe, Mars).
+
+# --- produce / bakery / breakfast
+bananas: Chiquita
+crispbread: Wasa, Leicht & Cross
+rusks: Brandt Zwieback
+toast_bread: Golden Toast, Harry Toast, Lieken Urkorn
+muesli: Seitenbacher, Kölln Müsli, Schneekoppe Müsli, Dr. Oetker Vitalis, Vitalis, Bärenmarke Müsli
+oats: Kölln, Kölln Haferflocken, Kölln Flocken
+cornflakes: Kellogg's Cornflakes, Kelloggs
+cereal: Kellogg's, Smacks, Frosties, Choco Krispies, Nesquik Cereals, Cini Minis, Lion Cereals, Golden Grahams, Trésor
+
+# --- pasta, rice
+pasta: Barilla, Birkel, 3 Glocken, Buitoni, De Cecco, Bernbacher, Recheis, Spätzle Bürger
+rice: Uncle Ben's, Ben's Original, Oryza, Reis-fit, Spitz Reis
+gnocchi: Henglein Gnocchi
+couscous: Ebly
+
+# --- snacks & sweets
+chocolate: Milka, Ritter Sport, Lindt, Toblerone, Ragusa, Frey, Cailler, Sarotti, Hachez, Merci, Kinderschokolade, Yogurette, Lindor, Kitkat, Twix, Snickers, Bounty, Duplo, Hanuta, Knoppers
+crisps: Pringles, Funny-Frisch, Chio, Lorenz, Crunchips, Lay's, Zweifel, Chio Chips, Lorenz Crunchips
+pretzel_sticks: Salzstangen Lorenz, Saltletts, Lorenz Saltletts
+crackers: Tuc, Ritz, Mini Babybel Crackers
+cookies: Leibniz, Bahlsen, Prinzen Rolle, Oreo, Choco Leibniz, Pick Up, Hit Kekse, Kambly, De Beukelaer, Balisto, Butterkeks
+gummy_bears: Haribo, Goldbären, Trolli, Katjes, Nimm2 Lachgummi, Fruchtgummi Haribo
+sweets: Werther's, Werthers Original, Nimm2, Mentos, Tic Tac, Ricola Bonbons, Ahoj-Brause, Maoam, Hitschler
+nuts: Seeberger, Ültje, Kluth
+peanuts: Ültje Erdnüsse
+trail_mix: Seeberger Studentenfutter
+cereal_bars: Corny, Nature Valley, Kellogg's Riegel, Farmer Riegel
+chewing_gum: Wrigley's, Orbit, Airwaves, Extra Kaugummi, Hubba Bubba, Mentos Gum
+popcorn: Popcornloop, Lorenz Popcorn
+tortilla_chips: Doritos, Chio Tortillas, Old El Paso Tortilla Chips
+
+# --- dairy
+milk: Weihenstephan, Bärenmarke, Landliebe, Schwarzwaldmilch, Berchtesgadener Land, Weihenstephan Milch, Gut Milch, Arla Milch, Emmi Milch
+lactose_free_milk: Minus L, MinusL, Arla Laktosefrei
+butter: Kerrygold, Meggle, Weihenstephan Butter, Kerrygold Butter, Lurpak, Alpenbutter
+cream: Bärenmarke Sahne, Weihenstephan Sahne
+cooking_cream: Rama Cremefine, Cremefine
+yogurt: Müller, Danone, Ehrmann, Zott, Activia, Weihenstephan Joghurt, Emmi Joghurt, Andechser, Bauer Joghurt, Landliebe Joghurt
+greek_yogurt: Fage, Total, Mevgal
+fruit_yogurt: Müllerjoghurt, Froop, Müller Froop, Fruchtzwerge, Bauer Fruchtjoghurt
+quark: Exquisa Quark, Ehrmann High Protein, Skyr, Milram Quark
+pudding: Paula, Dr. Oetker Paula, Monte, Zott Monte, Landliebe Grießpudding, Ehrmann Pudding, Müller Milchreis, Danone Dany Sahne, Dany Sahne, Galao
+milk_drink: Müllermilch, Nesquik Milch, Ovomaltine Drink, Emmi Caffè Latte, Emmi Caffe Latte
+buttermilk: Milram Buttermilch
+kefir: Milram Kefir
+eggs: Freilandeier
+mozzarella: Galbani, Galbani Mozzarella, Zott Mozzarella
+parmesan: Grana Padano
+feta: Salakis, Patros, Gazi
+cream_cheese: Philadelphia, Bresso, Exquisa, Brunch, Buko, Almette, Gervais, Hirtenkäse
+camembert: Rougette, Bonifaz, Le Rustique, Käserei Champignon, Président Camembert
+grated_cheese: Milram Reibekäse, Pizzakäse Gouda
+sliced_cheese: Leerdammer, Milkana, Hochland Sandwich Scheiben, Gouda Scheiben, Sandwich Scheiben, Le Gruyère Scheiben
+gouda: Frau Antje
+cheese: Babybel, Mini Babybel, Bergader, Bavaria Blu, Grünländer, Géramont, Milram, Appenzeller Käse, Tête de Moine
+blue_cheese: Gorgonzola, Bavaria Blu Blauschimmel, Roquefort
+goat_cheese: Chavroux, Soignon
+halloumi: Hirtenkäse Grill
+margarine: Rama, Lätta, Sanella, Becel, Deli Reform, Bertolli Butter, Alsan, Flora
+
+# --- vegan
+oat_milk: Oatly, Alpro Hafer, Alpro Oat, Kölln Haferdrink, Vly
+soy_milk: Alpro, Alpro Soja, Provamel
+almond_milk: Alpro Mandel, Alpro Almond
+tofu: Taifun, Taifun Tofu
+plant_based_mince: Like Meat Hack, The Vegetarian Butcher Hack, Garden Gourmet Hack, Beyond Mince
+veggie_burger: Beyond Meat, Beyond Burger, Garden Gourmet, Rügenwalder Veggie, The Vegetarian Butcher, Like Meat, Planted
+hummus: Sabra, Kühne Hummus
+
+# --- meat, deli, fish
+sausages: Meica, Wiesenhof Würstchen, Böklunder, Meica Würstchen
+bratwurst: Thüringer, Nürnberger Rostbratwurst, Meica Bratwurst
+cold_cuts: Rügenwalder, Herta, Gutfried, Wiltmann, Böklunder Aufschnitt, Mühlen Salami, Bell Aufschnitt
+salami: Mühlen, Wiltmann Salami, Rügenwalder Salami, Milano Salami, Pick Salami, Herta Salami
+liver_sausage: Rügenwalder Teewurst, Teewurst, Leberwurst Rügenwalder, Gutsleberwurst
+ham: Herta Schinken, Rügenwalder Schinken
+chicken_breast: Wiesenhof, Wiesenhof Hähnchenbrust, Optigal
+fish_sticks: Iglo Fischstäbchen, Käpt'n Iglo, Kapitän Iglo
+smoked_salmon: Deutsche See, Gottfried Friedrichs
+herring: Hawesta, Appel Hering, Appel, Homann Heringssalat
+canned_tuna: Saupiquet, Rio Mare, Followfish, Hawesta Thunfisch
+sardines: Appel Sardinen, Hawesta Sardinen
+
+# --- ingredients
+olive_oil: Bertolli, Bertolli Olivenöl, Filippo Berio, Monini, Carapelli
+sunflower_oil: Mazola, Thomy Öl, Brölio, Bellasan
+rapeseed_oil: Rapso, Brändle, Thomy Rapsöl
+vinegar: Hengstenberg Essig, Kühne Essig, Surig, Essig-Essenz
+balsamic_vinegar: Mazzetti, Ponti
+ketchup: Heinz, Heinz Ketchup, Hela, Hela Curry Ketchup, Werder, Kraft Ketchup, Knorr Ketchup, Develey Ketchup, Thomy Ketchup
+mayonnaise: Thomy, Thomy Mayonnaise, Hellmann's, Hellmanns, Kraft Mayonnaise, Miracel Whip, Miracle Whip, Homann Mayonnaise
+mustard: Develey, Bautz'ner, Bautzner, Löwensenf, Händlmaier, Thomy Senf, Kühne Senf, Maille, Zywiec Senf
+pesto: Barilla Pesto, Bertolli Pesto, Sacla, Saclà
+pasta_sauce: Miracoli, Barilla Sauce, Bertolli Sauce, Knorr Sauce, Mutti Sugo, Maggi Fix Bolognese
+hot_sauce: Tabasco, Sriracha, Flying Goose
+barbecue_sauce: Bull's-Eye, Heinz BBQ, Kraft BBQ, Hela BBQ
+stock_cubes: Knorr Brühe, Maggi Brühe, Erbsenwurst, Klare Suppe, Knorr Gemüsebrühe, Maggi Würfel, Knorr Bouillon
+maggi_seasoning: Maggi, Maggi Würze, Knorr Aromat, Aromat, Fondor
+salad_dressing: Knorr Salatkrönung, Salatkrönung, Kühne Dressing, Thomy Dressing, Le Pique, Bautz'ner Dressing
+worcestershire_sauce: Lea & Perrins
+salt: Bad Reichenhaller, Jura Sel, Sel des Alpes, Alpensalz
+pepper: Ostmann Pfeffer, Fuchs Pfeffer, Kotányi Pfeffer
+paprika_powder: Ostmann Paprika, Fuchs Paprika
+italian_herbs: Knorr Kräuter der Provence, Kräuter der Provence
+seasoning_salt: Fondor Salz, Herbamare, Kräutersalz Herbamare
+flour: Aurora, Diamant Mehl, Goldpuder, Rosenmehl, Aurora Mehl
+sugar: Südzucker, Diamant Zucker, Nordzucker, Kölner Zucker, Pfeifer & Langen
+powdered_sugar: Diamant Puderzucker
+vanilla_sugar: Dr. Oetker Vanillezucker, Dr. Oetker Vanillinzucker, Bourbon Vanille
+baking_powder: Backin, Dr. Oetker Backin, Ruf Backpulver
+yeast: Dr. Oetker Trockenhefe, Fala Hefe, Wieninger Hefe
+cocoa_powder: Bensdorp, Van Houten, Dr. Oetker Kakao
+baking_chocolate: Dr. Oetker Kuvertüre, Schwartau Kuvertüre, Kuvertüre
+cornstarch: Mondamin, Maizena, Gustin, Dr. Oetker Gustin
+gelatine: Dr. Oetker Gelatine, Agar Agar
+cake_mix: Dr. Oetker Backmischung, Kathi, Ruf Backmischung
+sprinkles: Dekor Streusel, Schokostreusel
+marzipan: Niederegger, Schwartau Marzipan
+jam: Schwartau, Schwartau Extra, Zentis, Mövenpick Konfitüre, Bonne Maman, Hero Konfitüre, Darbo, Landliebe Konfitüre, Hero
+honey: Langnese Honig, Breitsamer, Maribel
+chocolate_spread: Nutella, Nudossi, Ovomaltine Crunchy Cream, Ovomaltine Crunchy, Nusspli, Ferrero Nutella
+peanut_butter: Ültje Erdnussbutter, Calvé, Calve, Skippy
+spread: Zwergenwiese, Tartex, Popp Brotaufstrich, Bresso Aufstrich
+lemon_juice: Hitchcock, Piacelli Zitronensaft
+pancake_mix: Kathi Pfannkuchen
+breadcrumbs: Paniermehl Brandt, Semmelbrösel Brandt
+
+# --- canned & international
+canned_tomatoes: Mutti, Cirio, Polpa, Mutti Polpa
+passata: Mutti Passata, Cirio Passata, Oro di Parma
+tomato_paste: Oro di Parma Tomatenmark, Mutti Tomatenmark
+pickles: Kühne, Kühne Gurken, Hengstenberg, Spreewaldgurken, Spreewälder Gurken
+sauerkraut: Hengstenberg Sauerkraut, Kühne Sauerkraut
+canned_fruit: Del Monte, Libby's, Pfanner Früchte
+sweetcorn: Bonduelle Mais, Green Giant, Bonduelle
+canned_peas_carrots: Bonduelle Erbsen, Hak Erbsen, Erbsen und Möhren
+canned_mushrooms: Bonduelle Champignons
+ravioli_canned: Maggi Ravioli, Erasco Ravioli, Hero Ravioli
+soup: Erasco, Maggi Suppe, Knorr Suppe, Sonnen Bassermann, Heisse Tasse, Maggi 5 Minuten Terrine, 5 Minuten Terrine, Yum Yum, Indonesian Noodles
+olives: Gaea, Feinkost Dittmann, Dittmann Oliven
+capers: Dittmann Kapern
+tortilla_wraps: Old El Paso, Mission Wraps, Old El Paso Tortillas
+soy_sauce: Kikkoman, Kikkoman Sojasauce, Lee Kum Kee
+coconut_milk: Aroy-D, Aroy D, Thai Kitchen
+sesame_oil: Kikkoman Sesamöl
+curry_paste: Thai Kitchen Currypaste, Mae Ploy
+egg_noodles: Mie Nudeln, Mienudeln, Asia Nudeln
+rice_noodles: Glasnudeln, Pad Thai Nudeln
+jalapenos: Old El Paso Jalapenos
+sambal_oelek: Conimex, Flying Goose Sambal
+teriyaki_sauce: Kikkoman Teriyaki
+fish_sauce: Squid Brand, Tiparos
+
+# --- drinks
+ground_coffee: Jacobs, Jacobs Krönung, Tchibo, Tchibo Feine Milde, Dallmayr, Dallmayr Prodomo, Melitta Kaffee, Eduscho, Onko, Lavazza, Segafredo, Hochland Kaffee, Mövenpick Kaffee, Café Royal
+coffee_beans: Lavazza Bohnen, Tchibo Barista, Dallmayr Crema, Jacobs Barista, Segafredo Bohnen, Illy, Mövenpick Bohnen
+coffee_capsules: Nespresso, Dolce Gusto, Senseo, Senseo Pads, Tassimo, K-fee, Cafissimo, Delizio, Café Royal Kapseln
+instant_coffee: Nescafé, Nescafe, Nescafé Gold, Jacobs Krönung Instant, Cappuccino Pulver, Krüger Cappuccino
+cocoa_drink_powder: Nesquik, Kaba, Ovomaltine, Caotina, Benco, Suchard Express, Ovo
+black_tea: Teekanne, Meßmer, Messmer, Ostfriesentee, Onno Behrends, Lipton, Twinings, Yogi Tea, Pompadour
+green_tea: Teekanne Grüntee, Meßmer Grüner Tee
+herbal_tea: Teekanne Kräutertee, Meßmer Kräutertee, Pompadour Kräutertee, Sonnentor, Bad Heilbrunner, Yogi Tee, Kusmi
+coffee_creamer: Bärenmarke Kaffeesahne, Glücksklee, Kondensmilch, Coffee Mate, Kaffeeweißer, Kaffeeweisser
+sweetener: Natreen, Süssli, Assugrin, Canderel, Hermesetas
+water: Gerolsteiner Naturell, Volvic, Vittel, Evian, Adelholzener Naturell, Henniez, Valser, Vöslauer, Contrex, Christinen, Aqua Römer, Rhön Sprudel
+sparkling_water: Gerolsteiner, Apollinaris, San Pellegrino, Adelholzener, Bad Vilbeler, Staatl. Fachingen, Fachinger, Selters Classic, Rhönsprudel, Hassia, Teinacher, Überkinger, Valser Classic, Henniez blau
+juice: Capri-Sun, Capri Sonne, Hohes C, Granini, Valensina, Rauch, Amecke, Albi, Pfanner, Innocent, Punica, Riha
+orange_juice: Hohes C Orange, Valensina Orange, Granini Orange, Rauch Orange, Michel Orangensaft
+apple_juice: Hohes C Apfel, Granini Apfel, Lindavia, Ramseier, Bauer Apfelsaft, Rauch Apfel, Apfelschorle Lift, Lift
+cola: Coca-Cola, Coca Cola, Coke Zero, Pepsi, Pepsi Max, Fritz-Kola, Fritz Kola, Afri Cola, Club-Mate, Club Mate, Vita Cola, Sinalco Cola
+soft_drinks: Fanta, Sprite, Mezzo Mix, Spezi, Paulaner Spezi, Schwip Schwap, Sinalco, Mirinda, 7Up, Seven Up, Bionade, Rivella, Almdudler, Orangina, Schweppes Bitter Lemon, Bitter Lemon, Fritz Limo, Lemonaid, Thomas Henry
+iced_tea: Lipton Ice Tea, Lipton Eistee, Pfanner Eistee, Nestea, Fuze Tea, FuzeTea, Arizona, Arizona Iced Tea, Volvic Tee
+syrup: Teisseire, Monin, Yo Sirup, Riha Sirup, Bauer Sirup, Holunderblüte Sirup
+energy_drinks: Red Bull, Monster, Monster Energy, Rockstar, Effect, Burn, 28 Black, Booster, Relentless
+sports_drinks: Powerade, Gatorade, Isostar, Iso Drink
+tonic_water: Schweppes, Schweppes Tonic, Thomas Henry Tonic, Fever-Tree, Fever Tree, Goldberg Tonic
+beer: Krombacher, Beck's, Becks, Bitburger, Warsteiner, Veltins, Radeberger, Jever, Erdinger, Paulaner, Augustiner, Hasseröder, Holsten, Oettinger, Franziskaner, Rothaus, Tannenzäpfle, Hacker-Pschorr, Löwenbräu, Spaten, Flensburger, Astra, Heineken, Corona, Feldschlösschen, Calanda, Eichhof, Ottakringer, Gösser, Stiegl, Kölsch, Früh Kölsch, Reissdorf, Gaffel, Altbier, Diebels
+alcohol_free_beer: Krombacher 0,0, Erdinger Alkoholfrei, Bitburger 0,0, Clausthaler, Beck's Blue, Jever Fun, Warsteiner alkoholfrei, Veltins alkoholfrei, Paulaner alkoholfrei
+red_wine: Primitivo, Merlot, Chianti, Rioja, Montepulciano, Spätburgunder, Dornfelder, Cabernet Sauvignon, Lemberger, Zweigelt, Côtes du Rhône, Bordeaux
+white_wine: Riesling, Grauburgunder, Weissburgunder, Weißburgunder, Sauvignon Blanc, Chardonnay, Müller-Thurgau, Silvaner, Grüner Veltliner, Pinot Grigio, Chasselas, Fendant
+rose: Rosé, Rosato, Weissherbst
+prosecco: Rotkäppchen, Freixenet, Henkell, Mumm, Kupferberg, Fürst von Metternich, Söhnlein Brillant, Faber, Moët, Moet, Veuve Clicquot, Mionetto, Hugo
+spirits: Jägermeister, Jaegermeister, Absolut, Smirnoff, Gorbatschow, Bacardi, Havana Club, Captain Morgan, Jack Daniel's, Jack Daniels, Johnnie Walker, Jim Beam, Ballantine's, Gordon's, Bombay Sapphire, Hendrick's, Tanqueray, Monkey 47, Baileys, Ramazzotti, Averna, Sambuca, Ouzo, Grappa, Asbach, Chantré, Berentzen, Kleiner Feigling, Kümmerling, Malteser, Sierra Tequila, Tequila, Korn Doppelkorn, Williams, Kirschwasser
+aperitif: Aperol, Campari, Martini, Lillet, Lillet Blanc, Hugo Aperitif, Sarti, Select Aperitivo, Cynar
+cider: Strongbow, Possmann, Kopparberg, Somersby, Apfelwein, Ebbelwoi
+cooking_wine: Marsala, Sherry, Portwein, Noilly Prat
+
+# --- laundry
+laundry_detergent: Persil, Ariel, Weißer Riese, Weisser Riese, Spee, Omo, Dash, Sunil, Tandil, Frosch Waschmittel, Persil Discs, Ariel Pods, Coral
+colour_detergent: Persil Color, Ariel Color, Spee Color, Weißer Riese Color, Coral Color, Colorwaschmittel
+delicates_detergent: Perwoll, Perwoll Wolle, Rei, Woolite, Feinwaschmittel Perwoll
+fabric_softener: Lenor, Kuschelweich, Vernel, Silan, Softlan, Comfort, Kuschelweich Sommerwind
+stain_remover: Vanish, Vanish Oxi Action, Dr. Beckmann, Sil, Gallseife, Dr. Beckmann Fleckenteufel
+laundry_sanitizer: Sagrotan Wäsche-Hygienespüler, Sagrotan Hygienespüler, Dettol Wäsche-Hygienespüler, Hygienespüler
+washing_machine_cleaner: Calgon, Calgon Tabs, Dr. Beckmann Service-Reiniger
+ironing_water: Bügelwasser Kenzo, Vapo Bügelwasser
+
+# --- cleaning
+dish_soap: Pril, Fairy, Palmolive Spülmittel, Frosch Spülmittel, Sunlight Spülmittel, Handy Spülmittel
+dishwasher_tabs: Somat, Finish, Calgonit, Finish Quantum, Somat Gold, Sun Tabs, Fairy Platinum, Frosch Tabs
+dishwasher_salt: Finish Spezialsalz, Somat Salz, Regeneriersalz, Spülmaschinensalz
+sponges: Spontex, Vileda Schwamm, Scotch-Brite, Scotch Brite, Ako Pads
+all_purpose_cleaner: Frosch, Meister Proper, Ajax, Der General, Sidol, Cif, Sagrotan, Dettol, Sagrotan Allzweckreiniger, Mr. Muscle, Viss, Bref
+toilet_cleaner: Domestos, WC-Ente, WC Ente, Harpic, Bref WC, Bref Power Aktiv, WC Frisch, Sanifresh, 00 Null Null, Null Null
+glass_cleaner: Sidolin, Clin, Ajax Glasreiniger, Frosch Glasreiniger, Glasrein
+descaler: Durgol, Kalkreiniger Antikal, Antikal, Viakal, Biocitro, Heitmann Entkalker
+rubber_gloves: Vileda Handschuhe, Spontex Handschuhe, Gummihandschuhe Vileda
+microfibre_cloths: Vileda, Vileda Tücher, Spontex Mikrofaser, Swiffer, Swiffer Tücher
+drain_cleaner: Mr. Muscle Abflussfrei, Drano, Rohrfrei, Biff Rohrfrei, Kukident Rohrreiniger, Abflussreiniger
+
+# --- paper & household
+toilet_paper: Hakle, Hakle Feucht, Zewa Toilettenpapier, Charmin, Danke, Cottonelle, Plenty Toilettenpapier
+paper_towels: Zewa, Zewa Wisch und Weg, Wisch und Weg, Plenty, Bounty Küchenrolle, Regina
+tissues: Tempo, Kleenex, Softis, Zewa Softis, Feh, Tempo Taschentücher
+trash_bags: Swirl, Melitta Müllbeutel, Toppits Müllbeutel, Tip Müllbeutel
+aluminum_foil: Toppits Alufolie, Alu Toppits, Albal
+cling_film: Toppits Frischhaltefolie, Melitta Frischhaltefolie, Albal Frischhaltefolie
+baking_paper: Toppits Backpapier, Melitta Backpapier
+freezer_bags: Toppits, Toppits Gefrierbeutel, Melitta Gefrierbeutel, Swirl Gefrierbeutel, Ziploc
+batteries: Duracell, Varta, Energizer, Panasonic Batterien, GP Batterien
+light_bulbs: Osram, Philips Hue, Philips Lampe, Osram Lampe, Ledvance
+candles: Wenzel Kerzen, Bolsius, Ikea Teelichter, Yankee Candle
+matches: Welthölzer, Feuerzeug, Clipper, BIC Feuerzeug
+insect_spray: Raid, Baygon, Nexa Lotte, Paral, Autan Raumspray, Gelsenstecker, Mückenstecker
+air_freshener: Febreze, Glade, Air Wick, Airwick, Ambi Pur, Duftkerze, Raumspray
+napkins: Duni, Duni Servietten
+paper_plates_cups: Pappteller, Pappbecher, Einweggeschirr, Duni Teller, Partygeschirr
+shopping_bags: Einkaufstüten, Tragetaschen, Papiertüten
+
+# --- personal care
+shampoo: Schauma, Garnier Fructis, Fructis, Head & Shoulders, Head and Shoulders, Pantene, Pantene Pro-V, Syoss, Guhl, Elvital, L'Oréal Elvital, Gliss Kur, Gliss, Herbal Essences, Nivea Shampoo, Alpecin, Plantur, Balea Shampoo, Dove Shampoo, Shauma
+conditioner: Gliss Kur Spülung, Pantene Spülung, Garnier Spülung, Balea Spülung, Elvital Spülung
+shower_gel: Duschdas, Dove, Nivea Duschgel, Palmolive, Fa Duschgel, Axe Duschgel, Adidas Duschgel, Balea Duschgel, Treaclemoon, CD Duschgel, Sebamed Duschgel, Tetesept Duschbad, Kneipp
+soap: Dove Seife, Sebamed, Palmolive Seife, Lux, Seba med, CD Seife, Sagrotan Handseife, Kernseife
+toothpaste: Elmex, Colgate, Signal, Blend-a-med, Blendamed, Odol-med3, Odol med 3, Aronal, Meridol, Sensodyne, Parodontax, Ajona, Dentagard, Lacalut, Mentadent, Candida Zahnpasta, Candida
+toothbrush: Dr. Best, Dr Best, Elmex Zahnbürste, Oral-B Zahnbürste, Colgate Zahnbürste, Curaprox, Trisa
+deodorant: Rexona, Nivea Deo, Axe, Axe Deo, Dove Deo, Fa Deo, Adidas Deo, Old Spice, 8x4, Bac Deo, Garnier Mineral, Sanft & Sicher, Borotalco
+razors: Gillette, Gillette Mach3, Gillette Fusion, Wilkinson, Wilkinson Sword, Gillette Venus, Venus Rasierer, BIC Rasierer, Bic
+shaving_foam: Gillette Rasierschaum, Nivea Men Rasierschaum, Gillette Rasiergel, Palmolive Rasierschaum
+cotton_pads: Ebelin Wattepads, Bebe Wattepads, Q-Tips, Wattestäbchen Q-Tips
+sunscreen: Nivea Sun, Ladival, Garnier Ambre Solaire, Ambre Solaire, Sundance, Sun Dance, La Roche-Posay Anthelios, Eucerin Sun, Sonnenmilch Nivea
+body_lotion: Nivea Body, Nivea Bodylotion, Nivea Milk, Bebe Bodylotion, Balea Bodylotion, Kneipp Bodylotion, Neutrogena Bodylotion, Eucerin Urea
+face_cream: Nivea Creme, Nivea, Nivea Soft, Bebe Young Care, Bebe, Garnier Hautklar, L'Oréal Revitalift, Olaz, Eucerin, La Roche-Posay, Vichy, Clinique, Balea Gesichtscreme
+make_up: Maybelline, L'Oréal Paris, Catrice, Essence, Manhattan, Max Factor, Rimmel, Astor, Artdeco, NYX, Misslyn, Douglas
+sanitary_pads: Always, Alldays, o.b., OB Tampons, Tampax, Libresse, Carefree, Organyc, Bodyform, Facelle, Kotex
+hair_styling: Taft, Gliss Haarspray, Wella, Wellaflex, Schwarzkopf, Got2b, L'Oréal Studio Line, Studio Line, Syoss Haarspray, Nivea Haarspray, Fructis Style, Poly Color, Poly Haarfarbe, Brillance, Haarfarbe, Haartönung
+dental_floss: Oral-B Zahnseide, Elmex Zahnseide, Dr. Best Zahnseide, Glide
+mouthwash: Listerine, Meridol Mundspülung, Odol Mundwasser, Odol, Elmex Mundspülung, Chlorhexamed, Dentagard Mundspülung
+diapers: Pampers, Huggies, Babylove, Moltex, Lillydoo, Babydream, Pampers Baby-Dry, Pampers Pants
+baby_wipes: Pampers Feuchttücher, Babylove Feuchttücher, WaterWipes, Hakle Feuchte Tücher
+baby_food: Hipp, Alete, Bebivita, Holle, Milupa, Nestlé Beba Brei, Freche Freunde, Babydream Gläschen, Hipp Gläschen, Alnatura Babygläschen, Humana Brei
+formula: Aptamil, Beba, Humana, Hipp Pre, Hipp Milchnahrung, Milumil, Bebivita Pre, Holle Pre, Kendamil
+baby_lotion: Penaten, Bübchen, Weleda Baby, Sebamed Baby, Babylove Creme, Penaten Creme, Bepanthen Baby, Babydream Creme
+
+# --- pharmacy
+painkillers: Thomapyrin, Dolormin, Benuron, Voltaren Dolo, Spalt, Togal, Neuralgin, Novalgin, Vivimed, Titralgan
+ibuprofen: Ibuflam, Ibuprofen 400, Ibu 400, Dolormin Extra, Nurofen, Dolo-Dobendan, Ibuprofen-ratiopharm, Ibu-ratiopharm, Algifor
+paracetamol: Ben-u-ron Zäpfchen, Paracetamol-ratiopharm, Panadol, Dafalgan, Mexalen
+aspirin: Aspirin, Aspirin Complex, Aspirin Plus C, ASS, ASS ratiopharm, Alka-Seltzer
+headache_tablets: Thomapyrin Classic, Thomapyrin Intensiv, Spalt Plus Coffein, Neuralgin Extra, Migränin, Dolomo, Vivimed mit Coffein
+fever_suppositories: Ben-u-ron Kinderzäpfchen, Nurofen Junior, Fieberzäpfchen
+cough_syrup: Prospan, Mucosolvan, Bronchicum, Sinupret, Gelomyrtol, ACC akut, ACC, Silomat, Tussamag, Hustenstiller, Ambroxol, Wick Hustensirup, Bronchipret, Soledum, Phytopharma Hustensaft
+nasal_spray: Otriven, Nasic, Olynth, Nasenspray-ratiopharm, Emser Nasenspray, Rhinospray, Nasivin, Bepanthen Nasensalbe, Triomer, Xylometazolin
+throat_lozenges: Em-eukal, Ricola, Wick Blau, Fisherman's Friend, Fishermans Friend, Dobendan, Neo-Angin, Lemocin, Dorithricin, Mucoangin, Isla Moos, Emser Pastillen, Mentos Hustenbonbons, Tyrozets
+cold_medicine: Grippostad, Wick DayMed, Wick MediNait, MediNait, DayMed, Aspirin Complex Granulat, Neocitran, Boxagrippal, Sinupret extract, Meditonsin, Contac, Umckaloabo, Dolo-Dobendan Grippe
+cold_tea: Bad Heilbrunner Erkältungstee, Sidroga, Erkältungstee, Lindenblütentee, Thymiantee
+chest_rub: Wick VapoRub, VapoRub, Tiger Balm, Tigerbalsam, Pinimenthol, Babix, Transpulmin, Pulmotin
+saline_solution: Emser Salz, Emser Nasendusche, Emser Inhalationslösung, Kochsalzlösung, NaCl Lösung
+antacids: Rennie, Talcid, Maaloxan, Riopan, Gaviscon, Bullrich Salz, Pantozol Control, Omeprazol, Iberogast, Rennie Liquid
+diarrhoea_medicine: Imodium, Imodium akut, Loperamid, Perenterol, Tannacomp, Kohletabletten, Kohle-Compretten, Uzara
+laxative: Dulcolax, Movicol, Laxoberal, Bekunis, Microlax, Lactulose, Agiolax, Glycilax, Kijimea Reizdarm
+probiotics: Kijimea, Omni-Biotic, Omni Biotic, Symbiolact, Bactoflor, Yakult, Actimel, Lactobact, Bion 3, Perenterol forte
+rehydration_salts: Elotrans Pulver, Oralpädon, Normolyt
+plasters: Hansaplast, Hansaplast Pflaster, Leukoplast, Leukosilk, Compeed, Urgo, Elastoplast, Cosmopor
+bandages: Mullbinde, Fixierbinde, Elastische Binde, Hartmann Verband, Lohmann & Rauscher, Peha-haft, Tapeverband, Kinesiotape, Leukotape, Verbandsmaterial, Kompressen
+disinfectant: Octenisept, Betaisodona, Sagrotan Desinfektion, Kodan, Cutasept, Sterillium Desinfektion, Bepanthen Wundspray, Hansaplast Wundspray, Merfen
+wound_ointment: Bepanthen, Bepanthen Wund- und Heilsalbe, Bepanthen Antiseptische Wundcreme, Tyrosur, Fucidine, Betaisodona Salbe, Ilon Salbe, Zugsalbe, Ilon, Calendula Salbe, Traumeel, Heparin Salbe, Hirudoid, Arnika Salbe, Voltaren Schmerzgel, Voltaren, Diclofenac Gel, Mobilat, Pferdesalbe, Doc Salbe, Kytta Salbe
+cold_pack: Kühlpack, Kältekompresse, Coolpack, Cold Pack
+tick_tweezers: Zeckenkarte, Zeckenzange Tick, Zeckenhaken
+insect_bite_gel: Fenistil, Fenistil Gel, Soventol, Azaron, Bite Away, Autan, Anti Brumm, Antibrumm, Autan Spray, Nobite, Mückenschutz
+multivitamins: Doppelherz, Centrum, Orthomol, Supradyn, Abtei, Tetesept Vitamine, Multi Sanostol, Sanostol, Elevit, Femibion, Taxofit, Mivolis, Altapharma Multivitamin, Das gesunde Plus
+vitamin_c: Cebion, Ascorbinsäure, Vitamin C Brausetabletten, Additiva Vitamin C, Rubaxx
+vitamin_d: Vigantol, Vigantoletten, Dekristol, D3 Tropfen, Vitamin D3
+magnesium: Magnesium Verla, Biolectra Magnesium, Biolectra, Magnesium Diasporal, Diasporal, Doppelherz Magnesium, Magnetrans, Magnesium-ratiopharm, Mg 400
+zinc: Zinkorotat, Zink Verla, Zinkletten, Unizink, Curazink, Zinkamin
+iron: Floradix, Kräuterblut, Ferro Sanol, Eisentabletten, Tardyferon, Eisen Verla
+omega_3: Fischölkapseln, Doppelherz Omega-3, Algenöl, Norsan
+calcium: Calcium Sandoz, Calcium Verla, Calcium-Brausetabletten, Kalzium
+folic_acid: Folio, Folsäure Tabletten, Femibion 1, Elevit 1
+antihistamine: Cetirizin, Loratadin, Lorano, Cetirizin Hexal, Allergodil, Livocab, Vividrin, Zyrtec, Aerius, Telfast, Reactine, Fenistil Tropfen, Desloratadin
+eye_drops: Hylo, Hylo-Comod, Systane, Artelac, Berberil, Visine, Vividrin Augentropfen, Euphrasia, Yxin, Hyabak, Thealoz, Optive
+cortisone_cream: Ebenol, Fenihydrocort, Soventol Hydrocort, Hydrocortison, Linola, Dermaplant
+lip_balm: Labello, Blistex, Carmex, Burt's Bees, Bepanthen Lippencreme, Nivea Lip, Eos, Lippenpflege
+moisturising_cream: Linola Fett, Eucerin Urea Creme, Bepanthol, Excipial, Neutrogena Handcreme, Neutrogena, Atrix, Kamill, Kamill Handcreme, Penaten Hautcreme, Cetaphil, CeraVe
+foot_care: Scholl, Gehwol, Hansaplast Fusspflege, Allpresan, Compeed Blasenpflaster, Hühneraugenpflaster, Efasit, Lamisil, Canesten Extra, Nagelpilz
+electric_toothbrush_heads: Oral-B, Oral B, Oral-B Aufsteckbürsten, Philips Sonicare, Sonicare, Aufsteckbürsten
+interdental_brushes: TePe, Tepe, Curaprox Interdental, Elmex Interdental, Interdentalbürstchen
+denture_cleaner: Kukident, Corega, Protefix, Blend-a-dent, Haftcreme, Prothesenreiniger
+hand_sanitizer: Sterillium, Sagrotan Hand-Desinfektion, Desderman, Handdesinfektion, Dettol Handgel
+face_masks: FFP2, FFP2 Maske, OP Masken, Mund-Nasen-Schutz, Masken
+disposable_gloves: Nitrilhandschuhe, Einweghandschuhe, Latexhandschuhe, Vinylhandschuhe
+condoms: Durex, Billy Boy, Ritex, Blausiegel, Mates, Einhorn Kondome, Pasante
+thermometer: Braun ThermoScan, ThermoScan, Fieberthermometer, Ohrthermometer, Stirnthermometer, Microlife
+blood_pressure_monitor: Omron, Beurer Blutdruck, Boso, Blutdruckmessgerät, Blutdruckmesser
+pregnancy_test: Clearblue, Predictor, Schwangerschaftstest, Ovulationstest
+covid_test: Corona-Schnelltest, Corona Test, Schnelltest, Antigentest, Selbsttest
+ear_plugs: Ohropax, Oropax, Alpine Ohrstöpsel, Earplugs, Ohrenstöpsel
+contact_lens_solution: Renu, Biotrue, Opti-Free, AOSept, Kontaktlinsenflüssigkeit, Linsenmittel
+prescription: Rezept, E-Rezept, Privatrezept, Kassenrezept
+
+# --- frozen & chilled
+fresh_pasta: Giovanni Rana, Rana, Hilcona, Buitoni Tortelloni, Tortellini, Tortelloni, Bürger Maultaschen, Spätzle, Schupfnudeln, Bürger Spätzle
+pizza_dough: Tante Fanny Pizzateig, Jus-Rol Pizza, Henglein Pizzateig
+puff_pastry: Tante Fanny Blätterteig, Jus-Rol Blätterteig, Henglein Blätterteig
+shortcrust_pastry: Tante Fanny Mürbeteig, Jus-Rol Mürbeteig
+ready_meal: Frosta, Bofrost, Eismann, Maggi Fix, Knorr Fix, Knorr Spaghetteria, Pfanni, Iglo Schlemmer-Filet, Schlemmerfilet, Maggi Magic Asia, Lasagne Fertig, Hilcona Lasagne
+spring_rolls: Asia Frühlingsrollen, Mini Frühlingsrollen
+sushi: Sushi Circle, Sushi Box
+tzatziki: Feinkost Popp Tzatziki, Lindenhof Tzatziki
+coleslaw: Nadler, Homann Krautsalat
+frozen_vegetables: Iglo, Iglo Gemüse, Frosta Gemüse, Iglo Rahmspinat, Iglo Buttergemüse, Kaisergemüse, Mexikanische Gemüsepfanne, Gemüsepfanne, Erbsen Iglo
+frozen_berries: TK Beeren, Beerenmischung, TK Himbeeren
+frozen_pizza: Wagner, Wagner Steinofen, Dr. Oetker Ristorante, Ristorante, Ristorante Pizza, Ristorante Speciale, Big Pizza, Gustavo Gusto, Original Wagner, Die Ofenfrische, Casa di Mama, Dr. Oetker Tradizionale, Tradizionale, Flammkuchen, Pizza Salami, Pizza Margherita
+fries: McCain, McCain Pommes, Agrarfrost, 1-2-3 Frites, Aviko, Pommes Frites McCain, Kartoffelpuffer, Pfanni Rösti, Wedges, Kroketten Agrarfrost
+ice_cream: Langnese, Magnum, Ben & Jerry's, Ben and Jerry's, Häagen-Dazs, Haagen Dazs, Mövenpick Eis, Cornetto, Carte d'Or, Nogger, Capri Eis, Ed von Schleck, Mini Milk, Calippo, Solero, Viennetta, Schöller, Nuii, Lotus Eis, Frisco, Mucki
+frozen_spinach: Iglo Blattspinat, Rahmspinat Iglo
+frozen_fish: Iglo Schlemmerfilet, Iglo Backfisch, Frosta Fisch, Backfisch, Fischfilet tiefgekühlt, Seelachsfilet
+frozen_shrimp: TK Garnelen, Black Tiger Garnelen
+ice_cubes: Eiswürfelbeutel, Crushed-Ice
+dumplings: Gyoza, Dim Sum, Teigtaschen, Pierogi, Knödel, Kartoffelknödel, Semmelknödel, Pfanni Knödel, Klöße, Kartoffelklöße, Henglein Klöße
+frozen_herbs: Iglo Kräuter, Frosta Kräuter, TK Kräuter, Kräutermischung TK
+frozen_croissants: Aufback Croissants, Aufbackbrötchen TK, Coppenrath & Wiese, Coppenrath, Wiese Brötchen, Frosta Brötchen
+fruit_salad: Obstsalat, Fruchtsalat
+
+# --- pet
+cat_food: Whiskas, Sheba, Felix, Gourmet, Kitekat, Miamor, Animonda, Perfect Fit, Purina One, Royal Canin Katze, Catessy, Vom Feinsten, Gourmet Gold, Shah, Brit Katze
+dog_food: Pedigree, Chappi, Cesar, Frolic, Royal Canin, Rinti, Mera, Hills, Hill's, Purina Dog Chow, Dog Chow, Josera, Wolfsblut, Lukullus, Belcando, Animonda Hund
+cat_litter: Catsan, Cat's Best, Cats Best, Biokat's, Biokats, Golden Grey, Tigerino, Extreme Classic, Katzenstreu Catsan
+pet_treats: Dreamies, Dentastix, Pedigree Dentastix, Frolic Snacks, Catit, Schmackos, Pedigree Schmackos, Kitty Kisses, Vitakraft, Gimcat, Gimpet, Malzpaste
+bird_seed: Vitakraft Vogelfutter, Trill, Meisenknödel, Vogelfutter, Sonnenblumenkerne Vogel, Wildvogelfutter
+fish_food: Tetra, TetraMin, Sera, JBL Fischfutter
+
+# --- hardware
+drill: Bosch, Bosch Professional, Makita, Metabo, Black & Decker, Black+Decker, Einhell, Festool, Dewalt, DeWalt, Hilti, Akkuschrauber, Bohrmaschine, Schlagbohrmaschine, Bohrhammer, Ryobi, Parkside
+screwdriver: Wera, Wiha, PB Swiss, Schraubendreher Set, Bitset
+pliers: Knipex, Gedore Zange, Wiha Zange, Wasserpumpenzange, Kombizange, Seitenschneider
+wrench: Gedore, Hazet, Stahlwille, Ratschenkasten, Knarre, Steckschlüssel, Maulschlüssel, Ringschlüssel, Inbusschlüssel, Imbusschlüssel, Innensechskantschlüssel
+tape_measure: Stabila Massband, Zollstock, Meterstab, Gliedermaßstab, Massband, Maßband
+spirit_level: Stabila, Stabila Wasserwaage
+utility_knife: Cuttermesser, Teppichmesser, Stanley Messer, Olfa, Klingen Cutter
+saw: Fuchsschwanz, Stichsäge, Kreissäge, Japansäge, Puksäge, Bügelsäge, Metallsäge
+ladder: Hailo, Krause Leiter, Trittleiter, Stehleiter, Klapptritt, Anlegeleiter
+sandpaper: Schleifpapier, Schmirgelpapier, Schleifschwamm, Schleifscheiben, Klingspor
+screws: Spax, Spax Schrauben, Würth Schrauben, Würth, Assy, Heco, Spanplattenschrauben, Torx Schrauben, Gipskartonschrauben, Schnellbauschrauben
+wall_plugs: Fischer, Fischer Dübel, Tox, Tox Dübel, Hohlraumdübel, Duopower, Fischer Duopower, Rahmendübel, Spreizdübel
+bolts_nuts: Muttern, Unterlegscheiben, Gewindestange, Schlossschrauben, Sechskantschrauben, Beilagscheiben
+hooks: Tesa Haken, Command Haken, Command, Klebehaken, Schraubhaken, Bilderhaken
+cable_ties: Kabelbinder, Hellermann, Klettband, Velcro
+paint: Alpina, Alpinaweiss, Alpina Weiss, Schöner Wohnen, Schöner Wohnen Farbe, Caparol, Brillux, Swingcolor, Tollens, Beckers, Dulux, Wilckens, Lackspray, Sprühlack, Buntlack, Grundierung, Tiefengrund
+paint_brushes: Pinsel, Flachpinsel, Heizkörperpinsel, Storch Pinsel, Friess Pinsel, Ringpinsel
+paint_roller: Farbroller, Lammfellrolle, Schaumstoffrolle, Abstreifgitter, Farbwanne
+masking_tape: Tesa Malerband, Malerkrepp, Kreppband, Abdeckband, Frogtape, Tesa Krepp
+drop_cloth: Abdeckfolie, Malerfolie, Malervlies, Abdeckvlies
+wood_stain: Bondex, Xyladecor, Osmo, Osmo Öl, Lasur, Holzlasur, Holzöl, Holzschutzlasur, Clou, Remmers, Hammerite
+filler: Moltofill, Polyfilla, Knauf Spachtel, Spachtelmasse, Gips, Fugenfüller, Holzkitt, Reparaturspachtel
+led_bulbs: Philips LED, Osram LED, LED-Lampe, LED Leuchtmittel, E27 LED, GU10 LED, E14 LED, Ledvance LED, Hue
+extension_cord: Brennenstuhl, Steckdosenleiste, Mehrfachsteckdose, Verlängerungskabel, Kabeltrommel, Mehrfachstecker
+cable: Stromkabel, Lautsprecherkabel, NYM, NYM-J, Mantelleitung, HDMI Kabel, LAN Kabel, Netzwerkkabel, USB-Kabel, Ladekabel
+flashlight: Taschenlampe, Stirnlampe, Ledlenser, Maglite, Petzl
+plug_adapter: Reiseadapter, Steckeradapter, Adapterstecker, Zwischenstecker, Zeitschaltuhr
+smoke_detector: Rauchmelder, Ei Electronics, Abus Rauchmelder, Kidde, Hekatron
+electrical_tape: Isolierband, Isoband, Tesa Isolierband
+tap: Grohe, Hansgrohe, Hansa, Kludi, Wasserhahn, Armatur, Mischbatterie, Küchenarmatur
+shower_head: Hansgrohe Brause, Grohe Duschkopf, Duschbrause, Handbrause, Duschschlauch, Brauseschlauch
+seals: Dichtungen, Dichtungsring, O-Ring, Teflonband, Hanf, Fermit, Dichtband, Perlator, Strahlregler
+plunger: Pömpel, Saugglocke, Abflussspirale, Rohrreinigungsspirale
+toilet_seat: Klobrille, WC-Sitz, WC Sitz, Toilettendeckel, Pressalit, Hamberger
+wood_boards: Leimholz, Bretter, Leimholzplatte, Siebdruckplatte, OSB, OSB-Platte, Regalbrett
+plywood: Sperrholz, Multiplex, Multiplexplatte, Pappelsperrholz
+battens: Dachlatten, Kanthölzer, Kantholz, Rahmenholz, Leisten, Rundstab
+cement: Zement, Mörtel, Beton, Fertigbeton, Estrich, Fliesenkleber, Fugenmörtel, Putz, Sakret, PCI, Ceresit, Knauf
+bricks: Ziegel, Pflastersteine, Porenbeton, Ytong, Kalksandstein, Rasenkantensteine, Gehwegplatten, Terrassenplatten
+potting_soil: Compo Sana, Compo Erde, Floragard, Substral Erde, Kübelpflanzenerde, Kräutererde, Tomatenerde, Anzuchterde, Rindenmulch, Mulch, Torf
+seeds: Kiepenkerl, Sperli, Saatgut, Samen, Rasensamen, Rasensaat, Wolf-Garten Rasen, Blumensamen, Gemüsesamen, Saatband
+plants: Pflanzen, Zimmerpflanze, Balkonpflanzen, Setzlinge, Jungpflanzen, Stauden, Blumenzwiebeln, Geranien, Tomatenpflanze, Kräuterpflanze
+fertilizer: Compo, Compo Dünger, Substral, Substral Dünger, Blaukorn, Hornspäne, Gesal, Neudorff, Wolf-Garten Dünger, Rasendünger Compo, Schneckenkorn
+plant_pots: Blumentopf, Pflanztopf, Übertopf, Blumenkasten, Balkonkasten, Pflanzkübel, Elho, Emsa Blumentopf, Lechuza
+garden_hose: Gardena, Gardena Schlauch, Schlauchtrommel, Schlauchwagen, Gartenschlauch, Kärcher Schlauch, Rasensprenger, Gießkanne, Schlauchkupplung
+garden_gloves: Gartenhandschuhe Gardena, Rosenhandschuhe
+charcoal: Weber Briketts, Profagus, proFagus, Grillanzünder Weber, Anzündkamin, Holzkohle Grillkohle, Kohle
+firewood: Brennholz, Kaminholz, Holzbriketts, Kaminanzünder, Anzündholz, Ofenanzünder, Kaminholz Buche
+glue: UHU, Uhu, Pattex, Ponal, Tesa Kleber, Loctite, Sekundenkleber Pattex, UHU Alleskleber, Pattex Kraftkleber, Montagekleber, Heißkleber, Heisskleber, Klebepistole, Kontaktkleber, Holzleim Ponal, Epoxidkleber, 2K Kleber
+silicone: Silikon, Sanitärsilikon, Acryl, Acrylfugenmasse, Ottoseal, Kartuschenpresse, Silikonspritze, Bauschaum, PU-Schaum, Montageschaum
+duct_tape: Tesa, Tesa Film, Tesafilm, Tesa Gewebeband, Tesa Powerband, Doppelseitiges Klebeband, Teppichklebeband, Scotch Tape
+wd_40: WD-40, WD40, Kriechöl, Caramba, Ballistol, Multifunktionsöl, Sprühöl, Rostlöser, Silikonspray, Kontaktspray
+storage_boxes: Aufbewahrungsboxen, Kiste, Kisten, Eurobox, Euroboxen, Klappbox, Rotho, Sundis, Curver, Keeeper, Sortimentskasten, Kleinteilemagazin, Schuhbox
+shelves: Regal, Regale, Steckregal, Schwerlastregal, Wandregal, Regalboden, Regalträger, Regalwinkel, Ivar, Billy
+baskets: Korb, Körbe, Wäschekorb, Aufbewahrungskorb, Einkaufskorb
+moving_boxes: Umzugskartons, Umzugskarton, Kartons, Karton, Packband, Luftpolsterfolie, Stretchfolie, Umzugsdecken
+work_gloves: Arbeitshandschuhe, Montagehandschuhe, Uvex Handschuhe, Ejendals, Schnittschutzhandschuhe
+safety_glasses: Schutzbrille, Uvex Schutzbrille, Arbeitsschutzbrille
+dust_masks: Staubmaske, Atemschutzmaske, FFP2 Staubmaske, FFP3, Feinstaubmaske, 3M Maske
+hammer: Picard, Estwing, Fäustel, Gummihammer, Schonhammer, Latthammer, Klauenhammer
+toolbox: Werkzeugkoffer, Werkzeugkasten, Werkzeugkiste, Raaco, Stanley Werkzeugkiste, Werkzeugtasche, Werkzeugset
+drill_bits: Bohrer, Holzbohrer, Steinbohrer, Metallbohrer, HSS Bohrer, Bohrerset, Forstnerbohrer, Senker, Lochsäge, Bohrkrone
+nails: Drahtstifte, Nägel Box, Dachpappnägel, Stahlnägel
+hinges: Scharnier, Topfband, Topfscharnier, Möbelscharnier, Türband, Blum Scharnier

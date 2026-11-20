@@ -1,0 +1,32 @@
+{
+	"name": "kammarc/nextcloud-groceries",
+	"description": "Shared shopping lists for Nextcloud",
+	"type": "project",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"OCA\\Groceries\\": "lib/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"OCA\\Groceries\\Tests\\": "tests/"
+		}
+	},
+	"require": {
+		"php": ">=8.1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10.5"
+	},
+	"scripts": {
+		"test:unit": "phpunit -c phpunit.xml",
+		"lint": "find . -name '*.php' -not -path './vendor/*' -not -path './node_modules/*' -print0 | xargs -0 -n1 php -l"
+	},
+	"config": {
+		"platform": {
+			"php": "8.1"
+		},
+		"sort-packages": true
+	}
+}

@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: |
+            js/
+            css/
+            lib/Catalog/catalog.json
+
+  php-unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.1', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring
+      - run: composer install --no-interaction
+      - run: composer lint
+      - run: composer test:unit
+
+  integration:
+    # Runs the API smoke test against a real Nextcloud (files are copied in, never bind-mounted:
+    # the image entrypoint rsyncs /var/www/html with --delete).
+    needs: frontend
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nextcloud: ['31', '32']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+      - name: Start Nextcloud
+        run: |
+          docker run -d --name groceries-dev -p 8089:80 \
+            -e SQLITE_DATABASE=nextcloud -e NEXTCLOUD_ADMIN_USER=admin -e NEXTCLOUD_ADMIN_PASSWORD=admin \
+            -e NEXTCLOUD_TRUSTED_DOMAINS=localhost nextcloud:${{ matrix.nextcloud }}-apache
+          for i in $(seq 1 90); do
+            docker exec -u www-data groceries-dev php occ status 2>/dev/null | grep -q "installed: true" && break
+            sleep 3
+          done
+      - name: Install app and test users
+        run: |
+          sh scripts/dev-sync.sh groceries-dev
+          docker exec -u www-data -e OC_PASS=Test-Pass-4711 groceries-dev sh -c '
+            php occ user:add --password-from-env anna &&
+            php occ user:add --password-from-env ben &&
+            php occ group:add family &&
+            php occ group:adduser family anna &&
+            php occ group:adduser family ben &&
+            php occ config:system:set auth.bruteforce.protection.enabled --value=false --type=boolean &&
+            php occ config:system:set ratelimit.protection.enabled --value=false --type=boolean'
+      - name: API smoke test
+        run: BASE=http://localhost:8089 A=anna:Test-Pass-4711 B=ben:Test-Pass-4711 bash tests/integration/api-smoke.sh
+      - name: Browser smoke test (iOS + Android emulation)
+        run: |
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          BASE=http://localhost:8089 USER_NAME=anna PASS=Test-Pass-4711 OUT=shots node tests/e2e/mobile-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-nc${{ matrix.nextcloud }}
+          path: shots/
