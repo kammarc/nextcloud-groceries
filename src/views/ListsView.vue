@@ -2,6 +2,13 @@
 	<ion-page>
 		<ion-header :translucent="true">
 			<ion-toolbar>
+				<!-- in a browser (not the installed app): way back to the rest of Nextcloud -->
+				<ion-buttons v-if="inBrowser" slot="start">
+					<ion-button :href="homeUrl" :aria-label="t('Back to Nextcloud')" class="to-nextcloud">
+						<ion-icon slot="start" :icon="chevronBack" />
+						<span class="label">Nextcloud</span>
+					</ion-button>
+				</ion-buttons>
 				<ion-title>{{ t('Grocery lists') }}</ion-title>
 				<ion-buttons slot="end">
 					<ion-button
@@ -35,6 +42,8 @@
 
 			<SyncStatus />
 			<InstallBanner />
+			<!-- on a computer: QR code to bring the app to the phone -->
+			<PhoneQrCard v-if="desktop" dismissible />
 
 			<!-- sort mode: drag the handles, tapping a list does nothing -->
 			<ion-list v-if="reordering && data.lists.length" :inset="true" class="sorting">
@@ -93,15 +102,18 @@ import {
 	IonTitle, IonToolbar,
 	onIonViewDidEnter, onIonViewWillLeave,
 } from '@ionic/vue'
-import { add, checkmark, settingsOutline, swapVerticalOutline } from 'ionicons/icons'
+import { add, checkmark, chevronBack, settingsOutline, swapVerticalOutline } from 'ionicons/icons'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import CreateListPanel from '../components/CreateListPanel.vue'
 import AppIcon from '../components/AppIcon.vue'
 import InstallBanner from '../components/InstallBanner.vue'
+import PhoneQrCard from '../components/PhoneQrCard.vue'
 import SyncStatus from '../components/SyncStatus.vue'
 import { n, t } from '../i18n'
 import { setLastList } from '../lib/lastList'
+import { isDesktopBrowser, isStandalone, nextcloudHome } from '../lib/platform'
+import { showWelcomeOnce } from '../lib/welcome'
 import { useData } from '../stores/data'
 import { usePolling } from '../sync/polling'
 import { checkYearReview } from '../lib/review'
@@ -111,6 +123,9 @@ const data = useData()
 const router = useRouter()
 const creating = ref(false)
 const reordering = ref(false)
+const inBrowser = !isStandalone()
+const desktop = isDesktopBrowser()
+const homeUrl = nextcloudHome()
 
 /** Uses the locally projected count when we have the list cached (includes offline changes). */
 function openCount(listId: number): number {
@@ -124,8 +139,8 @@ onIonViewDidEnter(() => {
 	// back on the overview on purpose: the next launch starts here too
 	setLastList(null)
 	polling.start()
-	// from 15 December: announce the yearly review once per device
-	checkYearReview()
+	// first start on this device: short introduction; otherwise, from 15 December, the yearly review
+	if (!showWelcomeOnce()) checkYearReview()
 })
 onIonViewWillLeave(() => {
 	polling.stop()
@@ -162,6 +177,12 @@ function onCreated(list: ListSummary) {
 </script>
 
 <style scoped>
+/* narrow screens: only the arrow, the title needs the room */
+@media (max-width: 599px) {
+	.to-nextcloud .label {
+		display: none;
+	}
+}
 .sort-on {
 	--color: var(--app-accent);
 }

@@ -1,11 +1,21 @@
 import { isPlatform } from '@ionic/vue'
 import { ref } from 'vue'
+import { config } from '../config'
 
 export const isIos = () => isPlatform('ios')
 
 export function isStandalone(): boolean {
 	return window.matchMedia?.('(display-mode: standalone)').matches || (navigator as any).standalone === true
 }
+
+/** A browser on a computer (not a phone or tablet, not the installed app). */
+export const isDesktopBrowser = () => !isStandalone() && isPlatform('desktop')
+
+/** The app's address as the user reaches it (also behind proxies), e.g. for the phone QR code. */
+export const appAddress = () => new URL(config.appUrl, window.location.origin).href
+
+/** Nextcloud's start page on this server. */
+export const nextcloudHome = () => new URL(new URL(config.serverUrl, window.location.origin).pathname, window.location.origin).href
 
 /** Short tick on Android (iOS Safari has no vibration API). */
 export function haptic(ms = 10) {

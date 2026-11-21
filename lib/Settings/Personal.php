@@ -8,9 +8,10 @@ use OCA\Groceries\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IURLGenerator;
 use OCP\Settings\ISettings;
+use OCP\Util;
 
 /**
- * Explains how to install the app on a phone (link + steps for iOS and Android).
+ * Explains how to install the app on a phone: QR code and link, steps for iOS and Android.
  */
 class Personal implements ISettings {
 	public function __construct(
@@ -19,6 +20,8 @@ class Personal implements ISettings {
 	}
 
 	public function getForm(): TemplateResponse {
+		// draws the QR code (js/groceries-settings.js, built from src/settings.ts)
+		Util::addScript(Application::APP_ID, 'groceries-settings');
 		return new TemplateResponse(Application::APP_ID, 'personal', [
 			'appUrl' => $this->urlGenerator->linkToRouteAbsolute('groceries.page.index'),
 		], '');

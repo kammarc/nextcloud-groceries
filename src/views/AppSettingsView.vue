@@ -50,6 +50,16 @@
 				</ion-item>
 			</ion-list>
 
+			<ion-list-header>{{ t('Help') }}</ion-list-header>
+			<ion-list :inset="true">
+				<ion-item button :detail="true" @click="openWelcome">
+					<ion-icon slot="start" :icon="helpCircleOutline" />
+					<ion-label>{{ t('Quick guide') }}</ion-label>
+				</ion-item>
+			</ion-list>
+			<!-- on a computer: QR code to bring the app to the phone -->
+			<PhoneQrCard v-if="desktop" />
+
 			<ion-list-header>{{ t('Account') }}</ion-list-header>
 			<ion-list :inset="true">
 				<ion-item>
@@ -75,13 +85,15 @@ import {
 	alertController, IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList,
 	IonListHeader, IonPage, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar,
 } from '@ionic/vue'
-import { logOutOutline, personCircleOutline } from 'ionicons/icons'
+import { helpCircleOutline, logOutOutline, personCircleOutline } from 'ionicons/icons'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { logoutDevice } from '../auth/logout'
+import PhoneQrCard from '../components/PhoneQrCard.vue'
 import { config } from '../config'
 import { getLanguagePreference, setLanguagePreference, t, type LanguagePreference } from '../i18n'
-import { isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
+import { isDesktopBrowser, isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
+import { openWelcome } from '../lib/welcome'
 import { useData } from '../stores/data'
 import { mode, setTheme, theme, type ThemeName } from '../lib/theme'
 
@@ -95,6 +107,7 @@ const schemes: Array<{ key: ThemeName, label: string, bg: string, buy: string }>
 
 const data = useData()
 const router = useRouter()
+const desktop = isDesktopBrowser()
 const ios = isIos()
 const busy = ref(false)
 const language = ref<LanguagePreference>(getLanguagePreference())

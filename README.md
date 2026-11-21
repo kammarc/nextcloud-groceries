@@ -106,14 +106,17 @@ Lists and settings are kept; database changes are applied automatically.
 
 ## Install on a phone
 
-1. Open `https://<your-nextcloud>/apps/groceries/` on the phone. Your personal settings page in
-   Nextcloud (section *Groceries*) shows the exact link.
+1. Open `https://<your-nextcloud>/apps/groceries/` on the phone. The easiest way: scan the QR code
+   shown in your personal settings in Nextcloud (section *Groceries*), or in the app itself when you
+   open it on a computer.
 2. Add it to the home screen:
    - **iPhone (Safari):** tap Share, then *Add to Home Screen*.
    - **Android (Chrome):** tap *Install* in the app, or use the browser menu, then *Install app*.
 3. Open the app from the home screen and tap **Connect to Nextcloud** once.
 
 On Android, if Chrome is already logged in to your Nextcloud, step 3 happens automatically.
+On the first start, a short guide explains the basics; it can be opened again under
+*Settings → Quick guide*.
 
 ## Development
 

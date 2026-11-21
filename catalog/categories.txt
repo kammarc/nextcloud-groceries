@@ -6,7 +6,7 @@ produce|grocery|🥦|Fruit & vegetables|Obst & Gemüse
 bakery|grocery|🥖|Bread & pastries|Brot & Gebäck
 cereals|grocery|🥣|Cereal products|Getreideprodukte
 pasta_rice|grocery|🍝|Pasta, rice & grains|Pasta, Reis & Getreide
-snacks|grocery|🍫|Snacks & sweets|Snacks & Süsswaren
+snacks|grocery|🍫|Snacks & sweets|Snacks & Süßwaren
 dairy|grocery|🧀|Milk & cheese|Milch & Käse
 vegan|grocery|🌱|Vegan|Vegan
 meat_fish|grocery|🥩|Meat & fish|Fleisch & Fisch

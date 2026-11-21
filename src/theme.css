@@ -352,3 +352,21 @@ ion-modal.add-sheet::part(content) {
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 }
+
+/*
+ * Wide screens (a computer browser, a tablet in landscape): the app keeps its phone layout in a
+ * centred column instead of stretching list rows and tiles across the whole window. Sheets,
+ * dialogs and toasts are rendered inside ion-app, so they stay in that column too.
+ */
+@media (min-width: 900px) {
+	html,
+	body {
+		background: var(--app-sheet);
+	}
+	/* ion-app also has the class .ion-page (left/right: 0), hence the class in the selector */
+	ion-app.ion-page {
+		left: calc(50% - 380px);
+		right: calc(50% - 380px);
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 8px 40px rgba(0, 0, 0, 0.25);
+	}
+}

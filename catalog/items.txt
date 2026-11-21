@@ -6,7 +6,7 @@
 
 # other
 🎁|Gift|Geschenk|present;gift card;voucher|Geschenkkarte;Gutschein;Mitbringsel;Präsent
-💐|Flowers|Blumenstrauss|bouquet;flower;tulips;roses|Blumen;Strauss;Tulpen;Rosen;Schnittblumen;Blümchen
+💐|Flowers|Blumenstrauß|bouquet;flower;tulips;roses|Blumenstrauss;Blumen;Strauss;Tulpen;Rosen;Schnittblumen;Blümchen
 🃏|Magazine|Zeitschrift|newspaper;magazines;newspapers;comic|Zeitung;Zeitschriften;Zeitungen;Illustrierte;Magazin;Heft;Fernsehzeitung;Programmzeitschrift
 ✉️|Stamps|Briefmarken|stamp;postage|Briefmarke;Porto;Marken|
 
@@ -53,7 +53,7 @@
 🌶️|Chili peppers|Chilis|chili;chilli;chillies;jalapeno;hot peppers|Chili;Chilischote;Chilischoten;Peperoncini
 🥕|Carrots|Karotten|carrot|Karotte;Möhren;Möhre;Rüebli;Mohrrüben;Gelbe Rüben
 🥔|Potatoes|Kartoffeln|potato;baking potatoes;new potatoes|Kartoffel;Erdäpfel;Grumbeere;festkochende Kartoffeln;mehligkochende Kartoffeln;Frühkartoffeln;Drillinge
-🍠|Sweet potatoes|Süsskartoffeln|sweet potato;yam|Süsskartoffel;Süßkartoffeln;Süßkartoffel
+🍠|Sweet potatoes|Süßkartoffeln|sweet potato;yam|Süsskartoffeln;Süsskartoffel;Süßkartoffel
 🧅|Onions|Zwiebeln|onion;yellow onion;yellow onions|Zwiebel;Gemüsezwiebeln;Speisezwiebeln
 🧅|Red onions|Rote Zwiebeln|red onion|Rote Zwiebel
 🧅|Shallots|Schalotten|shallot|Schalotte
@@ -62,7 +62,7 @@
 🥬|Leek|Lauch|leeks|Porree;Lauchstange
 🥬|Celery|Stangensellerie|celery sticks|Staudensellerie;Sellerie
 🥔|Celeriac|Knollensellerie|celery root|Sellerieknolle
-🥒|Zucchini|Zucchetti|courgette;courgettes;zucchinis|Zucchini;Zucchino
+🥒|Zucchini|Zucchini|courgette;courgettes;zucchinis|Zucchetti;Zucchino
 🍆|Eggplant|Aubergine|aubergine;eggplants;aubergines|Auberginen;Melanzani
 🥦|Broccoli|Brokkoli||Broccoli
 🥦|Cauliflower|Blumenkohl||Karfiol
@@ -73,7 +73,7 @@
 🥬|Lamb's lettuce|Feldsalat|corn salad|Nüsslisalat;Rapunzel
 🥬|Rocket|Rucola|arugula|Rauke
 🥬|Mixed salad|Salatmischung|salad mix;salad leaves|Mischsalat;Pflücksalat;Blattsalatmischung
-🥬|Cabbage|Weisskohl|white cabbage|Weißkohl;Kohl;Kabis;Kraut;Weisskraut
+🥬|Cabbage|Weißkohl|white cabbage|Weisskohl;Kohl;Kabis;Kraut;Weisskraut
 🥬|Red cabbage|Rotkohl||Rotkraut;Blaukraut;Rotkabis
 🥬|Savoy cabbage|Wirsing||Wirz
 🥬|Chinese cabbage|Chinakohl|napa cabbage|
@@ -91,7 +91,7 @@
 🫛|Green beans|Grüne Bohnen|beans green;runner beans|Bohnen;Prinzessbohnen;Buschbohnen
 🔴|Radishes|Radieschen|radish|Radiesli
 ⚪|Daikon|Rettich|white radish|Rettich
-🟣|Beetroot|Randen|beet;beets|Rote Bete;Rote Beete;Rande
+🟣|Beetroot|Rote Bete|beet;beets|Randen;Rote Beete;Rande
 🎃|Pumpkin|Kürbis|squash;butternut;butternut squash;hokkaido|Kürbisse;Butternut;Hokkaido
 🥬|Fennel|Fenchel|fennel bulb|
 🧅|Spring onions|Frühlingszwiebeln|scallions;green onions;spring onion|Frühlingszwiebel;Lauchzwiebeln;Bundzwiebeln
@@ -122,7 +122,7 @@
 🥖|Baguette|Baguette|french bread|Pariserbrot
 🥯|Bread rolls|Brötchen|rolls;buns;roll|Semmeln;Weggli;Brötli;Schrippen;Wecken;Weckle;Mutschli
 🍞|Toast bread|Toastbrot|sandwich bread;toast;sliced bread|Toast;Sandwichtoast;Vollkorntoast
-🥐|Croissants|Gipfeli|croissant|Croissant;Hörnchen;Buttercroissant
+🥐|Croissants|Croissants|croissant|Gipfeli;Croissant;Hörnchen;Buttercroissant
 🥨|Pretzels|Brezeln|pretzel|Brezel;Laugenbrezel;Bretzel;Breze;Brezn
 🥨|Pretzel rolls|Laugenbrötchen|lye rolls|Laugenbrötli;Silserli
 🫓|Pita bread|Pitabrot|pita;flatbread|Fladenbrot
@@ -132,13 +132,13 @@
 🧁|Muffins|Muffins|muffin|Muffin
 🍩|Doughnuts|Berliner|donuts;doughnut;donut|Krapfen;Donuts;Pfannkuchen süss
 🥖|Ciabatta|Ciabatta||
-🍞|Zopf|Zopf|plaited bread;challah|Hefezopf
+🍞|Zopf|Hefezopf|plaited bread;challah|Zopf
 
 # cereals
 🍞|Crispbread|Knäckebrot|crackerbread;crisp bread;knackebrod|Knäcke
 🍞|Rusks|Zwieback|rusk|
 🥣|Cereal|Cerealien|breakfast cereal|Frühstücksflocken;Frühstücksmüsli
-🥣|Muesli|Müesli|granola;muesli mix|Müsli;Knuspermüesli;Knuspermüsli;Granola;Früchtemüsli
+🥣|Muesli|Müsli|granola;muesli mix|Müesli;Knuspermüesli;Knuspermüsli;Granola;Früchtemüsli
 🌽|Cornflakes|Cornflakes|corn flakes|
 🌾|Oats|Haferflocken|rolled oats;oatmeal;porridge oats;oat flakes;porridge|Haferflocken zart;Porridge;Hafer
 
@@ -158,7 +158,7 @@
 🌾|Bulgur|Bulgur||
 🌾|Quinoa|Quinoa||
 🌽|Polenta|Polenta|cornmeal|Maisgriess
-🌾|Semolina|Griess|semolina flour|Grieß;Hartweizengriess;Weichweizengriess
+🌾|Semolina|Grieß|semolina flour|Griess;Hartweizengriess;Weichweizengriess
 🌾|Lentils|Linsen|red lentils;brown lentils;lentil;green lentils;beluga lentils|Rote Linsen;Berglinsen;Linse;Tellerlinsen;Belugalinsen
 🫘|Dried beans|Getrocknete Bohnen|dried chickpeas|Trockenbohnen
 🌾|Millet|Hirse||
@@ -182,7 +182,7 @@
 🌻|Sunflower seeds|Sonnenblumenkerne|pumpkin seeds|Kürbiskerne;Kerne
 🍿|Popcorn|Popcorn||Puffmais|
 🍫|Cereal bars|Müsliriegel|granola bar;protein bar|Riegel;Proteinriegel
-🍦|Ice cream cones|Glace-Cornets|ice-cream cones|Waffeln;Eiswaffeln
+🍦|Ice cream cones|Eiswaffeln|ice-cream cones|Glace-Cornets;Waffeln
 🥜|Trail mix|Studentenfutter|||
 🍬|Chewing gum|Kaugummi|gum|Kaugummis
 🌮|Tortilla chips|Tortilla-Chips|nachos|Nachos
@@ -192,7 +192,7 @@
 🥛|Skimmed milk|Magermilch|low fat milk;semi-skimmed milk;semi skimmed milk|Halbfettmilch;Drinkmilch;fettarme Milch;teilentrahmte Milch
 🥛|Lactose-free milk|Laktosefreie Milch|lactose free milk|Milch laktosefrei
 🧈|Butter|Butter|unsalted butter;salted butter|Süssrahmbutter;Vorzugsbutter;Süßrahmbutter;Sauerrahmbutter;gesalzene Butter;Streichbutter;Kochbutter
-🥛|Cream|Rahm|heavy cream;whipping cream;double cream;cream whipping|Sahne;Schlagsahne;Vollrahm;Schlagrahm
+🥛|Cream|Sahne|heavy cream;whipping cream;double cream;cream whipping|Rahm;Schlagsahne;Vollrahm;Schlagrahm
 🥛|Cooking cream|Kochsahne|single cream|Halbrahm;Kochrahm;Cremefine
 🥛|Sour cream|Saure Sahne|soured cream|Sauerrahm;Schmand
 🥛|Crème fraîche|Crème fraîche|creme fraiche|Creme fraiche
@@ -251,7 +251,7 @@
 🥩|Ground beef|Rinderhackfleisch|minced beef;beef mince|Rindshackfleisch;Rinderhack;Hackfleisch Rind
 🥩|Minced meat|Hackfleisch|mince;ground meat;mixed mince|Gehacktes;Faschiertes;Hack;gemischtes Hack
 🥩|Beef steak|Rindersteak|steak;sirloin;ribeye;rump steak;entrecote|Steak;Entrecôte;Rindsplätzli;Rumpsteak;Hüftsteak;Rinderfilet
-🥩|Beef for stew|Rindsragout|stewing beef;goulash meat|Gulasch;Gulaschfleisch;Rindergulasch;Schmorfleisch
+🥩|Beef for stew|Gulaschfleisch|stewing beef;goulash meat|Rindsragout;Gulasch;Rindergulasch;Schmorfleisch
 🥩|Roast beef|Rinderbraten|beef roast|Rindsbraten
 🥩|Pork chops|Schweinekoteletts|pork chop|Kotelett;Schweinskotelett
 🥩|Pork fillet|Schweinefilet|pork tenderloin|Schweinsfilet
@@ -305,9 +305,9 @@
 🍝|Pasta sauce|Tomatensauce|tomato sauce;marinara;pasta sauce jar;bolognese sauce|Pastasauce;Tomatensosse;Sugo;Nudelsauce;Bolognese
 🌶️|Hot sauce|Scharfe Sauce|chili sauce;sriracha;tabasco|Chilisauce;Sriracha;Tabasco
 🍖|Barbecue sauce|Barbecuesauce|bbq sauce|BBQ-Sauce;Grillsauce
-🫙|Stock cubes|Bouillon|bouillon;stock;broth;vegetable stock;chicken stock;beef stock|Brühe;Gemüsebrühe;Hühnerbouillon;Bouillonwürfel;Fond;Brühwürfel;Hühnerbrühe;Rinderbrühe;Suppenwürfel
+🫙|Stock cubes|Brühe|bouillon;stock;broth;vegetable stock;chicken stock;beef stock|Bouillon;Gemüsebrühe;Hühnerbouillon;Bouillonwürfel;Fond;Brühwürfel;Hühnerbrühe;Rinderbrühe;Suppenwürfel
 🫗|Maggi seasoning|Maggi Würze|seasoning sauce|Flüssigwürze;Aromat
-🥗|Salad dressing|Salatsauce|dressing|Salatdressing;French Dressing
+🥗|Salad dressing|Salatdressing|dressing|Salatsauce;French Dressing
 🍯|Mustard-mayo|Remoulade|tartar sauce|Remouladensauce
 🫗|Worcestershire sauce|Worcestersauce||
 🧂|Salt|Salz|sea salt;table salt;salt and pepper|Meersalz;Kochsalz;Speisesalz;Jodsalz|s
@@ -370,7 +370,7 @@
 🥫|Passata|Passata|strained tomatoes;sieved tomatoes|Passierte Tomaten;Tomatenpassata
 🫘|Chickpeas|Kichererbsen|garbanzo beans;chickpea|Kichererbse
 🫘|Kidney beans|Kidneybohnen|red beans|Rote Bohnen
-🫘|White beans|Weisse Bohnen|cannellini beans;baked beans|Weiße Bohnen;Baked Beans
+🫘|White beans|Weiße Bohnen|cannellini beans;baked beans|Weisse Bohnen;Baked Beans
 🫘|Black beans|Schwarze Bohnen||
 🌽|Sweetcorn|Mais|corn;canned corn;sweet corn|Dosenmais;Maiskörner;Zuckermais
 🐟|Canned tuna|Thunfisch|tuna;tinned tuna|Thunfisch in Dose;Thon;Thunfischdose
@@ -410,8 +410,8 @@
 🍵|Black tea|Schwarztee|tea;tea bags|Tee;Teebeutel;Earl Grey
 🍵|Green tea|Grüntee|matcha|Grüner Tee;Matcha
 🍵|Herbal tea|Kräutertee|chamomile;peppermint tea;fruit tea;chamomile tea|Kamillentee;Pfefferminztee;Früchtetee;Fencheltee
-🥛|Coffee creamer|Kaffeerahm|coffee cream;creamer|Kaffeesahne;Kafirahm
-🍬|Sweetener|Süssstoff|stevia|Süßstoff;Stevia
+🥛|Coffee creamer|Kaffeesahne|coffee cream;creamer|Kaffeerahm;Kafirahm
+🍬|Sweetener|Süßstoff|stevia|Süssstoff;Stevia
 💧|Water|Mineralwasser|still water;mineral water|Wasser;Stilles Wasser;Tafelwasser;Wasser ohne Kohlensäure|s
 🫧|Sparkling water|Sprudel|sparkling mineral water;soda water;fizzy water|Mineral mit Kohlensäure;Sprudelwasser;Mineralwasser mit Kohlensäure;Wasser mit Kohlensäure;Medium;Selters
 🧃|Juice|Saft|fruit juice|Fruchtsaft;Multivitaminsaft;Nektar;Fruchtsaftgetränk
@@ -427,7 +427,7 @@
 🍺|Beer|Bier|lager;ale;beers;pils;wheat beer|Lager;Pils;Weizen;Helles;Weissbier;Weißbier;Radler;Kasten Bier;Export
 🍺|Alcohol-free beer|Alkoholfreies Bier|non-alcoholic beer|Bier alkoholfrei
 🍷|Red wine|Rotwein|wine red|Rotwein trocken
-🥂|White wine|Weisswein|wine white|Weißwein
+🥂|White wine|Weißwein|wine white|Weisswein
 🍷|Rosé|Rosé|rose wine|Roséwein
 🍾|Prosecco|Prosecco|sparkling wine;champagne;cava|Sekt;Schaumwein;Champagner;Crémant;Cava
 🥃|Spirits|Spirituosen|liquor;vodka;gin;rum;whisky|Schnaps;Wodka;Gin;Rum;Whisky;Likör;Korn;Obstler
@@ -542,7 +542,7 @@
 🧴|Cortisone cream|Kortisonsalbe|hydrocortisone|Cortison
 🧴|Lip balm|Lippenpflege|chapstick|Labello;Lippenbalsam
 🧴|Moisturising cream|Feuchtigkeitscreme|eczema cream|Pflegecreme
-🦶|Foot care|Fusspflege|blister plasters;foot cream|Blasenpflaster;Fusscreme
+🦶|Foot care|Fußpflege|blister plasters;foot cream|Fusspflege;Blasenpflaster;Fusscreme
 🪥|Electric toothbrush heads|Aufsteckbürsten|brush heads|Ersatzbürsten
 🦷|Interdental brushes|Interdentalbürsten|||
 🦷|Denture cleaner|Gebissreiniger|||
@@ -562,7 +562,7 @@
 🥟|Fresh pasta|Frische Pasta|tortellini;ravioli|Tortellini;Ravioli;Frischteigwaren
 🍕|Pizza dough|Pizzateig|pizza base|
 🥧|Puff pastry|Blätterteig||
-🥧|Shortcrust pastry|Kuchenteig|pie crust;pastry|Mürbeteig;Wähenteig
+🥧|Shortcrust pastry|Mürbeteig|pie crust;pastry|Kuchenteig;Wähenteig
 🥧|Filo pastry|Filoteig|phyllo|Yufkateig
 🥡|Ready meal|Fertiggericht|microwave meal;frozen meal|Fertigmahlzeit;Fertigessen;Mikrowellengericht;Tiefkühlgericht
 🥟|Spring rolls|Frühlingsrollen|spring roll|
@@ -575,14 +575,14 @@
 🫐|Frozen berries|Tiefkühlbeeren|frozen fruit|TK-Beeren;Beerenmischung
 🍕|Frozen pizza|Tiefkühlpizza|pizza|Pizza;TK-Pizza
 🍟|Fries|Pommes frites|french fries;frozen fries;chips frozen|Pommes;Kroketten;Rösti;Kartoffelpuffer;Ofenfrites
-🍨|Ice cream|Glace|ice-cream;gelato;ice cream tub|Speiseeis;Eis;Eiscreme;Eis am Stiel;Eistüten
+🍨|Ice cream|Eiscreme|ice-cream;gelato;ice cream tub|Glace;Speiseeis;Eis;Eis am Stiel;Eistüten
 🥬|Frozen spinach|Tiefkühlspinat||Rahmspinat
 🐟|Frozen fish|Tiefkühlfisch||TK-Fisch;Fischfilet tiefgekühlt
-🦐|Frozen shrimp|Tiefkühlcrevetten||TK-Garnelen
+🦐|Frozen shrimp|Tiefkühlgarnelen||Tiefkühlcrevetten;TK-Garnelen
 🧊|Ice cubes|Eiswürfel|ice|Eis Würfel;Crushed Ice
 🥟|Dumplings|Teigtaschen|frozen dumplings;gyoza|Gyoza;Maultaschen
 🌿|Frozen herbs|Tiefkühlkräuter||TK-Kräuter
-🥐|Frozen croissants|Tiefkühl-Gipfeli|bake-off|Aufbackbrötchen
+🥐|Frozen croissants|Tiefkühl-Croissants|bake-off|Tiefkühl-Gipfeli;Aufbackbrötchen
 
 # pet
 🐱|Cat food|Katzenfutter|cat food wet;cat food dry;cat food pouches|Katzenfutter nass;Trockenfutter Katze;Nassfutter Katze;Katzennahrung
@@ -597,7 +597,7 @@
 🪛|Screwdriver|Schraubenzieher|screwdrivers|Schraubendreher
 🔧|Wrench|Schraubenschlüssel|spanner|Gabelschlüssel
 🪚|Saw|Säge|handsaw|Handsäge
-📏|Tape measure|Massband|measuring tape|Maßband;Meterstab;Zollstock
+📏|Tape measure|Maßband|measuring tape|Massband;Meterstab;Zollstock
 🔌|Drill|Bohrmaschine|cordless drill|Akkubohrer;Akkuschrauber
 🔩|Drill bits|Bohrer|bits|Bohrerset;Bits
 ✂️|Utility knife|Cutter|box cutter|Teppichmesser;Japanmesser
@@ -636,7 +636,7 @@
 🪵|Plywood|Sperrholz|mdf|Spanplatte;MDF
 🪵|Battens|Dachlatten|slats|Latten
 🧱|Cement|Zement|concrete;mortar|Beton;Mörtel
-🧱|Bricks|Backsteine|||
+🧱|Bricks|Ziegelsteine||Backsteine|
 🪴|Potting soil|Blumenerde|compost;soil|Erde;Komposterde;Pflanzerde;Gartenerde
 🌱|Seeds|Samen|seed|Saatgut
 🌷|Plants|Pflanzen|plant|Pflanze

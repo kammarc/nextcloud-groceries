@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Welcome guide on the first start (lists, adding items, shopping, sharing, store order); can be
+  opened again under Settings → Quick guide
+- QR code with the app's address: in the personal settings section and, when the app is opened on a
+  computer, as a card in the lists overview and in the welcome guide, so the phone just scans it
+- On a computer: the app shows as a centred column instead of stretching across the window, and a
+  "Nextcloud" button in the top bar leads back to Nextcloud (hidden in the installed phone app)
+- German texts in standard German instead of Swiss spelling (ß, „…“) in the app, the settings page
+  and the catalog (e.g. Sahne, Zucchini, Rote Bete, Weißwein); the Swiss words stay searchable.
+  The separate Swiss translation files (de_CH) were removed.
+
 ## 0.2.0 – first public release
 
 - Installable web app for iPhone and Android (iOS and Material look), German and English

@@ -24,9 +24,13 @@ const fail = (msg) => { failures++; console.log('  FAIL ' + msg) }
 async function run(deviceName, mode, listName) {
 	console.log(`== ${deviceName} (${mode})`)
 	const browser = await chromium.launch()
-	const context = await browser.newContext({ ...devices[deviceName], locale: 'de-CH' })
+	const context = await browser.newContext({ ...devices[deviceName], locale: 'de-DE' })
 	// the checks below use English labels: pin the app language, independent of the account setting
-	await context.addInitScript(() => localStorage.setItem('groceries:language', 'en'))
+	// and skip the welcome guide shown on a device's first start (it covers the lists screen)
+	await context.addInitScript(() => {
+		localStorage.setItem('groceries:language', 'en')
+		localStorage.setItem('groceries:welcome-seen', '1')
+	})
 	const page = await context.newPage()
 	const problems = []
 	page.on('pageerror', (e) => problems.push('pageerror: ' + e.message))

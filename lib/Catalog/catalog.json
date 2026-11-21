@@ -1,5 +1,5 @@
 {
-	"version": "acf9dec85785",
+	"version": "a3ca40828270",
 	"categories": [
 		{
 			"key": "other",
@@ -52,7 +52,7 @@
 			"icon": "🍫",
 			"names": {
 				"en": "Snacks & sweets",
-				"de": "Snacks & Süsswaren"
+				"de": "Snacks & Süßwaren"
 			}
 		},
 		{
@@ -409,7 +409,7 @@
 			"icon": "💐",
 			"names": {
 				"en": "Flowers",
-				"de": "Blumenstrauss"
+				"de": "Blumenstrauß"
 			},
 			"synonyms": {
 				"en": [
@@ -419,6 +419,7 @@
 					"roses"
 				],
 				"de": [
+					"Blumenstrauss",
 					"Blumen",
 					"Strauss",
 					"Tulpen",
@@ -1307,7 +1308,7 @@
 			"icon": "🍠",
 			"names": {
 				"en": "Sweet potatoes",
-				"de": "Süsskartoffeln"
+				"de": "Süßkartoffeln"
 			},
 			"synonyms": {
 				"en": [
@@ -1315,8 +1316,8 @@
 					"yam"
 				],
 				"de": [
+					"Süsskartoffeln",
 					"Süsskartoffel",
-					"Süßkartoffeln",
 					"Süßkartoffel"
 				]
 			}
@@ -1475,7 +1476,7 @@
 			"icon": "🥒",
 			"names": {
 				"en": "Zucchini",
-				"de": "Zucchetti"
+				"de": "Zucchini"
 			},
 			"synonyms": {
 				"en": [
@@ -1484,7 +1485,7 @@
 					"zucchinis"
 				],
 				"de": [
-					"Zucchini",
+					"Zucchetti",
 					"Zucchino"
 				]
 			}
@@ -1674,14 +1675,14 @@
 			"icon": "🥬",
 			"names": {
 				"en": "Cabbage",
-				"de": "Weisskohl"
+				"de": "Weißkohl"
 			},
 			"synonyms": {
 				"en": [
 					"white cabbage"
 				],
 				"de": [
-					"Weißkohl",
+					"Weisskohl",
 					"Kohl",
 					"Kabis",
 					"Kraut",
@@ -1980,7 +1981,7 @@
 			"icon": "🟣",
 			"names": {
 				"en": "Beetroot",
-				"de": "Randen"
+				"de": "Rote Bete"
 			},
 			"synonyms": {
 				"en": [
@@ -1988,7 +1989,7 @@
 					"beets"
 				],
 				"de": [
-					"Rote Bete",
+					"Randen",
 					"Rote Beete",
 					"Rande"
 				]
@@ -2456,13 +2457,14 @@
 			"icon": "🥐",
 			"names": {
 				"en": "Croissants",
-				"de": "Gipfeli"
+				"de": "Croissants"
 			},
 			"synonyms": {
 				"en": [
 					"croissant"
 				],
 				"de": [
+					"Gipfeli",
 					"Croissant",
 					"Hörnchen",
 					"Buttercroissant"
@@ -2625,7 +2627,7 @@
 			"icon": "🍞",
 			"names": {
 				"en": "Zopf",
-				"de": "Zopf"
+				"de": "Hefezopf"
 			},
 			"synonyms": {
 				"en": [
@@ -2633,7 +2635,7 @@
 					"challah"
 				],
 				"de": [
-					"Hefezopf"
+					"Zopf"
 				]
 			}
 		},
@@ -2720,7 +2722,7 @@
 			"icon": "🥣",
 			"names": {
 				"en": "Muesli",
-				"de": "Müesli"
+				"de": "Müsli"
 			},
 			"synonyms": {
 				"en": [
@@ -2734,7 +2736,7 @@
 					"Bärenmarke Müsli"
 				],
 				"de": [
-					"Müsli",
+					"Müesli",
 					"Knuspermüesli",
 					"Knuspermüsli",
 					"Granola",
@@ -3080,14 +3082,14 @@
 			"icon": "🌾",
 			"names": {
 				"en": "Semolina",
-				"de": "Griess"
+				"de": "Grieß"
 			},
 			"synonyms": {
 				"en": [
 					"semolina flour"
 				],
 				"de": [
-					"Grieß",
+					"Griess",
 					"Hartweizengriess",
 					"Weichweizengriess"
 				]
@@ -3630,15 +3632,15 @@
 			"icon": "🍦",
 			"names": {
 				"en": "Ice cream cones",
-				"de": "Glace-Cornets"
+				"de": "Eiswaffeln"
 			},
 			"synonyms": {
 				"en": [
 					"ice-cream cones"
 				],
 				"de": [
-					"Waffeln",
-					"Eiswaffeln"
+					"Glace-Cornets",
+					"Waffeln"
 				]
 			}
 		},
@@ -3842,7 +3844,7 @@
 			"icon": "🥛",
 			"names": {
 				"en": "Cream",
-				"de": "Rahm"
+				"de": "Sahne"
 			},
 			"synonyms": {
 				"en": [
@@ -3854,7 +3856,7 @@
 					"Weihenstephan Sahne"
 				],
 				"de": [
-					"Sahne",
+					"Rahm",
 					"Schlagsahne",
 					"Vollrahm",
 					"Schlagrahm",
@@ -5052,7 +5054,7 @@
 			"icon": "🥩",
 			"names": {
 				"en": "Beef for stew",
-				"de": "Rindsragout"
+				"de": "Gulaschfleisch"
 			},
 			"synonyms": {
 				"en": [
@@ -5060,8 +5062,8 @@
 					"goulash meat"
 				],
 				"de": [
+					"Rindsragout",
 					"Gulasch",
-					"Gulaschfleisch",
 					"Rindergulasch",
 					"Schmorfleisch"
 				]
@@ -6212,7 +6214,7 @@
 			"icon": "🫙",
 			"names": {
 				"en": "Stock cubes",
-				"de": "Bouillon"
+				"de": "Brühe"
 			},
 			"synonyms": {
 				"en": [
@@ -6231,7 +6233,7 @@
 					"Knorr Bouillon"
 				],
 				"de": [
-					"Brühe",
+					"Bouillon",
 					"Gemüsebrühe",
 					"Hühnerbouillon",
 					"Bouillonwürfel",
@@ -6282,7 +6284,7 @@
 			"icon": "🥗",
 			"names": {
 				"en": "Salad dressing",
-				"de": "Salatsauce"
+				"de": "Salatdressing"
 			},
 			"synonyms": {
 				"en": [
@@ -6295,7 +6297,7 @@
 					"Bautz'ner Dressing"
 				],
 				"de": [
-					"Salatdressing",
+					"Salatsauce",
 					"French Dressing",
 					"Knorr Salatkrönung",
 					"Salatkrönung",
@@ -7571,7 +7573,7 @@
 			"icon": "🫘",
 			"names": {
 				"en": "White beans",
-				"de": "Weisse Bohnen"
+				"de": "Weiße Bohnen"
 			},
 			"synonyms": {
 				"en": [
@@ -7579,7 +7581,7 @@
 					"baked beans"
 				],
 				"de": [
-					"Weiße Bohnen",
+					"Weisse Bohnen",
 					"Baked Beans"
 				]
 			}
@@ -8427,7 +8429,7 @@
 			"icon": "🥛",
 			"names": {
 				"en": "Coffee creamer",
-				"de": "Kaffeerahm"
+				"de": "Kaffeesahne"
 			},
 			"synonyms": {
 				"en": [
@@ -8441,7 +8443,7 @@
 					"Kaffeeweisser"
 				],
 				"de": [
-					"Kaffeesahne",
+					"Kaffeerahm",
 					"Kafirahm",
 					"Bärenmarke Kaffeesahne",
 					"Glücksklee",
@@ -8458,7 +8460,7 @@
 			"icon": "🍬",
 			"names": {
 				"en": "Sweetener",
-				"de": "Süssstoff"
+				"de": "Süßstoff"
 			},
 			"synonyms": {
 				"en": [
@@ -8470,7 +8472,7 @@
 					"Hermesetas"
 				],
 				"de": [
-					"Süßstoff",
+					"Süssstoff",
 					"Stevia",
 					"Natreen",
 					"Süssli",
@@ -9132,7 +9134,7 @@
 			"icon": "🥂",
 			"names": {
 				"en": "White wine",
-				"de": "Weisswein"
+				"de": "Weißwein"
 			},
 			"synonyms": {
 				"en": [
@@ -9151,7 +9153,7 @@
 					"Fendant"
 				],
 				"de": [
-					"Weißwein",
+					"Weisswein",
 					"Riesling",
 					"Grauburgunder",
 					"Weissburgunder",
@@ -12918,7 +12920,7 @@
 			"icon": "🦶",
 			"names": {
 				"en": "Foot care",
-				"de": "Fusspflege"
+				"de": "Fußpflege"
 			},
 			"synonyms": {
 				"en": [
@@ -12936,6 +12938,7 @@
 					"Nagelpilz"
 				],
 				"de": [
+					"Fusspflege",
 					"Blasenpflaster",
 					"Fusscreme",
 					"Scholl",
@@ -13441,7 +13444,7 @@
 			"icon": "🥧",
 			"names": {
 				"en": "Shortcrust pastry",
-				"de": "Kuchenteig"
+				"de": "Mürbeteig"
 			},
 			"synonyms": {
 				"en": [
@@ -13451,7 +13454,7 @@
 					"Jus-Rol Mürbeteig"
 				],
 				"de": [
-					"Mürbeteig",
+					"Kuchenteig",
 					"Wähenteig",
 					"Tante Fanny Mürbeteig",
 					"Jus-Rol Mürbeteig"
@@ -13817,7 +13820,7 @@
 			"icon": "🍨",
 			"names": {
 				"en": "Ice cream",
-				"de": "Glace"
+				"de": "Eiscreme"
 			},
 			"synonyms": {
 				"en": [
@@ -13847,9 +13850,9 @@
 					"Mucki"
 				],
 				"de": [
+					"Glace",
 					"Speiseeis",
 					"Eis",
-					"Eiscreme",
 					"Eis am Stiel",
 					"Eistüten",
 					"Langnese",
@@ -13930,7 +13933,7 @@
 			"icon": "🦐",
 			"names": {
 				"en": "Frozen shrimp",
-				"de": "Tiefkühlcrevetten"
+				"de": "Tiefkühlgarnelen"
 			},
 			"synonyms": {
 				"en": [
@@ -13938,6 +13941,7 @@
 					"Black Tiger Garnelen"
 				],
 				"de": [
+					"Tiefkühlcrevetten",
 					"TK-Garnelen",
 					"TK Garnelen",
 					"Black Tiger Garnelen"
@@ -14034,7 +14038,7 @@
 			"icon": "🥐",
 			"names": {
 				"en": "Frozen croissants",
-				"de": "Tiefkühl-Gipfeli"
+				"de": "Tiefkühl-Croissants"
 			},
 			"synonyms": {
 				"en": [
@@ -14047,6 +14051,7 @@
 					"Frosta Brötchen"
 				],
 				"de": [
+					"Tiefkühl-Gipfeli",
 					"Aufbackbrötchen",
 					"Aufback Croissants",
 					"Aufbackbrötchen TK",
@@ -14436,7 +14441,7 @@
 			"icon": "📏",
 			"names": {
 				"en": "Tape measure",
-				"de": "Massband"
+				"de": "Maßband"
 			},
 			"synonyms": {
 				"en": [
@@ -14449,7 +14454,7 @@
 					"Maßband"
 				],
 				"de": [
-					"Maßband",
+					"Massband",
 					"Meterstab",
 					"Zollstock",
 					"Stabila Massband",
@@ -15720,10 +15725,7 @@
 			"icon": "🧱",
 			"names": {
 				"en": "Bricks",
-				"de": "Backsteine"
-			},
-			"types": {
-				"hardware": "lumber"
+				"de": "Ziegelsteine"
 			},
 			"synonyms": {
 				"en": [
@@ -15737,6 +15739,7 @@
 					"Terrassenplatten"
 				],
 				"de": [
+					"Backsteine",
 					"Ziegel",
 					"Pflastersteine",
 					"Porenbeton",
@@ -15746,6 +15749,9 @@
 					"Gehwegplatten",
 					"Terrassenplatten"
 				]
+			},
+			"types": {
+				"hardware": "lumber"
 			}
 		},
 		{
