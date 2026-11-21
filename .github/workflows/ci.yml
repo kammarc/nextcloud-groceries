@@ -63,10 +63,17 @@ jobs:
           docker run -d --name groceries-dev -p 8089:80 \
             -e SQLITE_DATABASE=nextcloud -e NEXTCLOUD_ADMIN_USER=admin -e NEXTCLOUD_ADMIN_PASSWORD=admin \
             -e NEXTCLOUD_TRUSTED_DOMAINS=localhost nextcloud:${{ matrix.nextcloud }}-apache
-          for i in $(seq 1 90); do
-            docker exec -u www-data groceries-dev php occ status 2>/dev/null | grep -q "installed: true" && break
+          # "installed: true" appears before the entrypoint is done: it keeps running occ commands
+          # (SQLite: one writer at a time -> "database is locked") until apache starts in the foreground.
+          ready=
+          for i in $(seq 1 120); do
+            if docker logs groceries-dev 2>&1 | grep -q "resuming normal operations" &&
+               docker exec -u www-data groceries-dev php occ status 2>/dev/null | grep -q "installed: true"; then
+              ready=1; break
+            fi
             sleep 3
           done
+          [ -n "$ready" ] || { echo "Nextcloud did not come up"; docker logs groceries-dev; exit 1; }
       - name: Install app and test users
         run: |
           sh scripts/dev-sync.sh groceries-dev
