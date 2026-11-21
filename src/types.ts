@@ -71,6 +71,8 @@ export interface Prefs {
 	grouped?: boolean
 	/** show the "frequently bought" section in the add-items screen */
 	showFrequent?: boolean
+	/** shared lists: show "Added by …" under items others added */
+	showAddedBy?: boolean
 }
 
 export interface Meta {

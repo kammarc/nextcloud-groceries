@@ -15,12 +15,14 @@
 				:debounce="0"
 				enterkeyhint="enter"
 				autocapitalize="sentences"
+				@ionFocus="searchFocused = true"
+				@ionBlur="searchFocused = false"
 				@keydown.enter.prevent="submitRaw" />
 		</ion-toolbar>
 	</ion-header>
 
 	<!-- same for the content (Ionic would still drag the sheet when the content is scrolled to the top) -->
-	<ion-content @touchstart.stop @mousedown.stop @pointerdown.stop>
+	<ion-content @touchstart.stop @mousedown.stop @pointerdown.stop @pointerdown.capture="focusedAtPress = searchFocused">
 		<ion-list v-if="query.trim()" lines="full">
 			<ion-item v-if="showRaw" button :detail="false" v-bind="pressFor(rawSuggestion)" @click="tapRaw">
 				<ion-icon slot="start" :icon="addCircle" color="primary" class="raw-icon" />
@@ -119,6 +121,10 @@ const emit = defineEmits<{ close: [], added: [identity: string] }>()
 const data = useData()
 const query = ref('')
 const searchbar = ref<any>(null)
+/** Whether the search field has focus (keyboard up), and whether it had when the last press began:
+ * tapping an entry blurs it, so after adding it only gets focus back if it had it before. */
+const searchFocused = ref(false)
+const focusedAtPress = ref(false)
 
 const state = computed(() => data.state(props.listId))
 const custom = computed(() => state.value.meta?.categories ?? [])
@@ -229,7 +235,7 @@ function tapRaw() {
 	submitRaw()
 }
 
-const details = ref<{ s: Suggestion, existing?: Item, quantity: string | null, note: string | null } | null>(null)
+const details = ref<{ s: Suggestion, existing?: Item, quantity: string | null, note: string | null, refocus: boolean } | null>(null)
 
 function openDetails(s: Suggestion) {
 	const existing = onList.value.get(s.identity)
@@ -240,6 +246,7 @@ function openDetails(s: Suggestion) {
 		existing,
 		quantity: existing?.quantity ?? (typed ? parsed.value.quantity : null) ?? hist?.lastQuantity ?? null,
 		note: existing?.note ?? (typed ? parsed.value.note : null),
+		refocus: searchFocused.value || focusedAtPress.value,
 	}
 }
 
@@ -259,7 +266,7 @@ async function submitDetails(v: { quantity: string | null, note: string | null }
 			: { name: d.s.name, quantity: v.quantity, note: v.note, category: d.s.category, icon: d.s.icon })
 		added(d.s.name, d.s.raw ? identityKey(d.s.name) : d.s.identity)
 	}
-	resetQuery()
+	resetQuery(d.refocus)
 }
 
 async function added(name: string, identity: string) {
@@ -300,9 +307,9 @@ function focus() {
 	setTimeout(() => searchbar.value?.$el?.setFocus?.(), 50)
 }
 
-function resetQuery() {
+function resetQuery(refocus = searchFocused.value || focusedAtPress.value) {
 	query.value = ''
-	focus()
+	if (refocus) focus()
 }
 
 onMounted(() => setTimeout(focus, 350))

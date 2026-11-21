@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Shared lists: "Added by …" under items is now off by default and can be switched on per person
+  under List settings → "Show who added items"
+- Add sheet: tapping an entry no longer brings up the keyboard if the search field wasn't focused
+  before
 - Welcome guide on the first start (lists, adding items, shopping, sharing, store order); can be
   opened again under Settings → Quick guide
 - QR code with the app's address: in the personal settings section and, when the app is opened on a

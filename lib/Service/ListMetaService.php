@@ -120,28 +120,29 @@ class ListMetaService {
 		$qb->executeStatement();
 	}
 
-	/** @return array{activeStoreId: ?int, viewMode: string, grouped: bool, showFrequent: bool} */
+	/** @return array{activeStoreId: ?int, viewMode: string, grouped: bool, showFrequent: bool, showAddedBy: bool} */
 	public function getPrefs(string $uid, int $listId): array {
 		$qb = $this->db->getQueryBuilder();
-		$qb->select('active_store_id', 'view_mode', 'grouped', 'show_frequent')->from('grocery_prefs')
+		$qb->select('active_store_id', 'view_mode', 'grouped', 'show_frequent', 'show_added_by')->from('grocery_prefs')
 			->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid)))
 			->andWhere($qb->expr()->eq('list_id', $qb->createNamedParameter($listId, IQueryBuilder::PARAM_INT)));
 		$result = $qb->executeQuery();
 		$row = $result->fetch();
 		$result->closeCursor();
 		if ($row === false) {
-			return ['activeStoreId' => null, 'viewMode' => 'list', 'grouped' => true, 'showFrequent' => true];
+			return ['activeStoreId' => null, 'viewMode' => 'list', 'grouped' => true, 'showFrequent' => true, 'showAddedBy' => false];
 		}
 		return [
 			'activeStoreId' => $row['active_store_id'] === null ? null : (int)$row['active_store_id'],
 			'viewMode' => (string)$row['view_mode'],
 			'grouped' => (int)$row['grouped'] !== 0,
 			'showFrequent' => (int)$row['show_frequent'] !== 0,
+			'showAddedBy' => (int)$row['show_added_by'] !== 0,
 		];
 	}
 
 	/**
-	 * @param array{activeStoreId?: ?int, viewMode?: string, grouped?: bool, showFrequent?: bool} $prefs
+	 * @param array{activeStoreId?: ?int, viewMode?: string, grouped?: bool, showFrequent?: bool, showAddedBy?: bool} $prefs
 	 */
 	public function setPrefs(string $uid, int $listId, array $prefs): array {
 		$current = $this->getPrefs($uid, $listId);
@@ -158,6 +159,7 @@ class ListMetaService {
 				->set('view_mode', $qb->createNamedParameter($merged['viewMode']))
 				->set('grouped', $qb->createNamedParameter($merged['grouped'] ? 1 : 0, IQueryBuilder::PARAM_INT))
 				->set('show_frequent', $qb->createNamedParameter($merged['showFrequent'] ? 1 : 0, IQueryBuilder::PARAM_INT))
+				->set('show_added_by', $qb->createNamedParameter($merged['showAddedBy'] ? 1 : 0, IQueryBuilder::PARAM_INT))
 				->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid)))
 				->andWhere($qb->expr()->eq('list_id', $qb->createNamedParameter($listId, IQueryBuilder::PARAM_INT)));
 		} else {
@@ -168,6 +170,7 @@ class ListMetaService {
 				'view_mode' => $qb->createNamedParameter($merged['viewMode']),
 				'grouped' => $qb->createNamedParameter($merged['grouped'] ? 1 : 0, IQueryBuilder::PARAM_INT),
 				'show_frequent' => $qb->createNamedParameter($merged['showFrequent'] ? 1 : 0, IQueryBuilder::PARAM_INT),
+				'show_added_by' => $qb->createNamedParameter($merged['showAddedBy'] ? 1 : 0, IQueryBuilder::PARAM_INT),
 			]);
 		}
 		$qb->executeStatement();

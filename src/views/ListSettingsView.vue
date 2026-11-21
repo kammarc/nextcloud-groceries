@@ -78,6 +78,12 @@
 				</ion-list>
 			</template>
 
+			<ion-list v-if="isShared" :inset="true">
+				<ion-item>
+					<ion-toggle :checked="showAddedBy" @ionChange="setShowAddedBy($event.detail.checked)">{{ t('Show who added items') }}</ion-toggle>
+				</ion-item>
+			</ion-list>
+
 			<ion-list :inset="true">
 				<ion-item v-if="isOwner" button :detail="false" @click="removeList">
 					<ion-icon slot="start" :icon="trashOutline" color="danger" />
@@ -155,6 +161,13 @@ function setGrouped(on: boolean) {
 const showFrequent = computed(() => data.state(listId).meta?.prefs.showFrequent ?? true)
 function setShowFrequent(on: boolean) {
 	if (on !== showFrequent.value) data.setPrefs(listId, { showFrequent: on }).catch(() => {})
+}
+
+/** Per person, shared lists only: show "Added by …" under items others put on the list (off by default). */
+const isShared = computed(() => members.value.length > 1)
+const showAddedBy = computed(() => data.state(listId).meta?.prefs.showAddedBy ?? false)
+function setShowAddedBy(on: boolean) {
+	if (on !== showAddedBy.value) data.setPrefs(listId, { showAddedBy: on }).catch(() => {})
 }
 
 async function toast(message: string) {

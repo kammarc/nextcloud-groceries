@@ -192,6 +192,7 @@ const de: Record<string, string> = {
 	'Back': 'Zurück',
 	'OK': 'OK',
 	'Show frequently bought': '„Häufig gekauft“ anzeigen',
+	'Show who added items': 'Anzeigen, wer Artikel hinzugefügt hat',
 	'Update': 'Aktualisieren',
 	'Updated {name}': '{name} aktualisiert',
 	'Already on the list': 'Bereits auf der Liste',
