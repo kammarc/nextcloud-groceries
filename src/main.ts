@@ -13,7 +13,7 @@ import '@ionic/vue/css/display.css'
 import './theme.css'
 
 import App from './App.vue'
-import { router } from './router'
+import { restoreLastList, router } from './router'
 import { config } from './config'
 import { lang, t } from './i18n'
 import { setUnauthorizedHandler } from './api/client'
@@ -54,7 +54,10 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => { data.online = false })
 
 data.hydrate().finally(() => {
-	router.isReady().then(() => app.mount('#groceries-app'))
+	router.isReady()
+		.then(() => restoreLastList((id) => data.list(id) !== null))
+		.catch(() => {})
+		.then(() => app.mount('#groceries-app'))
 })
 
 // ---- service worker (offline start + "installable" requirement) --------------------------------

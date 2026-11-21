@@ -220,6 +220,30 @@ body {
 	overscroll-behavior: none;
 }
 
+/*
+ * iOS: solid headers. Ionic's translucent iOS toolbar (80% opacity + backdrop blur) lets the list
+ * shine through and fades title/buttons; Safari 26 also derives its top-bar tint from solid
+ * backgrounds, so a see-through header gets its own gradient haze on top. The collapsing large
+ * title still works: it drives --opacity-scale, which is multiplied with this --opacity.
+ */
+.ios ion-header ion-toolbar {
+	--opacity: 1;
+}
+.ios ion-header .header-background {
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+/*
+ * While the add/edit sheet is open, the page behind takes the sheet colour. iOS (26) may end the
+ * layout viewport above the home indicator, which left the sheet "floating" over a strip in the
+ * page colour; Safari also tints the bottom bar from the page background. Both now match the sheet.
+ */
+html:has(ion-modal.add-sheet.show-modal),
+html:has(ion-modal.add-sheet.show-modal) body {
+	background: var(--app-sheet);
+}
+
 /* no text selection / callouts on tap-heavy UI, like native apps */
 ion-item,
 ion-chip,

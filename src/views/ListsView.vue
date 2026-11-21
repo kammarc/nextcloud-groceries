@@ -101,6 +101,7 @@ import AppIcon from '../components/AppIcon.vue'
 import InstallBanner from '../components/InstallBanner.vue'
 import SyncStatus from '../components/SyncStatus.vue'
 import { n, t } from '../i18n'
+import { setLastList } from '../lib/lastList'
 import { useData } from '../stores/data'
 import { usePolling } from '../sync/polling'
 import { checkYearReview } from '../lib/review'
@@ -120,6 +121,8 @@ function openCount(listId: number): number {
 
 const polling = usePolling(() => data.loadLists(), 15000)
 onIonViewDidEnter(() => {
+	// back on the overview on purpose: the next launch starts here too
+	setLastList(null)
 	polling.start()
 	// from 15 December: announce the yearly review once per device
 	checkYearReview()

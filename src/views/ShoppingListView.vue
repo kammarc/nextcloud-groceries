@@ -212,6 +212,7 @@ import SyncStatus from '../components/SyncStatus.vue'
 import { ApiError } from '../api/client'
 import { lang, t } from '../i18n'
 import { buildSections } from '../lib/sorting'
+import { setLastList } from '../lib/lastList'
 import { acquireWakeLock, haptic, isIos, releaseWakeLock } from '../lib/platform'
 import { useData } from '../stores/data'
 import { usePolling } from '../sync/polling'
@@ -296,6 +297,7 @@ const polling = usePolling(async () => {
 }, 3000)
 
 onIonViewDidEnter(() => {
+	setLastList(listId)
 	polling.start()
 	acquireWakeLock()
 })
