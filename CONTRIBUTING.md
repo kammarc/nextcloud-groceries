@@ -10,7 +10,7 @@ instead.
 
 ## Pull requests
 
-1. Set up the development environment as described in the [README](README.md#development).
+1. Set up the development environment as described in the [development guide](docs/development.md).
 2. Keep changes focused; one topic per pull request.
 3. Before you push, run:
 
