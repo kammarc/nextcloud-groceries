@@ -16,6 +16,7 @@ that you install on iPhone and Android like a native app. A short guide in the a
 - Suggestions from your own shopping history
 - Works offline in the store and syncs later
 - Statistics and a year-in-review story
+- Backup and restore of all lists, history and statistics as one file
 - Light and dark mode in four colours
 - German and English
 - API for other apps, e.g. to add recipe ingredients

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Backup: Settings → Backup exports the whole library (all lists with items, stores, custom
+  categories, history, statistics, per-list preferences and the app settings) as one JSON file, and
+  imports it again, either added to the existing lists or replacing all lists you own. Imported lists
+  belong to you and are not shared; entries by other people are credited to you
 - Shared lists: "Added by …" under items is now off by default and can be switched on per person
   under List settings → "Show who added items"
 - Add sheet: tapping an entry no longer brings up the keyboard if the search field wasn't focused

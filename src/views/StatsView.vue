@@ -118,6 +118,7 @@ import { useRoute } from 'vue-router'
 import ItemIcon from '../components/ItemIcon.vue'
 import { api } from '../api/client'
 import { lang, t } from '../i18n'
+import { fileSlug, saveJsonFile, today } from '../lib/file'
 import { openStatsStory } from '../lib/review'
 import { categoryLabel } from '../lib/sorting'
 import { buildExport, computeStats, parseImport, periodRange, type Period, type StatEvent } from '../lib/stats'
@@ -170,28 +171,9 @@ async function toast(message: string) {
 	await tst.present()
 }
 
-/** Shares the JSON file on phones (share sheet), downloads it elsewhere. */
 async function exportJson() {
 	const name = list.value?.name ?? 'list'
-	const json = JSON.stringify(buildExport(name, events.value), null, '\t')
-	const fileName = `groceries-${name.toLowerCase().replace(/[^a-z0-9äöü]+/gi, '-')}-${new Date().toISOString().slice(0, 10)}.json`
-	const file = new File([json], fileName, { type: 'application/json' })
-	const nav = navigator as Navigator & { canShare?: (d: unknown) => boolean }
-	if (nav.canShare?.({ files: [file] })) {
-		try {
-			await navigator.share({ files: [file], title: fileName })
-			return
-		} catch {
-			// cancelled or not allowed: fall back to a download
-		}
-	}
-	const a = document.createElement('a')
-	a.href = URL.createObjectURL(file)
-	a.download = fileName
-	document.body.appendChild(a)
-	a.click()
-	a.remove()
-	setTimeout(() => URL.revokeObjectURL(a.href), 2000)
+	await saveJsonFile(`groceries-${fileSlug(name)}-${today()}.json`, buildExport(name, events.value))
 }
 
 async function importJson(ev: Event) {

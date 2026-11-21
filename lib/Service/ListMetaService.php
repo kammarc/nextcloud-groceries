@@ -99,8 +99,9 @@ class ListMetaService {
 		return false;
 	}
 
-	public function addCustomCategory(int $listId, string $name, ?string $icon): string {
-		$key = 'custom_' . bin2hex(random_bytes(5));
+	/** @param string|null $key keep a known key (library import); a new one is made otherwise */
+	public function addCustomCategory(int $listId, string $name, ?string $icon, ?string $key = null): string {
+		$key ??= 'custom_' . bin2hex(random_bytes(5));
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('grocery_categories')->values([
 			'list_id' => $qb->createNamedParameter($listId, IQueryBuilder::PARAM_INT),

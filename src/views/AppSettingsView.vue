@@ -50,6 +50,27 @@
 				</ion-item>
 			</ion-list>
 
+			<ion-list-header>{{ t('Backup') }}</ion-list-header>
+			<ion-list :inset="true">
+				<ion-item button :detail="false" :disabled="!!transferring" @click="exportAll">
+					<ion-icon slot="start" :icon="downloadOutline" />
+					<ion-label>
+						<h2>{{ t('Export library') }}</h2>
+						<p>{{ t('All lists with items, history, statistics and settings') }}</p>
+					</ion-label>
+					<ion-spinner v-if="transferring === 'export'" slot="end" name="crescent" />
+				</ion-item>
+				<ion-item button :detail="false" :disabled="!!transferring" @click="fileInput?.click()">
+					<ion-icon slot="start" :icon="cloudUploadOutline" />
+					<ion-label>
+						<h2>{{ t('Import library') }}</h2>
+						<p>{{ t('Restore a library export') }}</p>
+					</ion-label>
+					<ion-spinner v-if="transferring === 'import'" slot="end" name="crescent" />
+				</ion-item>
+			</ion-list>
+			<input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="importAll">
+
 			<ion-list-header>{{ t('Help') }}</ion-list-header>
 			<ion-list :inset="true">
 				<ion-item button :detail="true" @click="openWelcome">
@@ -83,15 +104,18 @@
 <script setup lang="ts">
 import {
 	alertController, IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList,
-	IonListHeader, IonPage, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar,
+	IonListHeader, IonPage, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToggle, IonToolbar, toastController,
 } from '@ionic/vue'
-import { helpCircleOutline, logOutOutline, personCircleOutline } from 'ionicons/icons'
+import { cloudUploadOutline, downloadOutline, helpCircleOutline, logOutOutline, personCircleOutline } from 'ionicons/icons'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { logoutDevice } from '../auth/logout'
 import PhoneQrCard from '../components/PhoneQrCard.vue'
 import { config } from '../config'
 import { getLanguagePreference, setLanguagePreference, t, type LanguagePreference } from '../i18n'
+import { saveJsonFile, today } from '../lib/file'
+import { getLastList, setLastList } from '../lib/lastList'
+import { applySettings, fetchLibrary, importLibrary, parseLibrary, type ImportMode } from '../lib/library'
 import { isDesktopBrowser, isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
 import { openWelcome } from '../lib/welcome'
 import { useData } from '../stores/data'
@@ -119,6 +143,74 @@ function changeLanguage(value: LanguagePreference) {
 	setLanguagePreference(value)
 	// texts are resolved at startup; a reload applies the new language everywhere
 	window.location.reload()
+}
+
+const transferring = ref<'export' | 'import' | false>(false)
+const fileInput = ref<HTMLInputElement | null>(null)
+
+async function toast(message: string) {
+	const tst = await toastController.create({ message, duration: 3500, position: 'bottom' })
+	await tst.present()
+}
+
+async function exportAll() {
+	transferring.value = 'export'
+	try {
+		const library = await fetchLibrary()
+		await saveJsonFile(`groceries-library-${today()}.json`, library)
+	} catch (e) {
+		await toast(t('Export failed: {message}', { message: (e as Error).message }))
+	} finally {
+		transferring.value = false
+	}
+}
+
+function askImportMode(listCount: number): Promise<ImportMode | null> {
+	return new Promise((resolve) => {
+		alertController.create({
+			header: t('Import library'),
+			message: t('The file contains {count} lists. Add them to your lists, or replace all lists you own? Replacing deletes your current lists, their history and statistics.', { count: listCount }),
+			buttons: [
+				{ text: t('Cancel'), role: 'cancel', handler: () => resolve(null) },
+				{ text: t('Replace'), role: 'destructive', handler: () => resolve('replace') },
+				{ text: t('Add'), handler: () => resolve('add') },
+			],
+		}).then((a) => a.present())
+	})
+}
+
+async function importAll(ev: Event) {
+	const input = ev.target as HTMLInputElement
+	const file = input.files?.[0]
+	input.value = ''
+	if (!file) return
+	let library
+	try {
+		library = parseLibrary(await file.text())
+	} catch (e) {
+		await toast(t('Import failed: {message}', { message: (e as Error).message }))
+		return
+	}
+	const importMode = await askImportMode(library.lists.length)
+	if (!importMode) return
+	transferring.value = 'import'
+	try {
+		const res = await importLibrary(library, importMode)
+		// drop what this device still caches of lists that are gone now
+		const lists = await data.loadLists()
+		const ids = new Set(lists.map((l) => l.id))
+		for (const id of Object.keys(data.states).map(Number)) if (!ids.has(id)) data.forgetList(id)
+		const last = getLastList()
+		if (last && !ids.has(last)) setLastList(null)
+		const reload = applySettings(library.settings)
+		language.value = getLanguagePreference()
+		await toast(t('{lists} lists with {items} items imported', { lists: res.lists, items: res.items }))
+		if (reload) window.location.reload()
+	} catch (e) {
+		await toast(t('Import failed: {message}', { message: (e as Error).message }))
+	} finally {
+		transferring.value = false
+	}
 }
 
 async function logout() {
@@ -177,6 +269,9 @@ async function logout() {
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
+}
+.hidden {
+	display: none;
 }
 .version {
 	text-align: center;

@@ -40,6 +40,9 @@ return [
 		['name' => 'store_api#createCategory', 'url' => '/api/v1/lists/{listId}/categories', 'verb' => 'POST'],
 		['name' => 'store_api#deleteCategory', 'url' => '/api/v1/lists/{listId}/categories/{categoryKey}', 'verb' => 'DELETE'],
 
+		['name' => 'library_api#export', 'url' => '/api/v1/library', 'verb' => 'GET'],
+		['name' => 'library_api#import', 'url' => '/api/v1/library', 'verb' => 'POST'],
+
 		['name' => 'catalog_api#catalog', 'url' => '/api/v1/catalog', 'verb' => 'GET'],
 		['name' => 'catalog_api#parse', 'url' => '/api/v1/parse', 'verb' => 'POST'],
 	],
