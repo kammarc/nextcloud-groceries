@@ -3,6 +3,13 @@
 Shared shopping lists for the whole family. Groceries is a [Nextcloud](https://nextcloud.com) app
 that you install on iPhone and Android like a native app. A short guide in the app shows how.
 
+<p>
+  <img src="docs/screenshots/all_lists.png" alt="Overview of all lists" width="24%">
+  <img src="docs/screenshots/groceries1.png" alt="Grocery list 1" width="24%">
+  <img src="docs/screenshots/groceries2.png" alt="Grocery list 2" width="24%">
+  <img src="docs/screenshots/aisle_order.png" alt="Department order per store" width="24%">
+</p>
+
 ## Features
 
 - Stay logged in: one app password per phone, no repeated logins
