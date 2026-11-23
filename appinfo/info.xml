@@ -16,7 +16,7 @@
 - Works offline in the store and syncs when back online
 - API for other apps (e.g. Cookbook) to add recipe ingredients
 ]]></description>
-	<version>0.4.0</version>
+	<version>0.5.0</version>
 	<licence>MIT</licence>
 	<author>Marc Kammermann</author>
 	<namespace>Groceries</namespace>
