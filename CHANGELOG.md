@@ -14,6 +14,9 @@
 - Lists overview: the edit button (pencil) sorts lists and shows a button to delete a list (or
   leave a list shared with you)
 - Settings → Help: guide for installing the app on phone and computer, and "Report a bug"
+- Fix: on iPhone the installed app showed a blank page after it had been closed fully, and the
+  app's page then no longer loaded in Safari either (redirect loop from Nextcloud's SameSite
+  cookie check)
 - Fix: Chrome and other browsers reported the app as "not installable" because Nextcloud answered
   the manifest request with a redirect loop
 - The app version is shown only in the app settings, no longer in the list settings

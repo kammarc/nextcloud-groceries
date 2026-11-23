@@ -51,6 +51,16 @@ class PageController extends Controller {
 		parent::__construct(Application::APP_ID, $request);
 	}
 
+	/**
+	 * Exempt from Nextcloud's SameSite cookie check: iOS drops the session-only
+	 * nc_sameSiteCookie* cookies when a home-screen app is closed but keeps the persistent login
+	 * cookies, so Nextcloud answered every launch with a 302 to the same URL, which iOS (going
+	 * through the service worker) followed into a redirect loop and showed a blank page.
+	 * The shell is public and holds no session data, so the check protects nothing here.
+	 * (Docblock annotation: Nextcloud 31 has no attribute for it.)
+	 *
+	 * @NoSameSiteCookieRequired
+	 */
 	#[PublicPage]
 	#[NoCSRFRequired]
 	public function index(): Response {

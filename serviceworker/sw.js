@@ -45,7 +45,17 @@ self.addEventListener('fetch', (event) => {
 			const cache = await caches.open(CACHE)
 			try {
 				const res = await fetch(req)
-				if (res.ok) await cache.put(SHELL_URL, res.clone())
+				if (res.ok && !res.redirected) {
+					await cache.put(SHELL_URL, res.clone())
+					return res
+				}
+				// The shell is never redirected legitimately. A redirect or server error (e.g. Nextcloud's
+				// SameSite cookie check, maintenance mode) would leave iOS home-screen apps on a blank
+				// page, so start from the cached shell instead when there is one.
+				if (res.type === 'opaqueredirect' || res.redirected || res.status >= 500) {
+					const cached = await cache.match(SHELL_URL)
+					if (cached) return cached
+				}
 				return res
 			} catch (e) {
 				return (await cache.match(SHELL_URL)) || Response.error()
