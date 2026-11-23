@@ -1,6 +1,6 @@
 {
 	"name": "groceries",
-	"version": "0.2.2",
+	"version": "0.2.5",
 	"private": true,
 	"description": "Shared shopping lists for Nextcloud, as an installable mobile app",
 	"license": "MIT",
