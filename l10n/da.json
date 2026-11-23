@@ -1,0 +1,18 @@
+{
+	"translations": {
+		"Groceries on your phone": "Indkøbslister på din telefon",
+		"Open this address on your phone and add it to the home screen. You log in once; the app then keeps its own device password, which you can revoke any time under Security → Devices & sessions.": "Åbn denne adresse på din telefon, og føj den til hjemmeskærmen. Du logger ind én gang; derefter har appen sin egen enhedsadgangskode, som du til enhver tid kan tilbagekalde under Sikkerhed → Enheder og sessioner.",
+		"QR code with the address of the app": "QR-kode med appens adresse",
+		"Scan the code with the phone camera, or open this address on the phone:": "Scan koden med telefonens kamera, eller åbn denne adresse på telefonen:",
+		"iPhone / iPad (Safari)": "iPhone / iPad (Safari)",
+		"Open the address in Safari.": "Åbn adressen i Safari.",
+		"Tap the Share button, then \"Add to Home Screen\".": "Tryk på Del-knappen og derefter på »Føj til hjemmeskærm«.",
+		"Open Groceries from the home screen and tap \"Connect to Nextcloud\".": "Åbn appen fra hjemmeskærmen, og tryk på »Forbind til Nextcloud«.",
+		"Android (Chrome)": "Android (Chrome)",
+		"Open the address in Chrome.": "Åbn adressen i Chrome.",
+		"Tap \"Install app\" in the app or the browser menu (⋮ → \"Install app\").": "Tryk på »Installer« i appen eller i browsermenuen på ⋮ → »Installer app«.",
+		"Groceries": "Indkøbslister",
+		"Shared shopping lists": "Delte indkøbslister"
+	},
+	"pluralForm": "nplurals=2; plural=(n != 1);"
+}

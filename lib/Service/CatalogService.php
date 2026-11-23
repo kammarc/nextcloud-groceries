@@ -39,16 +39,27 @@ class CatalogService {
 		foreach ($data['items'] as $item) {
 			$this->items[$item['key']] = $item;
 		}
-		// names take precedence over synonyms; first item wins
+		// Order of precedence (first item wins): English/German names, then their synonyms and brands,
+		// then the names in the other languages, so a word in another language never shadows an
+		// English/German term (French "Persil" is parsley, the German brand is detergent). Mirrors catalog.ts.
 		foreach ($data['items'] as $item) {
-			foreach ($item['names'] as $name) {
-				$this->index[NameNormalizer::normalize($name)] ??= $item['key'];
+			foreach ($item['names'] as $code => $name) {
+				if ($code === 'en' || $code === 'de') {
+					$this->index[NameNormalizer::normalize($name)] ??= $item['key'];
+				}
 			}
 		}
 		foreach ($data['items'] as $item) {
 			foreach ($item['synonyms'] ?? [] as $terms) {
 				foreach ($terms as $term) {
 					$this->index[NameNormalizer::normalize($term)] ??= $item['key'];
+				}
+			}
+		}
+		foreach ($data['items'] as $item) {
+			foreach ($item['names'] as $code => $name) {
+				if ($code !== 'en' && $code !== 'de') {
+					$this->index[NameNormalizer::normalize($name)] ??= $item['key'];
 				}
 			}
 		}

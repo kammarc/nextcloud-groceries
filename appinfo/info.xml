@@ -8,14 +8,15 @@
 
 - Items grouped by category and sorted by the aisle order of the store you are in
 - Multiple lists (groceries, pharmacy, hardware store …) shared with users or groups
-- List or icon grid view, history of previously bought items, 600+ built-in items (EN/DE) with synonyms and brand names
+- List or icon grid view, history of previously bought items, 600+ built-in items with synonyms and brand names
+- Available in 20 languages
 - Live updates when family members add or tick items
 - Install to the home screen on your phone, log in once, stay logged in (per-device app password)
 - Statistics per list and a yearly review
 - Works offline in the store and syncs when back online
 - API for other apps (e.g. Cookbook) to add recipe ingredients
 ]]></description>
-	<version>0.2.5</version>
+	<version>0.2.6</version>
 	<licence>MIT</licence>
 	<author>Marc Kammermann</author>
 	<namespace>Groceries</namespace>

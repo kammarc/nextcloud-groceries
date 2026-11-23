@@ -25,7 +25,8 @@ that you install on iPhone and Android like a native app. A short guide in the a
 - Statistics and a year-in-review story
 - Backup and restore of all lists, history and statistics as one file
 - Light and dark mode in four colours
-- German and English
+- 20 languages: English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech,
+  Swedish, Danish, Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek, Japanese
 - API for other apps, e.g. to add recipe ingredients
 
 ## Requirements

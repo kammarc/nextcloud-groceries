@@ -1,0 +1,15 @@
+{
+	"Groceries": "Boodschappenlijstjes",
+	"Groceries on your phone": "Boodschappenlijstjes op je telefoon",
+	"Open this address on your phone and add it to the home screen. You log in once; the app then keeps its own device password, which you can revoke any time under Security → Devices & sessions.": "Open dit adres op je telefoon en zet het op je beginscherm. Je logt één keer in; daarna gebruikt de app een eigen apparaatwachtwoord, dat je altijd kunt intrekken onder Beveiliging → Apparaten & sessies.",
+	"iPhone / iPad (Safari)": "iPhone / iPad (Safari)",
+	"Open the address in Safari.": "Open het adres in Safari.",
+	"Tap the Share button, then \"Add to Home Screen\".": "Tik op de deelknop en daarna op ‘Zet op beginscherm’.",
+	"Open Groceries from the home screen and tap \"Connect to Nextcloud\".": "Open de app vanaf het beginscherm en tik op ‘Verbinden met Nextcloud’.",
+	"QR code with the address of the app": "QR-code met het adres van de app",
+	"Scan the code with the phone camera, or open this address on the phone:": "Scan de code met de camera van je telefoon of open dit adres op je telefoon:",
+	"Android (Chrome)": "Android (Chrome)",
+	"Open the address in Chrome.": "Open het adres in Chrome.",
+	"Tap \"Install app\" in the app or the browser menu (⋮ → \"Install app\").": "Tik in de app op ‘Installeren’ of in het browsermenu op ⋮ → ‘App installeren’.",
+	"Shared shopping lists": "Gedeelde boodschappenlijstjes"
+}

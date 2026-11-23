@@ -4,6 +4,7 @@
  */
 import { api } from '../api/client'
 import { getLanguagePreference, setLanguagePreference, type LanguagePreference } from '../i18n'
+import { isLang } from './languages'
 import { setWakeLockEnabled, wakeLockEnabled } from './platform'
 import { mode, setTheme, theme, THEMES, type ThemeMode, type ThemeName } from './theme'
 
@@ -73,7 +74,7 @@ export function applySettings(s: Partial<AppSettings> | undefined): boolean {
 	if (s.mode === 'light' || s.mode === 'dark') next.mode = s.mode
 	if (next.theme || next.mode) setTheme(next)
 	if (typeof s.wakeLock === 'boolean') setWakeLockEnabled(s.wakeLock)
-	if ((s.language === 'auto' || s.language === 'de' || s.language === 'en') && s.language !== getLanguagePreference()) {
+	if ((s.language === 'auto' || isLang(s.language)) && s.language !== getLanguagePreference()) {
 		setLanguagePreference(s.language)
 		return true
 	}

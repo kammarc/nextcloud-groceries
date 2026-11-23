@@ -21,8 +21,7 @@
 				<ion-item>
 					<ion-select :value="language" :label="t('Language')" interface="action-sheet" :cancel-text="t('Cancel')" @ionChange="changeLanguage($event.detail.value)">
 						<ion-select-option value="auto">{{ t('Automatic (Nextcloud)') }}</ion-select-option>
-						<ion-select-option value="de">Deutsch</ion-select-option>
-						<ion-select-option value="en">English</ion-select-option>
+						<ion-select-option v-for="l in LANGUAGES" :key="l.code" :value="l.code">{{ l.name }}</ion-select-option>
 					</ion-select>
 				</ion-item>
 				<ion-item>
@@ -128,6 +127,7 @@ import { getLanguagePreference, setLanguagePreference, t, type LanguagePreferenc
 import { saveJsonFile, today } from '../lib/file'
 import { getLastList, setLastList } from '../lib/lastList'
 import { applySettings, fetchLibrary, importLibrary, parseLibrary, type ImportMode } from '../lib/library'
+import { LANGUAGES } from '../lib/languages'
 import { isDesktopBrowser, isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
 import { openWelcome } from '../lib/welcome'
 import { useData } from '../stores/data'

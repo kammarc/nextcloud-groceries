@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /**
- * Builds lib/Catalog/catalog.json from catalog/categories.txt, items.txt, type-categories.txt and brands.txt.
+ * Builds lib/Catalog/catalog.json from catalog/categories.txt, items.txt, type-categories.txt and brands.txt,
+ * plus item and department names in further languages from catalog/i18n/<code>.json
+ * ({ "categories": { key: name }, "items": { key: name } }).
  * The JSON is shared by the PHP backend (matching recipe ingredients) and the
  * frontend (offline typeahead + icons).
  *
  * Usage: node scripts/build-catalog.mjs
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
@@ -87,6 +89,29 @@ for (const line of lines('brands.txt')) {
 	}
 }
 
+// names in further languages (English and German come from the .txt files)
+const catByKey = new Map(categories.map((c) => [c.key, c]))
+const i18nDir = join(root, 'catalog', 'i18n')
+const languages = []
+const incomplete = []
+for (const file of readdirSync(i18nDir).filter((f) => f.endsWith('.json')).sort()) {
+	const code = file.slice(0, -5)
+	if (code === 'en' || code === 'de') { errors.push(`i18n/${file}: en/de names belong in the .txt files`); continue }
+	const tr = JSON.parse(readFileSync(join(i18nDir, file), 'utf8'))
+	for (const [kind, map] of [['categories', catByKey], ['items', byKey]]) {
+		for (const [key, name] of Object.entries(tr[kind] ?? {})) {
+			const entry = map.get(key)
+			if (!entry) { errors.push(`i18n/${file}: unknown ${kind} key ${key}`); continue }
+			if (typeof name !== 'string' || !name.trim()) { errors.push(`i18n/${file}: empty name for ${key}`); continue }
+			entry.names[code] = name.trim()
+		}
+		const missing = [...map.values()].filter((e) => !e.names[code]).length
+		if (missing) incomplete.push(`${code}: ${missing} ${kind} without a name (English is shown)`)
+	}
+	languages.push(code)
+}
+if (incomplete.length) console.warn(incomplete.join('\n'))
+
 if (errors.length) {
 	console.error(errors.join('\n'))
 	process.exit(1)
@@ -97,4 +122,4 @@ const version = createHash('sha1').update(JSON.stringify(body)).digest('hex').sl
 const out = join(root, 'lib', 'Catalog', 'catalog.json')
 mkdirSync(dirname(out), { recursive: true })
 writeFileSync(out, JSON.stringify({ version, ...body }, null, '\t') + '\n')
-console.log(`catalog.json: ${categories.length} categories, ${items.length} items, ${brandCount} brand names, version ${version}`)
+console.log(`catalog.json: ${categories.length} categories, ${items.length} items, ${brandCount} brand names, ${2 + languages.length} languages, version ${version}`)

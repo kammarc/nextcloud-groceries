@@ -1,0 +1,19 @@
+OC.L10N.register(
+	"groceries",
+	{
+		"Groceries on your phone": "Списки покупок на телефоні",
+		"Open this address on your phone and add it to the home screen. You log in once; the app then keeps its own device password, which you can revoke any time under Security → Devices & sessions.": "Відкрийте цю адресу на телефоні й додайте її на головний екран. Увійти потрібно один раз: потім застосунок використовує власний пароль пристрою, який можна будь-коли відкликати в розділі Безпека → Пристрої та сеанси.",
+		"QR code with the address of the app": "QR-код з адресою застосунку",
+		"Scan the code with the phone camera, or open this address on the phone:": "Відскануйте код камерою телефона або відкрийте цю адресу на телефоні:",
+		"iPhone / iPad (Safari)": "iPhone / iPad (Safari)",
+		"Open the address in Safari.": "Відкрийте адресу в Safari.",
+		"Tap the Share button, then \"Add to Home Screen\".": "Торкніться кнопки «Поширити», потім «На початковий екран».",
+		"Open Groceries from the home screen and tap \"Connect to Nextcloud\".": "Відкрийте застосунок з початкового екрана й торкніться «Під'єднатися до Nextcloud».",
+		"Android (Chrome)": "Android (Chrome)",
+		"Open the address in Chrome.": "Відкрийте адресу в Chrome.",
+		"Tap \"Install app\" in the app or the browser menu (⋮ → \"Install app\").": "Торкніться «Установити» в застосунку або в меню браузера (⋮ → «Установити додаток»).",
+		"Groceries": "Списки покупок",
+		"Shared shopping lists": "Спільні списки покупок"
+	},
+	"nplurals=2; plural=(n != 1);"
+);

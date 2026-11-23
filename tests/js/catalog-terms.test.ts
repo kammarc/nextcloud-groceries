@@ -1,9 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { items, matchCatalog } from '../../src/lib/catalog'
+import { categories, items, matchCatalog } from '../../src/lib/catalog'
+import { LANGUAGES } from '../../src/lib/languages'
+import { normalize } from '../../src/lib/normalize'
 
 /**
  * Every name, synonym and brand of a catalog item must find that item. A term that resolves to a
  * different item is claimed twice (catalog/items.txt or catalog/brands.txt) and would be mis-filed.
+ * Names in the other languages (catalog/i18n) rank below English/German on purpose, so they only
+ * have to be unique within their own language.
  */
 // known homographs after umlaut folding: German "Säge" (saw) == English "sage" (herb)
 const KNOWN = new Set(['saw:Säge'])
@@ -12,7 +16,7 @@ describe('catalog terms', () => {
 	it('every term matches its own item', () => {
 		const conflicts: string[] = []
 		for (const item of items) {
-			const terms = [...Object.values(item.names), ...Object.values(item.synonyms ?? {}).flat()]
+			const terms = [item.names.en, item.names.de, ...Object.values(item.synonyms ?? {}).flat()]
 			for (const term of new Set(terms)) {
 				if (KNOWN.has(`${item.key}:${term}`)) continue
 				const m = matchCatalog(term)
@@ -21,6 +25,22 @@ describe('catalog terms', () => {
 			}
 		}
 		expect(conflicts).toEqual([])
+	})
+
+	it.each(LANGUAGES.map((l) => l.code).filter((c) => c !== 'en' && c !== 'de'))('%s: no two items or departments share a name', (code) => {
+		const dupes: string[] = []
+		for (const list of [items, categories]) {
+			const seen = new Map<string, string>()
+			for (const entry of list) {
+				const name = entry.names[code]
+				if (!name) continue
+				const n = normalize(name)
+				const other = seen.get(n)
+				if (other) dupes.push(`"${name}": ${other} and ${entry.key}`)
+				else seen.set(n, entry.key)
+			}
+		}
+		expect(dupes).toEqual([])
 	})
 
 	it.each([

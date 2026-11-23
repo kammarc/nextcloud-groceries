@@ -2,16 +2,20 @@
  * Built-in catalog (bundled for offline use). Matching mirrors lib/Service/CatalogService.php.
  */
 import data from '../../lib/Catalog/catalog.json'
+import type { Lang } from './languages'
 import { normalize, variants } from './normalize'
 
-export type Lang = 'en' | 'de'
+export type { Lang }
+
+/** English and German are complete (with synonyms and brands); the other languages have names only. */
+type Names = { en: string, de: string } & Partial<Record<Lang, string>>
 
 export interface CatalogItem {
 	key: string
 	category: string
 	icon: string
-	names: Record<Lang, string>
-	synonyms?: Record<Lang, string[]>
+	names: Names
+	synonyms?: Partial<Record<Lang, string[]>>
 	staple?: boolean
 	/** category on pharmacy/hardware lists (grocery lists use `category`) */
 	types?: Partial<Record<'pharmacy' | 'hardware', string>>
@@ -21,7 +25,7 @@ export interface CatalogCategory {
 	key: string
 	template: string
 	icon: string
-	names: Record<Lang, string>
+	names: Names
 }
 
 export const catalogVersion: string = data.version
@@ -31,19 +35,22 @@ export const items: CatalogItem[] = data.items as CatalogItem[]
 const itemsByKey = new Map(items.map((i) => [i.key, i]))
 const categoriesByKey = new Map(categories.map((c) => [c.key, c]))
 const index = new Map<string, string>()
-for (const item of items) {
-	for (const name of Object.values(item.names)) {
-		const n = normalize(name)
-		if (!index.has(n)) index.set(n, item.key)
-	}
+// Order of precedence (first item wins): English/German names, then their synonyms and brands, then
+// the names in the other languages, so a word in another language never shadows an English/German
+// term (French "Persil" is parsley, the German brand is detergent). Mirrors CatalogService.
+const isPrimary = (code: string) => code === 'en' || code === 'de'
+const indexTerm = (term: string, key: string) => {
+	const n = normalize(term)
+	if (n && !index.has(n)) index.set(n, key)
 }
 for (const item of items) {
-	for (const terms of Object.values(item.synonyms ?? {})) {
-		for (const term of terms) {
-			const n = normalize(term)
-			if (!index.has(n)) index.set(n, item.key)
-		}
-	}
+	for (const [code, name] of Object.entries(item.names)) if (isPrimary(code) && name) indexTerm(name, item.key)
+}
+for (const item of items) {
+	for (const terms of Object.values(item.synonyms ?? {})) for (const term of terms) indexTerm(term, item.key)
+}
+for (const item of items) {
+	for (const [code, name] of Object.entries(item.names)) if (!isPrimary(code) && name) indexTerm(name, item.key)
 }
 
 export const getItem = (key: string | null | undefined) => (key ? itemsByKey.get(key) : undefined)
@@ -128,23 +135,25 @@ function levenshtein(a: string, b: string, max: number): number {
 interface SearchEntry { item: CatalogItem, term: string, primary: boolean, lang: Lang }
 const searchIndex: SearchEntry[] = []
 for (const item of items) {
-	for (const lang of ['de', 'en'] as Lang[]) {
-		searchIndex.push({ item, term: normalize(item.names[lang]), primary: true, lang })
-		for (const syn of item.synonyms?.[lang] ?? []) {
-			searchIndex.push({ item, term: normalize(syn), primary: false, lang })
-		}
+	for (const [code, name] of Object.entries(item.names) as Array<[Lang, string]>) {
+		searchIndex.push({ item, term: normalize(name), primary: true, lang: code })
+	}
+	for (const [code, terms] of Object.entries(item.synonyms ?? {}) as Array<[Lang, string[]]>) {
+		for (const syn of terms) searchIndex.push({ item, term: normalize(syn), primary: false, lang: code })
 	}
 }
 
 /**
  * Typeahead over the catalog. Scores: exact > prefix > word prefix > contains > fuzzy;
- * names in the UI language rank above the other language and synonyms.
+ * names in the UI language rank above English/German and synonyms; other languages are not searched
+ * (their words would only add noise).
  */
 export function searchCatalog(query: string, lang: Lang, limit = 12): CatalogItem[] {
 	const q = normalize(query)
 	if (q === '') return []
 	const best = new Map<string, number>()
 	for (const e of searchIndex) {
+		if (e.lang !== lang && e.lang !== 'en' && e.lang !== 'de') continue
 		let score = 0
 		if (e.term === q) score = 100
 		else if (e.term.startsWith(q)) score = 80 - Math.min(20, e.term.length - q.length)

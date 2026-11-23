@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- 18 more languages: French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Swedish, Danish,
+  Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek and Japanese, for the
+  app, the item catalog and the settings page. The app follows the Nextcloud language, or the one
+  chosen under Settings → Language
+- Lists: a field at the bottom of a list replaces the round ＋ button and opens the add sheet; in
+  grid view the search results in the add sheet are tiles, and "Add …" for your own text is the
+  last entry
+- Lists overview: the edit button (pencil) sorts lists and shows a button to delete a list (or
+  leave a list shared with you)
+- Settings → Help: guide for installing the app on phone and computer, and "Report a bug"
+- Fix: Chrome and other browsers reported the app as "not installable" because Nextcloud answered
+  the manifest request with a redirect loop
+- The app version is shown only in the app settings, no longer in the list settings
 - Backup: Settings → Backup exports the whole library (all lists with items, stores, custom
   categories, history, statistics, per-list preferences and the app settings) as one JSON file, and
   imports it again, either added to the existing lists or replacing all lists you own. Imported lists

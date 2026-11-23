@@ -2,7 +2,8 @@
 export interface AppConfig {
 	version: string
 	catalogVersion: string
-	language: 'en' | 'de'
+	/** the user's Nextcloud language (locale code such as "pt_BR"); the app picks the closest it has */
+	language: string
 	serverName: string
 	serverUrl: string
 	appUrl: string

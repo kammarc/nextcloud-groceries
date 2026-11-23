@@ -10,7 +10,6 @@ use OCA\Groceries\Service\CatalogService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
-use OCP\AppFramework\Http\Attribute\NoSameSiteCookieRequired;
 use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\DataDisplayResponse;
@@ -29,6 +28,9 @@ use Psr\Log\LoggerInterface;
  * home-screen apps on iOS.
  */
 class PageController extends Controller {
+	/** Languages of the app (see src/lib/languages.ts). */
+	private const LANGUAGES = ['en', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'cs', 'sv', 'da', 'nb', 'fi', 'hu', 'ro', 'tr', 'ru', 'uk', 'el', 'ja'];
+
 	public function __construct(
 		IRequest $request,
 		private IURLGenerator $urlGenerator,
@@ -46,7 +48,7 @@ class PageController extends Controller {
 	public function index(): Response {
 		$version = $this->appManager->getAppVersion(Application::APP_ID);
 		$webroot = $this->urlGenerator->getWebroot();
-		$lang = str_starts_with($this->l10nFactory->findLanguage(Application::APP_ID), 'de') ? 'de' : 'en';
+		$lang = $this->appLanguage();
 
 		// The shell is the same for everybody and holds no session data (no user id, no CSRF token):
 		// the service worker caches it for offline use. The app asks for the browser session's user
@@ -111,20 +113,25 @@ class PageController extends Controller {
 		return $response;
 	}
 
+	/**
+	 * Browsers may fetch the manifest without cookies; Nextcloud's SameSite cookie check would then
+	 * answer with a redirect loop and the browser reports the app as "not installable".
+	 * (Docblock annotation: Nextcloud 31 has no attribute for it.)
+	 *
+	 * @NoSameSiteCookieRequired
+	 */
 	#[PublicPage]
 	#[NoCSRFRequired]
-	// Browsers fetch the manifest without cookies. Without this, Nextcloud's SameSite cookie check
-	// answers with a redirect loop and the browser reports the app as "not installable".
-	#[NoSameSiteCookieRequired]
 	public function manifest(): JSONResponse {
 		$scope = $this->urlGenerator->linkToRoute('groceries.page.index');
 		$img = fn (string $f) => $this->urlGenerator->linkTo(Application::APP_ID, 'img/' . $f);
-		$lang = str_starts_with($this->l10nFactory->findLanguage(Application::APP_ID), 'de') ? 'de' : 'en';
+		$lang = $this->appLanguage();
+		$l = $this->l10nFactory->get(Application::APP_ID);
 		$response = new JSONResponse([
 			'id' => $scope,
 			'name' => 'Groceries',
 			'short_name' => 'Groceries',
-			'description' => $lang === 'de' ? 'Gemeinsame Einkaufslisten' : 'Shared shopping lists',
+			'description' => $l->t('Shared shopping lists'),
 			'lang' => $lang,
 			'start_url' => $scope,
 			'scope' => $scope,
@@ -145,9 +152,11 @@ class PageController extends Controller {
 		return $response;
 	}
 
+	/**
+	 * @NoSameSiteCookieRequired
+	 */
 	#[PublicPage]
 	#[NoCSRFRequired]
-	#[NoSameSiteCookieRequired]
 	public function serviceWorker(): Response {
 		$version = $this->appManager->getAppVersion(Application::APP_ID);
 		$appPath = $this->appManager->getAppPath(Application::APP_ID);
@@ -172,6 +181,18 @@ class PageController extends Controller {
 			'Service-Worker-Allowed' => $this->urlGenerator->linkToRoute('groceries.page.index'),
 			'Cache-Control' => 'no-cache',
 		]);
+	}
+
+	/**
+	 * The app's language for the user's Nextcloud language ("pt_BR" -> "pt"), English if the app
+	 * does not have it. Keep in sync with src/lib/languages.ts.
+	 */
+	private function appLanguage(): string {
+		$base = strtolower((string)preg_split('/[-_]/', $this->l10nFactory->findLanguage(Application::APP_ID))[0]);
+		if ($base === 'no' || $base === 'nn') {
+			return 'nb';
+		}
+		return in_array($base, self::LANGUAGES, true) ? $base : 'en';
 	}
 
 	/**

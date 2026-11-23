@@ -1,0 +1,18 @@
+{
+	"translations": {
+		"Groceries on your phone": "Liste de cumpărături pe telefon",
+		"Open this address on your phone and add it to the home screen. You log in once; the app then keeps its own device password, which you can revoke any time under Security → Devices & sessions.": "Deschide această adresă pe telefon și adaug-o pe ecranul principal. Te conectezi o singură dată; apoi aplicația își păstrează propria parolă de dispozitiv, pe care o poți revoca oricând din Securitate → Dispozitive și sesiuni.",
+		"QR code with the address of the app": "Cod QR cu adresa aplicației",
+		"Scan the code with the phone camera, or open this address on the phone:": "Scanează codul cu camera telefonului sau deschide această adresă pe telefon:",
+		"iPhone / iPad (Safari)": "iPhone / iPad (Safari)",
+		"Open the address in Safari.": "Deschide adresa în Safari.",
+		"Tap the Share button, then \"Add to Home Screen\".": "Atinge butonul Partajează, apoi „Adaugă pe ecranul principal”.",
+		"Open Groceries from the home screen and tap \"Connect to Nextcloud\".": "Deschide aplicația de pe ecranul principal și atinge „Conectează-te la Nextcloud”.",
+		"Android (Chrome)": "Android (Chrome)",
+		"Open the address in Chrome.": "Deschide adresa în Chrome.",
+		"Tap \"Install app\" in the app or the browser menu (⋮ → \"Install app\").": "Atinge „Instalează” în aplicație sau, în meniul browserului, ⋮ → „Instalează aplicația”.",
+		"Groceries": "Liste de cumpărături",
+		"Shared shopping lists": "Liste de cumpărături comune"
+	},
+	"pluralForm": "nplurals=2; plural=(n != 1);"
+}

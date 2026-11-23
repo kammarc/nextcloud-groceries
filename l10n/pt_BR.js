@@ -1,0 +1,19 @@
+OC.L10N.register(
+	"groceries",
+	{
+		"Groceries on your phone": "Listas de compras no celular",
+		"Open this address on your phone and add it to the home screen. You log in once; the app then keeps its own device password, which you can revoke any time under Security → Devices & sessions.": "Abra este endereço no celular e adicione-o à tela de início. Você faz login uma vez; depois o app mantém a própria senha de dispositivo, que você pode revogar a qualquer momento em Segurança → Dispositivos e sessões.",
+		"QR code with the address of the app": "Código QR com o endereço do app",
+		"Scan the code with the phone camera, or open this address on the phone:": "Escaneie o código com a câmera do celular ou abra este endereço no celular:",
+		"iPhone / iPad (Safari)": "iPhone / iPad (Safari)",
+		"Open the address in Safari.": "Abra o endereço no Safari.",
+		"Tap the Share button, then \"Add to Home Screen\".": "Toque no botão Compartilhar e depois em \"Adicionar à Tela de Início\".",
+		"Open Groceries from the home screen and tap \"Connect to Nextcloud\".": "Abra o app pela tela de início e toque em \"Conectar ao Nextcloud\".",
+		"Android (Chrome)": "Android (Chrome)",
+		"Open the address in Chrome.": "Abra o endereço no Chrome.",
+		"Tap \"Install app\" in the app or the browser menu (⋮ → \"Install app\").": "Toque em \"Instalar\" no app ou, no menu do navegador, em ⋮ → \"Instalar app\".",
+		"Groceries": "Listas de compras",
+		"Shared shopping lists": "Listas de compras compartilhadas"
+	},
+	"nplurals=2; plural=(n != 1);"
+);

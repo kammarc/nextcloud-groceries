@@ -15,7 +15,7 @@
 					role="tab"
 					class="group-tab"
 					:class="{ on: active === g.key }"
-					:aria-label="g.names[lang]"
+					:aria-label="groupName(g)"
 					@click="jump(g.key)">
 					{{ g.icon }}
 				</button>
@@ -35,7 +35,7 @@
 			<p v-if="error" class="error">{{ error }}</p>
 		</div>
 		<section v-for="g in groups" :id="'emoji-' + g.key" :key="g.key" class="group" :data-key="g.key">
-			<h3>{{ g.names[lang] }}</h3>
+			<h3>{{ groupName(g) }}</h3>
 			<div class="grid">
 				<button v-for="e in g.emojis" :key="e" type="button" class="emoji" :class="{ selected: e === selected }" @click="emit('pick', e)">{{ e }}</button>
 			</div>
@@ -49,9 +49,23 @@ import { imageOutline } from 'ionicons/icons'
 import { ref } from 'vue'
 import groupsData from '../lib/emoji-groups.json'
 import { imageFileToDataUrl } from '../lib/image'
-import { lang, t } from '../i18n'
+import { t } from '../i18n'
 
 interface EmojiGroup { key: string, icon: string, names: Record<'en' | 'de', string>, emojis: string[] }
+
+/** Group headings (the English names in emoji-groups.json, translated like all UI texts). */
+const GROUP_NAMES: Record<string, string> = {
+	food_drink: t('Food & drink'),
+	objects: t('Objects'),
+	animals_nature: t('Animals & nature'),
+	travel_places: t('Places'),
+	activities: t('Activities'),
+	smileys_emotion: t('Smileys'),
+	people_body: t('People'),
+	symbols: t('Symbols'),
+	flags: t('Flags'),
+}
+const groupName = (g: EmojiGroup) => GROUP_NAMES[g.key] ?? g.names.en
 
 defineProps<{ selected?: string | null, allowImage?: boolean, hasImage?: boolean }>()
 const emit = defineEmits<{ pick: [emoji: string], pickImage: [dataUrl: string], removeImage: [], close: [] }>()

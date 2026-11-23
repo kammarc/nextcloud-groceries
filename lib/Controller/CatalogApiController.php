@@ -43,7 +43,7 @@ class CatalogApiController extends OCSController {
 	public function parse(array $lines = [], string $lang = 'en'): DataResponse {
 		return $this->run(fn () => $this->shoppingLists->parseLines(
 			array_map(fn ($l) => is_scalar($l) ? (string)$l : '', array_slice(array_values($lines), 0, \OCA\Groceries\Service\ItemService::MAX_BULK)),
-			$lang === 'de' ? 'de' : 'en',
+			preg_match('/^[a-z]{2}$/', $lang) === 1 ? $lang : 'en',
 		));
 	}
 }
