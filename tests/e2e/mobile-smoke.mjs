@@ -72,8 +72,8 @@ async function run(deviceName, mode, listName) {
 	await page.waitForURL(/#\/list\/\d+/, { timeout: 15000 })
 	ok('list created and opened')
 
-	// 4. add items via the add sheet
-	await page.locator('ion-fab-button').click()
+	// 4. add items via the add sheet (opened by the field at the bottom of the list)
+	await page.locator('ion-footer.add-bar button.add-field').click()
 	const search = page.locator('ion-modal ion-searchbar input')
 	await search.waitFor()
 	for (const entry of ['2 l Milch', 'Bananen', 'Zahnpasta', '500 g Rinderhackfleisch', 'Zauberpulver']) {
