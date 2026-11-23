@@ -218,6 +218,7 @@ import { lang, t } from '../i18n'
 import { buildSections } from '../lib/sorting'
 import { setLastList } from '../lib/lastList'
 import { acquireWakeLock, haptic, isIos, releaseWakeLock } from '../lib/platform'
+import { provideSketchIcons } from '../lib/sketch'
 import { useData } from '../stores/data'
 import { usePolling } from '../sync/polling'
 import type { Item, ItemData } from '../types'
@@ -229,6 +230,7 @@ const ios = isIos()
 
 // Ionic keeps this page alive underneath pushed pages, so pin the id instead of following the route
 const listId = Number(route.params.id)
+provideSketchIcons(listId)
 const state = computed(() => data.state(listId))
 const meta = computed(() => state.value.meta)
 const list = computed(() => data.list(listId))

@@ -90,8 +90,8 @@ class ListApiController extends OCSController {
 	public function setPrefs(int $listId): DataResponse {
 		return $this->run(function () use ($listId) {
 			$this->access->require($this->uid(), $listId);
-			$prefs = $this->only($this->request, ['activeStoreId', 'viewMode', 'grouped', 'showFrequent', 'showAddedBy']);
-			foreach (['grouped', 'showFrequent', 'showAddedBy'] as $flag) {
+			$prefs = $this->only($this->request, ['activeStoreId', 'viewMode', 'grouped', 'showFrequent', 'showAddedBy', 'sketchIcons']);
+			foreach (['grouped', 'showFrequent', 'showAddedBy', 'sketchIcons'] as $flag) {
 				if (array_key_exists($flag, $prefs)) {
 					$prefs[$flag] = filter_var($prefs[$flag], FILTER_VALIDATE_BOOLEAN);
 				}

@@ -114,6 +114,8 @@ req "$A" DELETE "/lists/$PH" >/dev/null; req "$A" DELETE "/lists/$HW" >/dev/null
 check "grouped preference" "$(req "$A" PUT "/lists/$LIST/prefs" '{"grouped":false}' | q 'j.grouped')" false
 check "added-by off by default" "$(req "$A" PUT "/lists/$LIST/prefs" '{}' | q 'j.showAddedBy')" false
 check "added-by preference" "$(req "$A" PUT "/lists/$LIST/prefs" '{"showAddedBy":true}' | q 'j.showAddedBy')" true
+check "sketch icons off by default" "$(req "$A" PUT "/lists/$LIST/prefs" '{}' | q 'j.sketchIcons')" false
+check "sketch icons preference" "$(req "$A" PUT "/lists/$LIST/prefs" '{"sketchIcons":true}' | q 'j.sketchIcons')" true
 
 echo "== purchase log (statistics)"
 EV=$(req "$A" POST /lists '{"name":"Statistik","template":"grocery"}' | q 'j.id')

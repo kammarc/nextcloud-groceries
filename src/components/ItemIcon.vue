@@ -1,5 +1,6 @@
 <template>
-	<span class="item-icon" :class="{ letter: !emoji, large }" :style="!emoji ? { background: tint } : undefined" aria-hidden="true">
+	<span v-if="mask" class="item-icon sketch" :class="{ large }" :style="{ '--sketch': `url(${mask})` }" aria-hidden="true" />
+	<span v-else class="item-icon" :class="{ letter: !emoji, large }" :style="!emoji ? { background: tint } : undefined" aria-hidden="true">
 		{{ emoji || letter }}
 	</span>
 </template>
@@ -7,6 +8,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { getCategory, getItem } from '../lib/catalog'
+import { useSketchIcons } from '../lib/sketch'
+import { sketchEmoji, sketchLetter } from '../lib/sketchRender'
 
 const props = defineProps<{
 	icon?: string | null
@@ -16,6 +19,8 @@ const props = defineProps<{
 	large?: boolean
 }>()
 
+const sketch = useSketchIcons()
+
 const emoji = computed(() => props.icon || getItem(props.catalogKey)?.icon || (props.category && props.category !== 'other' ? getCategory(props.category)?.icon : '') || '')
 const letter = computed(() => (props.name.trim()[0] ?? '?').toUpperCase())
 const tint = computed(() => {
@@ -23,6 +28,8 @@ const tint = computed(() => {
 	for (const c of props.name) h = (h * 31 + c.charCodeAt(0)) % 360
 	return `hsl(${h} 45% 55%)`
 })
+/** "Hand-drawn icons": pen-sketch mask of the glyph ('' = draw normally, e.g. without canvas). */
+const mask = computed(() => (sketch?.value ? (emoji.value ? sketchEmoji(emoji.value) : sketchLetter(letter.value)) : ''))
 </script>
 
 <style scoped>
@@ -49,5 +56,11 @@ const tint = computed(() => {
 }
 .item-icon.letter.large {
 	font-size: 24px;
+}
+/* one-colour pen sketch in the text colour (see lib/sketchRender.ts) */
+.item-icon.sketch {
+	background-color: currentColor;
+	-webkit-mask: var(--sketch) center / contain no-repeat;
+	mask: var(--sketch) center / contain no-repeat;
 }
 </style>

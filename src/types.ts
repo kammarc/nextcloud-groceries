@@ -73,6 +73,8 @@ export interface Prefs {
 	showFrequent?: boolean
 	/** shared lists: show "Added by …" under items others added */
 	showAddedBy?: boolean
+	/** draw item icons as one-colour pen sketches instead of colour emoji */
+	sketchIcons?: boolean
 }
 
 export interface Meta {

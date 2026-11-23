@@ -122,11 +122,13 @@ import { fileSlug, saveJsonFile, today } from '../lib/file'
 import { openStatsStory } from '../lib/review'
 import { categoryLabel } from '../lib/sorting'
 import { buildExport, computeStats, parseImport, periodRange, type Period, type StatEvent } from '../lib/stats'
+import { provideSketchIcons } from '../lib/sketch'
 import { useData } from '../stores/data'
 
 const route = useRoute()
 const data = useData()
 const listId = Number(route.params.id)
+provideSketchIcons(listId)
 
 const period = ref<Period>('month')
 const events = ref<StatEvent[]>([])

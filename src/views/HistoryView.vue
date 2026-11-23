@@ -56,12 +56,14 @@ import ItemIcon from '../components/ItemIcon.vue'
 import { lang, t } from '../i18n'
 import { categoryLabel } from '../lib/sorting'
 import { haptic } from '../lib/platform'
+import { provideSketchIcons } from '../lib/sketch'
 import { useData } from '../stores/data'
 import type { HistoryEntry } from '../types'
 
 const route = useRoute()
 const data = useData()
 const listId = Number(route.params.id)
+provideSketchIcons(listId)
 const mode = ref<'recent' | 'frequent'>('recent')
 
 const state = computed(() => data.state(listId))

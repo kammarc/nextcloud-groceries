@@ -221,6 +221,7 @@ class LibraryService {
 			'grouped' => (bool)($prefs['grouped'] ?? true),
 			'showFrequent' => (bool)($prefs['showFrequent'] ?? true),
 			'showAddedBy' => (bool)($prefs['showAddedBy'] ?? false),
+			'sketchIcons' => (bool)($prefs['sketchIcons'] ?? false),
 		]);
 
 		// the new list is not shared with anybody, so entries of other people are credited to the
