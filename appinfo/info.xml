@@ -24,10 +24,7 @@
 	<website>https://github.com/kammarc/nextcloud-groceries</website>
 	<bugs>https://github.com/kammarc/nextcloud-groceries/issues</bugs>
 	<repository type="git">https://github.com/kammarc/nextcloud-groceries.git</repository>
-	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/all-lists.png</screenshot>
-	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/groceries1.png</screenshot>
-	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/groceries2.png</screenshot>
-	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/aisle-order.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/overview_landscape.png</screenshot>
 	<dependencies>
 		<php min-version="8.1"/>
 		<nextcloud min-version="30" max-version="35"/>
