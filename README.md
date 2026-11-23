@@ -30,7 +30,7 @@ that you install on iPhone and Android like a native app. A short guide in the a
 
 ## Requirements
 
-- Nextcloud 30–33, PHP 8.1 or newer
+- Nextcloud 30–35, PHP 8.1 or newer
 - HTTPS
 - Nextcloud background jobs (cron), to clear the cart automatically
 
