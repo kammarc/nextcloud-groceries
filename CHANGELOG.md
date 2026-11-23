@@ -3,7 +3,8 @@
 ## Unreleased
 
 - List settings → "Hand-drawn icons": item icons are drawn as one-colour pen sketches in the
-  text colour instead of colour emoji (per person and list, off by default)
+  text colour instead of colour emoji, also in the emoji picker for items (per person and list, off
+  by default)
 - 18 more languages: French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Swedish, Danish,
   Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek and Japanese, for the
   app, the item catalog and the settings page. The app follows the Nextcloud language, or the one

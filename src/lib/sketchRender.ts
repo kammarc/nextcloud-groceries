@@ -19,6 +19,11 @@ const cache = new Map<string, string>()
 /** Displacement fields for the pen wobble, the same for every icon: computed once. */
 let wobble: [Float32Array, Float32Array] | undefined
 
+/** Mask for an emoji if it was drawn before (no drawing), else undefined. */
+export function cachedEmoji(emoji: string): string | undefined {
+	return cache.get(`e:${emoji}`)
+}
+
 /** Mask for an emoji, or '' where canvas is not available. */
 export function sketchEmoji(emoji: string): string {
 	return cached(`e:${emoji}`, (ctx) => {

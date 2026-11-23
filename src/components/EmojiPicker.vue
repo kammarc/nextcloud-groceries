@@ -17,7 +17,8 @@
 					:class="{ on: active === g.key }"
 					:aria-label="groupName(g)"
 					@click="jump(g.key)">
-					{{ g.icon }}
+					<SketchGlyph v-if="sketch" :emoji="g.icon" :size="29" />
+					<template v-else>{{ g.icon }}</template>
 				</button>
 			</div>
 		</ion-toolbar>
@@ -37,7 +38,10 @@
 		<section v-for="g in groups" :id="'emoji-' + g.key" :key="g.key" class="group" :data-key="g.key">
 			<h3>{{ groupName(g) }}</h3>
 			<div class="grid">
-				<button v-for="e in g.emojis" :key="e" type="button" class="emoji" :class="{ selected: e === selected }" @click="emit('pick', e)">{{ e }}</button>
+				<button v-for="e in g.emojis" :key="e" type="button" class="emoji" :class="{ selected: e === selected }" :aria-label="sketch ? e : undefined" @click="emit('pick', e)">
+					<SketchGlyph v-if="sketch" :emoji="e" :size="39" lazy />
+					<template v-else>{{ e }}</template>
+				</button>
 			</div>
 		</section>
 	</ion-content>
@@ -49,6 +53,8 @@ import { imageOutline } from 'ionicons/icons'
 import { ref } from 'vue'
 import groupsData from '../lib/emoji-groups.json'
 import { imageFileToDataUrl } from '../lib/image'
+import { useSketchIcons } from '../lib/sketch'
+import SketchGlyph from './SketchGlyph.vue'
 import { t } from '../i18n'
 
 interface EmojiGroup { key: string, icon: string, names: Record<'en' | 'de', string>, emojis: string[] }
@@ -69,6 +75,9 @@ const groupName = (g: EmojiGroup) => GROUP_NAMES[g.key] ?? g.names.en
 
 defineProps<{ selected?: string | null, allowImage?: boolean, hasImage?: boolean }>()
 const emit = defineEmits<{ pick: [emoji: string], pickImage: [dataUrl: string], removeImage: [], close: [] }>()
+
+/** "Hand-drawn icons" list setting (when opened from such a list): show the emoji as pen sketches. */
+const sketch = useSketchIcons()
 
 const groups = groupsData as EmojiGroup[]
 const active = ref(groups[0].key)

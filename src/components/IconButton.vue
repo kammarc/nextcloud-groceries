@@ -1,7 +1,8 @@
 <template>
 	<button type="button" class="icon-button" @click="open = true">
 		<span class="preview" :style="tint ? { background: tint } : undefined">
-			<AppIcon :icon="icon" :image="image" :size="44" :fallback="fallback" />
+			<SketchGlyph v-if="sketch && !image" :emoji="icon || fallback" :size="44" />
+			<AppIcon v-else :icon="icon" :image="image" :size="44" :fallback="fallback" />
 		</span>
 		<span class="label">{{ label ?? t('Icon') }}</span>
 		<ion-icon :icon="chevronForward" class="chevron" />
@@ -25,6 +26,8 @@ import { chevronForward } from 'ionicons/icons'
 import { ref } from 'vue'
 import AppIcon from './AppIcon.vue'
 import EmojiPicker from './EmojiPicker.vue'
+import SketchGlyph from './SketchGlyph.vue'
+import { useSketchIcons } from '../lib/sketch'
 import { t } from '../i18n'
 
 /** Shows the current icon; tapping opens the emoji picker (and optionally an image picker). */
@@ -37,6 +40,7 @@ withDefaults(defineProps<{ icon?: string | null, image?: string | null, allowIma
 })
 const emit = defineEmits<{ 'update:icon': [icon: string], 'update:image': [image: string | null] }>()
 const open = ref(false)
+const sketch = useSketchIcons()
 
 function pickEmoji(e: string) {
 	emit('update:icon', e)

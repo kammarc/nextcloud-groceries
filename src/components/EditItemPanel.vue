@@ -38,7 +38,10 @@
 			</ion-item>
 			<IconButton :icon="form.icon || null" :fallback="categoryIcon" @update:icon="form.icon = $event" />
 			<div class="chips emoji">
-				<button v-for="e in emojiChoices" :key="e" type="button" class="emoji-btn" :class="{ on: form.icon === e }" @click="form.icon = e">{{ e }}</button>
+				<button v-for="e in emojiChoices" :key="e" type="button" class="emoji-btn" :class="{ on: form.icon === e }" @click="form.icon = e">
+					<SketchGlyph v-if="sketch" :emoji="e" :size="34" />
+					<template v-else>{{ e }}</template>
+				</button>
 			</div>
 		</ion-list>
 
@@ -60,11 +63,15 @@ import { trashOutline } from 'ionicons/icons'
 import { computed, reactive } from 'vue'
 import IconButton from './IconButton.vue'
 import ItemIcon from './ItemIcon.vue'
+import SketchGlyph from './SketchGlyph.vue'
 import { categoriesForTemplate, categoryName, getCategory, matchCatalog } from '../lib/catalog'
+import { useSketchIcons } from '../lib/sketch'
 import { lang, t } from '../i18n'
 import type { CustomCategory, Item, ItemData } from '../types'
 
 const props = defineProps<{ item: Item, template: string, custom: CustomCategory[] }>()
+/** "Hand-drawn icons" list setting: show the emoji choices as pen sketches. */
+const sketch = useSketchIcons()
 const emit = defineEmits<{ close: [], delete: [], save: [data: ItemData] }>()
 
 const form = reactive({
