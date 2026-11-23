@@ -21,6 +21,20 @@ make appstore              # release tarball in build/
 A plain `git clone` into a Nextcloud app directory does not work, because the built `js/` and
 `css/` folders are not in git.
 
+### Version numbers
+
+Every push to `main` is a release. The `Version` workflow (`.github/workflows/version.yml`)
+raises the minor version (0.2.8 → 0.3.0) in `appinfo/info.xml`, `package.json` and
+`package-lock.json`, commits that to `main` as `release v0.3.0`, tags it and runs the `Release`
+workflow, which attaches the app tarball to a GitHub release.
+
+- Do not change the version by hand; pushes to other branches leave it alone.
+- The workflow adds a commit to `main` after each push, so run `git pull` before you commit on
+  `main` again.
+- For a major release, run `node scripts/bump-version.mjs major` (0.9.0 → 1.0.0), commit, then
+  `git tag v1.0.0` and push only the tag (`git push origin v1.0.0`), which runs the `Release`
+  workflow for exactly 1.0.0. Pushing that commit to `main` afterwards releases 1.1.0 as usual.
+
 ## Run in a local Nextcloud
 
 ```sh

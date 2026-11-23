@@ -31,6 +31,7 @@
 					<h2>{{ s.name }}</h2>
 					<p>{{ categoryLabel(s.category, custom, lang).name }}</p>
 				</ion-label>
+				<ion-note v-if="onList.get(s.identity)?.quantity" slot="end" class="row-qty">{{ onList.get(s.identity)?.quantity }}</ion-note>
 				<ion-icon v-if="onList.has(s.identity)" slot="end" :icon="checkmarkCircle" color="success" />
 			</ion-item>
 			<ion-item v-if="showRaw" button :detail="false" v-bind="pressFor(rawSuggestion)" @click="tapRaw">
@@ -80,21 +81,35 @@
 						{{ group.title }}
 					</button>
 					<h3 v-else class="section-title">{{ group.title }}</h3>
-					<div v-if="!group.collapsible || frequentOpen" class="tile-grid">
-						<button
-							v-for="s in group.entries"
-							:key="s.identity"
-							type="button"
-							class="pick ion-activatable"
-							:class="[nameFit(s.name), { on: onList.has(s.identity) }]"
-							v-bind="pressFor(s)"
-							@click="tap(s)">
-							<ion-ripple-effect />
-							<span v-if="onList.get(s.identity)?.quantity" class="badge">{{ onList.get(s.identity)?.quantity }}</span>
-							<ItemIcon :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" large />
-							<span class="name">{{ s.name }}</span>
-						</button>
-					</div>
+					<template v-if="!group.collapsible || frequentOpen">
+						<!-- rows in list view, tiles in grid view (like the list itself) -->
+						<ion-list v-if="viewMode === 'list'" lines="full" class="group-list">
+							<ion-item v-for="s in group.entries" :key="s.identity" button :detail="false" v-bind="pressFor(s)" @click="tap(s)">
+								<ItemIcon slot="start" :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" />
+								<ion-label>
+									<h2>{{ s.name }}</h2>
+									<p>{{ categoryLabel(s.category, custom, lang).name }}</p>
+								</ion-label>
+								<ion-note v-if="onList.get(s.identity)?.quantity" slot="end" class="row-qty">{{ onList.get(s.identity)?.quantity }}</ion-note>
+								<ion-icon v-if="onList.has(s.identity)" slot="end" :icon="checkmarkCircle" color="success" />
+							</ion-item>
+						</ion-list>
+						<div v-else class="tile-grid">
+							<button
+								v-for="s in group.entries"
+								:key="s.identity"
+								type="button"
+								class="pick ion-activatable"
+								:class="[nameFit(s.name), { on: onList.has(s.identity) }]"
+								v-bind="pressFor(s)"
+								@click="tap(s)">
+								<ion-ripple-effect />
+								<span v-if="onList.get(s.identity)?.quantity" class="badge">{{ onList.get(s.identity)?.quantity }}</span>
+								<ItemIcon :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" large />
+								<span class="name">{{ s.name }}</span>
+							</button>
+						</div>
+					</template>
 				</template>
 			</template>
 		</template>
@@ -117,7 +132,7 @@
 
 <script setup lang="ts">
 import {
-	IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonModal, IonRippleEffect,
+	IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonModal, IonNote, IonRippleEffect,
 	IonSearchbar, IonTitle, IonToolbar, toastController,
 } from '@ionic/vue'
 import { addCircle, checkmarkCircle, chevronDown, chevronForward } from 'ionicons/icons'
@@ -372,6 +387,22 @@ onMounted(() => setTimeout(focus, 350))
 	font-family: inherit;
 	text-align: start;
 	cursor: pointer;
+}
+.group-list {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+/* rows: long press sets the amount, so no text selection / callout */
+ion-list ion-item {
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+.row-qty {
+	margin-inline-end: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--app-buy-strong);
 }
 .hint {
 	margin: 12px 16px 0;
