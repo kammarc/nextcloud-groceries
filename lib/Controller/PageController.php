@@ -10,6 +10,7 @@ use OCA\Groceries\Service\CatalogService;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\NoSameSiteCookieRequired;
 use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\DataDisplayResponse;
@@ -88,7 +89,7 @@ class PageController extends Controller {
 <meta name="apple-mobile-web-app-title" content="Groceries">
 <meta name="format-detection" content="telephone=no">
 <meta name="robots" content="noindex, nofollow">
-<link rel="manifest" href="' . $e($this->urlGenerator->linkToRoute('groceries.page.manifest')) . '">
+<link rel="manifest" href="' . $e($this->urlGenerator->linkToRoute('groceries.page.manifest')) . '" crossorigin="use-credentials">
 <link rel="icon" href="' . $asset('img/app-color.svg') . '" type="image/svg+xml">
 <link rel="apple-touch-icon" href="' . $asset('img/apple-touch-icon.png') . '">
 <link rel="stylesheet" href="' . $asset('css/groceries-main.css') . '">
@@ -112,6 +113,9 @@ class PageController extends Controller {
 
 	#[PublicPage]
 	#[NoCSRFRequired]
+	// Browsers fetch the manifest without cookies. Without this, Nextcloud's SameSite cookie check
+	// answers with a redirect loop and the browser reports the app as "not installable".
+	#[NoSameSiteCookieRequired]
 	public function manifest(): JSONResponse {
 		$scope = $this->urlGenerator->linkToRoute('groceries.page.index');
 		$img = fn (string $f) => $this->urlGenerator->linkTo(Application::APP_ID, 'img/' . $f);
@@ -143,6 +147,7 @@ class PageController extends Controller {
 
 	#[PublicPage]
 	#[NoCSRFRequired]
+	#[NoSameSiteCookieRequired]
 	public function serviceWorker(): Response {
 		$version = $this->appManager->getAppVersion(Application::APP_ID);
 		$appPath = $this->appManager->getAppPath(Application::APP_ID);

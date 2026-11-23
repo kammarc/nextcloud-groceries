@@ -45,7 +45,7 @@
 			<div v-else-if="open.length === 0" class="empty">
 				<div class="big">{{ checked.length ? '🎉' : (list?.icon || '🛒') }}</div>
 				<h2>{{ checked.length ? t('All done – enjoy!') : t('Nothing left to buy') }}</h2>
-				<p v-if="!checked.length && !readonly">{{ t('Your list is empty. Tap + to add items.') }}</p>
+				<p v-if="!checked.length && !readonly">{{ t('Your list is empty. Add items with the field below.') }}</p>
 			</div>
 
 			<!-- ungrouped: one big list in aisle order -->
@@ -147,14 +147,18 @@
 			</section>
 
 			<!-- while the add sheet is open, extra room lets even the last item scroll up into the visible strip -->
-			<div class="fab-spacer" :class="{ 'sheet-open': sheetOpen }" />
-
-			<ion-fab v-if="!readonly" slot="fixed" vertical="bottom" horizontal="end">
-				<ion-fab-button :aria-label="t('Add item')" @click="adding = true">
-					<ion-icon :icon="add" />
-				</ion-fab-button>
-			</ion-fab>
+			<div class="bottom-spacer" :class="{ 'sheet-open': sheetOpen }" />
 		</ion-content>
+
+		<!-- looks like a search field; opens the add sheet, which has the real one -->
+		<ion-footer v-if="!readonly" class="add-bar">
+			<ion-toolbar>
+				<button type="button" class="add-field" @click="adding = true">
+					<ion-icon :icon="add" aria-hidden="true" />
+					<span>{{ t('Search or add an item') }}</span>
+				</button>
+			</ion-toolbar>
+		</ion-footer>
 
 		<!-- sheet over 6/7 of the screen with a drag handle; the list stays visible (no dimming) above it -->
 		<ion-modal
@@ -193,7 +197,7 @@
 
 <script setup lang="ts">
 import {
-	actionSheetController, alertController, IonBackButton, IonButton, IonButtons, IonContent, IonFab, IonFabButton,
+	actionSheetController, alertController, IonBackButton, IonButton, IonButtons, IonContent, IonFooter,
 	IonHeader, IonIcon, IonList, IonModal, IonPage, IonRefresher, IonRefresherContent, IonSpinner, IonTitle,
 	IonToolbar, onIonViewDidEnter, onIonViewWillLeave, toastController,
 } from '@ionic/vue'
@@ -472,11 +476,43 @@ ion-list.cards.first {
 .empty p {
 	color: var(--app-muted);
 }
-.fab-spacer {
-	height: calc(96px + var(--ion-safe-area-bottom, 0px));
+.bottom-spacer {
+	height: 24px;
 }
-.fab-spacer.sheet-open {
+.bottom-spacer.sheet-open {
 	height: 100vh;
+}
+.add-bar ion-toolbar {
+	--padding-start: 12px;
+	--padding-end: 12px;
+	--padding-top: 6px;
+	--padding-bottom: 6px;
+}
+.add-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	height: 44px;
+	padding: 0 14px;
+	border: none;
+	border-radius: 12px;
+	background: var(--app-overlay);
+	color: var(--app-muted);
+	font: inherit;
+	font-size: 16px;
+	text-align: start;
+	cursor: text;
+}
+.add-field ion-icon {
+	flex: none;
+	font-size: 22px;
+	color: var(--app-accent);
+}
+.add-field span {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 /* the toolbar slides up out of view while the add sheet is open (more room for the list) */
 .list-header {

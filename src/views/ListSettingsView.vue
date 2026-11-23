@@ -94,7 +94,6 @@
 					<ion-label color="danger">{{ t('Leave list') }}</ion-label>
 				</ion-item>
 			</ion-list>
-			<p class="version">Groceries {{ config.version }}</p>
 		</ion-content>
 	</ion-page>
 </template>
@@ -111,7 +110,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { api } from '../api/client'
 import IconButton from '../components/IconButton.vue'
 import { LIST_COLORS } from '../lib/listColors'
-import { config } from '../config'
 import { t } from '../i18n'
 import { useData } from '../stores/data'
 import type { ListSummary, Member } from '../types'
@@ -267,11 +265,5 @@ async function leave() {
 }
 .muted {
 	color: var(--ion-color-medium);
-}
-.version {
-	text-align: center;
-	color: var(--ion-color-medium);
-	font-size: 12px;
-	padding-bottom: 24px;
 }
 </style>

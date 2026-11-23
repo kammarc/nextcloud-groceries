@@ -23,14 +23,8 @@
 
 	<!-- same for the content (Ionic would still drag the sheet when the content is scrolled to the top) -->
 	<ion-content @touchstart.stop @mousedown.stop @pointerdown.stop @pointerdown.capture="focusedAtPress = searchFocused">
-		<ion-list v-if="query.trim()" lines="full">
-			<ion-item v-if="showRaw" button :detail="false" v-bind="pressFor(rawSuggestion)" @click="tapRaw">
-				<ion-icon slot="start" :icon="addCircle" color="primary" class="raw-icon" />
-				<ion-label class="ion-text-wrap">
-					<h2>{{ t('Add "{name}"', { name: parsed.name }) }}</h2>
-					<p v-if="parsed.quantity || parsed.note">{{ [parsed.quantity, parsed.note].filter(Boolean).join(' · ') }}</p>
-				</ion-label>
-			</ion-item>
+		<!-- search results: list or tiles like the list itself; adding the typed text comes last -->
+		<ion-list v-if="query.trim() && viewMode === 'list'" lines="full">
 			<ion-item v-for="s in suggestions" :key="s.identity" button :detail="false" v-bind="pressFor(s)" @click="tap(s)">
 				<ItemIcon slot="start" :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" />
 				<ion-label>
@@ -39,7 +33,43 @@
 				</ion-label>
 				<ion-icon v-if="onList.has(s.identity)" slot="end" :icon="checkmarkCircle" color="success" />
 			</ion-item>
+			<ion-item v-if="showRaw" button :detail="false" v-bind="pressFor(rawSuggestion)" @click="tapRaw">
+				<ion-icon slot="start" :icon="addCircle" color="primary" class="raw-icon" />
+				<ion-label class="ion-text-wrap">
+					<h2>{{ t('Add "{name}"', { name: parsed.name }) }}</h2>
+					<p v-if="parsed.quantity || parsed.note">{{ [parsed.quantity, parsed.note].filter(Boolean).join(' · ') }}</p>
+				</ion-label>
+			</ion-item>
 		</ion-list>
+
+		<div v-else-if="query.trim()" class="tile-grid results">
+			<button
+				v-for="s in suggestions"
+				:key="s.identity"
+				type="button"
+				class="pick ion-activatable"
+				:class="[nameFit(s.name), { on: onList.has(s.identity) }]"
+				v-bind="pressFor(s)"
+				@click="tap(s)">
+				<ion-ripple-effect />
+				<span v-if="onList.get(s.identity)?.quantity" class="badge">{{ onList.get(s.identity)?.quantity }}</span>
+				<ItemIcon :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" large />
+				<span class="name">{{ s.name }}</span>
+			</button>
+			<button
+				v-if="showRaw"
+				type="button"
+				class="pick raw ion-activatable"
+				:class="nameFit(parsed.name)"
+				:aria-label="rawLabel"
+				v-bind="pressFor(rawSuggestion)"
+				@click="tapRaw">
+				<ion-ripple-effect />
+				<span v-if="parsed.quantity" class="badge">{{ parsed.quantity }}</span>
+				<ion-icon :icon="addCircle" class="raw-tile-icon" />
+				<span class="name">{{ parsed.name }}</span>
+			</button>
+		</div>
 
 		<template v-else>
 			<p class="hint">{{ t('Long press an item to set the amount') }}</p>
@@ -132,6 +162,9 @@ const template = computed(() => data.list(props.listId)?.template ?? 'grocery')
 const items = computed(() => data.items(props.listId))
 const onList = computed(() => new Map(items.value.filter((i) => !i.checked).map((i) => [i.normName, i])))
 const parsed = computed(() => parseLine(query.value))
+/** search results look like the list: rows in list view, tiles in grid view */
+const viewMode = computed(() => state.value.meta?.prefs.viewMode ?? 'list')
+const rawLabel = computed(() => t('Add "{name}"', { name: parsed.value.name }))
 
 const fromHistory = (h: HistoryEntry): Suggestion => ({
 	identity: h.normName, name: h.name, catalogKey: h.catalogKey, category: h.category, icon: h.icon,
@@ -388,6 +421,19 @@ onMounted(() => setTimeout(focus, 350))
 }
 .pick.on {
 	background: var(--app-buy);
+}
+.tile-grid.results {
+	padding-top: 12px;
+}
+/* "add what I typed": outlined instead of filled */
+.pick.raw {
+	background: transparent;
+	color: var(--ion-text-color);
+	box-shadow: inset 0 0 0 2px var(--ion-color-primary);
+}
+.raw-tile-icon {
+	font-size: 52px;
+	color: var(--ion-color-primary);
 }
 .pick .name {
 	max-width: 100%;

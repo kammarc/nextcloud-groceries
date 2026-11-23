@@ -77,7 +77,16 @@
 					<ion-icon slot="start" :icon="helpCircleOutline" />
 					<ion-label>{{ t('Quick guide') }}</ion-label>
 				</ion-item>
+				<ion-item button :detail="true" @click="installGuideOpen = true">
+					<ion-icon slot="start" :icon="phonePortraitOutline" />
+					<ion-label>{{ t('Install as app') }}</ion-label>
+				</ion-item>
+				<ion-item button :detail="true" :href="issuesUrl" target="_blank" rel="noopener">
+					<ion-icon slot="start" :icon="bugOutline" />
+					<ion-label>{{ t('Report a bug') }}</ion-label>
+				</ion-item>
 			</ion-list>
+			<InstallGuide :is-open="installGuideOpen" @close="installGuideOpen = false" />
 			<!-- on a computer: QR code to bring the app to the phone -->
 			<PhoneQrCard v-if="desktop" />
 
@@ -106,10 +115,13 @@ import {
 	alertController, IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList,
 	IonListHeader, IonPage, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToggle, IonToolbar, toastController,
 } from '@ionic/vue'
-import { cloudUploadOutline, downloadOutline, helpCircleOutline, logOutOutline, personCircleOutline } from 'ionicons/icons'
+import {
+	bugOutline, cloudUploadOutline, downloadOutline, helpCircleOutline, logOutOutline, personCircleOutline, phonePortraitOutline,
+} from 'ionicons/icons'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { logoutDevice } from '../auth/logout'
+import InstallGuide from '../components/InstallGuide.vue'
 import PhoneQrCard from '../components/PhoneQrCard.vue'
 import { config } from '../config'
 import { getLanguagePreference, setLanguagePreference, t, type LanguagePreference } from '../i18n'
@@ -136,6 +148,8 @@ const ios = isIos()
 const busy = ref(false)
 const language = ref<LanguagePreference>(getLanguagePreference())
 const serverHost = window.location.host
+const installGuideOpen = ref(false)
+const issuesUrl = 'https://github.com/kammarc/nextcloud-groceries/issues'
 
 function changeLanguage(value: LanguagePreference) {
 	if (value === language.value) return
