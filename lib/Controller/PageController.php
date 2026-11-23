@@ -31,6 +31,14 @@ class PageController extends Controller {
 	/** Languages of the app (see src/lib/languages.ts). */
 	private const LANGUAGES = ['en', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'cs', 'sv', 'da', 'nb', 'fi', 'hu', 'ro', 'tr', 'ru', 'uk', 'el', 'ja'];
 
+	/** System bar colour per colour scheme and mode. Keep in sync with BAR in src/lib/theme.ts. */
+	private const BAR = [
+		'green' => ['dark' => '#153b33', 'light' => '#eef5f1'],
+		'blue' => ['dark' => '#13283f', 'light' => '#eef3f9'],
+		'red' => ['dark' => '#3a1520', 'light' => '#f8eff1'],
+		'purple' => ['dark' => '#271a3a', 'light' => '#f3f0f8'],
+	];
+
 	public function __construct(
 		IRequest $request,
 		private IURLGenerator $urlGenerator,
@@ -76,18 +84,21 @@ class PageController extends Controller {
 		$asset = fn (string $path): string => $e($this->assetUrl($path));
 		$nonce = $this->getNonce();
 		$nonceAttr = $nonce !== '' ? ' nonce="' . $e($nonce) . '"' : '';
+		// the device's colour scheme (cookie set by the app): home-screen apps take the system bar
+		// colours from the page as it is at launch, so they have to be right in the HTML already
+		[$theme, $mode] = $this->deviceTheme();
 
 		$html = '<!DOCTYPE html>
-<html lang="' . $e($lang) . '">
+<html lang="' . $e($lang) . '" data-theme="' . $theme . '" data-mode="' . $mode . '">
 <head>
 <meta charset="utf-8">
 <title>Groceries</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#13283f">
+<meta name="color-scheme" content="' . $mode . '">
+<meta name="theme-color" content="' . self::BAR[$theme][$mode] . '">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="' . ($mode === 'light' ? 'default' : 'black-translucent') . '">
 <meta name="apple-mobile-web-app-title" content="Groceries">
 <meta name="format-detection" content="telephone=no">
 <meta name="robots" content="noindex, nofollow">
@@ -127,6 +138,8 @@ class PageController extends Controller {
 		$img = fn (string $f) => $this->urlGenerator->linkTo(Application::APP_ID, 'img/' . $f);
 		$lang = $this->appLanguage();
 		$l = $this->l10nFactory->get(Application::APP_ID);
+		[$theme, $mode] = $this->deviceTheme();
+		$color = self::BAR[$theme][$mode];
 		$response = new JSONResponse([
 			'id' => $scope,
 			'name' => 'Groceries',
@@ -137,8 +150,8 @@ class PageController extends Controller {
 			'scope' => $scope,
 			'display' => 'standalone',
 			'orientation' => 'portrait',
-			'background_color' => '#13283f',
-			'theme_color' => '#13283f',
+			'background_color' => $color,
+			'theme_color' => $color,
 			'categories' => ['food', 'lifestyle', 'productivity'],
 			'icons' => [
 				['src' => $img('app-192.png'), 'sizes' => '192x192', 'type' => 'image/png', 'purpose' => 'any'],
@@ -148,6 +161,7 @@ class PageController extends Controller {
 			],
 		]);
 		$response->addHeader('Content-Type', 'application/manifest+json; charset=utf-8');
+		$response->addHeader('Vary', 'Cookie');
 		$response->cacheFor(3600);
 		return $response;
 	}
@@ -193,6 +207,19 @@ class PageController extends Controller {
 			return 'nb';
 		}
 		return in_array($base, self::LANGUAGES, true) ? $base : 'en';
+	}
+
+	/**
+	 * Colour scheme and mode chosen on this device ("purple-light"), from the cookie that
+	 * src/lib/theme.ts writes. Defaults to dark blue.
+	 *
+	 * @return array{0: string, 1: string}
+	 */
+	private function deviceTheme(): array {
+		$parts = explode('-', (string)$this->request->getCookie('groceries_theme'));
+		$theme = isset(self::BAR[$parts[0]]) ? $parts[0] : 'blue';
+		$mode = ($parts[1] ?? '') === 'light' ? 'light' : 'dark';
+		return [$theme, $mode];
 	}
 
 	/**

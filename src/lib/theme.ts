@@ -5,7 +5,10 @@ export const THEMES = ['blue', 'red', 'green', 'purple'] as const
 export type ThemeName = typeof THEMES[number]
 export type ThemeMode = 'dark' | 'light'
 
-/** Page colour per scheme/mode, for the browser/status bar (meta theme-color). */
+/**
+ * Page colour per scheme/mode, for the browser/status bar (meta theme-color).
+ * Keep in sync with PageController::BAR.
+ */
 const BAR: Record<ThemeName, Record<ThemeMode, string>> = {
 	green: { dark: '#153b33', light: '#eef5f1' },
 	blue: { dark: '#13283f', light: '#eef3f9' },
@@ -14,6 +17,8 @@ const BAR: Record<ThemeName, Record<ThemeMode, string>> = {
 }
 
 const KEY = 'groceries:theme'
+/** Read by PageController (index, manifest). */
+const COOKIE = 'groceries_theme'
 
 function read(): { theme: ThemeName, mode: ThemeMode } {
 	try {
@@ -45,6 +50,22 @@ export function applyTheme() {
 	meta.content = BAR[theme.value][mode.value]
 	document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]')
 		?.setAttribute('content', mode.value === 'light' ? 'default' : 'black-translucent')
+	document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', mode.value)
+	writeCookie()
+}
+
+/**
+ * Mirrors the choice into a cookie, so the server renders the page (meta theme-color, iOS
+ * status bar style) and the manifest in the chosen colours. Home-screen apps take the system
+ * bar colours from those at launch and ignore later changes made by script.
+ */
+function writeCookie() {
+	try {
+		document.cookie = `${COOKIE}=${theme.value}-${mode.value}; path=/; max-age=315360000; SameSite=Lax`
+			+ (location.protocol === 'https:' ? '; Secure' : '')
+	} catch {
+		// cookies blocked: the page still switches, only the system bars keep the default colour
+	}
 }
 
 export function setTheme(next: { theme?: ThemeName, mode?: ThemeMode }) {
