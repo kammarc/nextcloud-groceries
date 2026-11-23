@@ -15,15 +15,19 @@
 - Works offline in the store and syncs when back online
 - API for other apps (e.g. Cookbook) to add recipe ingredients
 ]]></description>
-	<version>0.2.1</version>
+	<version>0.2.2</version>
 	<licence>MIT</licence>
-	<author>Groceries contributors</author>
+	<author>Marc Kammermann</author>
 	<namespace>Groceries</namespace>
 	<category>organization</category>
 	<category>tools</category>
 	<website>https://github.com/kammarc/nextcloud-groceries</website>
 	<bugs>https://github.com/kammarc/nextcloud-groceries/issues</bugs>
 	<repository type="git">https://github.com/kammarc/nextcloud-groceries.git</repository>
+	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/all-lists.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/groceries1.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/groceries2.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/kammarc/nextcloud-groceries/main/docs/screenshots/aisle-order.png</screenshot>
 	<dependencies>
 		<php min-version="8.1"/>
 		<nextcloud min-version="30" max-version="33"/>
