@@ -1,9 +1,17 @@
 import { ref } from 'vue'
 
-/** Colour schemes (see theme.css) and light/dark mode, chosen per device in the app settings. */
+/**
+ * Background scheme, colour of the "to buy" entries and light/dark mode (see theme.css), chosen
+ * independently per device in the app settings.
+ */
 export const THEMES = ['blue', 'red', 'green', 'purple'] as const
 export type ThemeName = typeof THEMES[number]
 export type ThemeMode = 'dark' | 'light'
+export const ENTRY_COLORS = ['coral', 'amber', 'orange', 'pink'] as const
+export type EntryColor = typeof ENTRY_COLORS[number]
+
+/** The entry colour each scheme came with; the default until one is chosen. */
+const SCHEME_ENTRIES: Record<ThemeName, EntryColor> = { blue: 'coral', red: 'amber', green: 'orange', purple: 'pink' }
 
 /**
  * Page colour per scheme/mode, for the browser/status bar (meta theme-color).
@@ -20,27 +28,31 @@ const KEY = 'groceries:theme'
 /** Read by PageController (index, manifest). */
 const COOKIE = 'groceries_theme'
 
-function read(): { theme: ThemeName, mode: ThemeMode } {
+function read(): { theme: ThemeName, mode: ThemeMode, entries: EntryColor } {
 	try {
 		const v = JSON.parse(localStorage.getItem(KEY) ?? '{}')
+		const scheme: ThemeName = THEMES.includes(v.theme) ? v.theme : 'blue'
 		return {
-			theme: THEMES.includes(v.theme) ? v.theme : 'blue',
+			theme: scheme,
 			mode: v.mode === 'light' ? 'light' : 'dark',
+			entries: ENTRY_COLORS.includes(v.entries) ? v.entries : SCHEME_ENTRIES[scheme],
 		}
 	} catch {
-		return { theme: 'blue', mode: 'dark' }
+		return { theme: 'blue', mode: 'dark', entries: 'coral' }
 	}
 }
 
 const initial = read()
 export const theme = ref<ThemeName>(initial.theme)
 export const mode = ref<ThemeMode>(initial.mode)
+export const entries = ref<EntryColor>(initial.entries)
 
 /** Applies the current scheme to <html> (CSS variables in theme.css) and the system bars. */
 export function applyTheme() {
 	const html = document.documentElement
 	html.dataset.theme = theme.value
 	html.dataset.mode = mode.value
+	html.dataset.entries = entries.value
 	let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
 	if (!meta) {
 		meta = document.createElement('meta')
@@ -68,11 +80,12 @@ function writeCookie() {
 	}
 }
 
-export function setTheme(next: { theme?: ThemeName, mode?: ThemeMode }) {
+export function setTheme(next: { theme?: ThemeName, mode?: ThemeMode, entries?: EntryColor }) {
 	if (next.theme) theme.value = next.theme
 	if (next.mode) mode.value = next.mode
+	if (next.entries) entries.value = next.entries
 	try {
-		localStorage.setItem(KEY, JSON.stringify({ theme: theme.value, mode: mode.value }))
+		localStorage.setItem(KEY, JSON.stringify({ theme: theme.value, mode: mode.value, entries: entries.value }))
 	} catch {
 		// private mode: applies for this session only
 	}

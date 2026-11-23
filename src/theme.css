@@ -1,6 +1,8 @@
 /*
- * Groceries themes. <html data-theme="blue|red|green|purple" data-mode="dark|light">
- * (set in src/lib/theme.ts). Each scheme defines a small palette; everything else derives from it.
+ * Groceries themes. <html data-theme="blue|red|green|purple" data-mode="dark|light"
+ * data-entries="coral|amber|orange|pink"> (set in src/lib/theme.ts). Each scheme defines a small
+ * palette; everything else derives from it. The entry colour (--app-buy) can be combined freely
+ * with any scheme; without data-entries the scheme's own one applies.
  *
  *   --app-bg / --app-surface / --app-surface-2   page, cards, raised controls
  *   --app-sheet                                    add-items sheet (slightly darker than the page)
@@ -141,6 +143,24 @@
 	--app-accent: #5b3fa0;
 	--app-accent-rgb: 91, 63, 160;
 	--app-accent-contrast: #ffffff;
+}
+
+/* ---------- entry colour ("to buy" tiles), chosen independently of the scheme ---------- */
+:root[data-entries='coral'] {
+	--app-buy: #ef7350;
+	--app-buy-strong: #d65f3e;
+}
+:root[data-entries='amber'] {
+	--app-buy: #e39a35;
+	--app-buy-strong: #c8842a;
+}
+:root[data-entries='orange'] {
+	--app-buy: #e8833a;
+	--app-buy-strong: #c96a24;
+}
+:root[data-entries='pink'] {
+	--app-buy: #e65a73;
+	--app-buy-strong: #cc4860;
 }
 
 /* ---------- Ionic variables, derived from the palette ---------- */

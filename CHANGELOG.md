@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Settings: background and the colour of the entries (items to buy) are chosen separately and
+  can be combined freely
 - List settings → "Hand-drawn icons": item icons are drawn as one-colour pen sketches in the
   text colour instead of colour emoji, also in the emoji picker for items (per person and list, off
   by default)

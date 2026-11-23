@@ -28,20 +28,35 @@
 					<ion-toggle :checked="mode === 'light'" @ionChange="setTheme({ mode: $event.detail.checked ? 'light' : 'dark' })">{{ t('Light design') }}</ion-toggle>
 				</ion-item>
 				<div class="theme-row">
-					<span class="theme-label">{{ t('Colour scheme') }}</span>
-					<div class="swatches">
+					<span class="theme-label">{{ t('Background') }}</span>
+					<div class="swatches" role="radiogroup" :aria-label="t('Background')">
 						<button
 							v-for="s in schemes"
 							:key="s.key"
 							type="button"
+							role="radio"
 							class="swatch"
 							:class="{ on: theme === s.key }"
-							:style="{ background: s.bg }"
+							:style="{ background: mode === 'light' ? s.light : s.dark }"
 							:aria-label="s.label"
-							:aria-pressed="theme === s.key"
-							@click="setTheme({ theme: s.key })">
-							<span class="dot" :style="{ background: s.buy }" />
-						</button>
+							:aria-checked="theme === s.key"
+							@click="setTheme({ theme: s.key })" />
+					</div>
+				</div>
+				<div class="theme-row">
+					<span class="theme-label">{{ t('Entries') }}</span>
+					<div class="swatches" role="radiogroup" :aria-label="t('Entries')">
+						<button
+							v-for="c in entryColors"
+							:key="c.key"
+							type="button"
+							role="radio"
+							class="swatch"
+							:class="{ on: entries === c.key }"
+							:style="{ background: c.color }"
+							:aria-label="c.label"
+							:aria-checked="entries === c.key"
+							@click="setTheme({ entries: c.key })" />
 					</div>
 				</div>
 				<ion-item>
@@ -131,14 +146,21 @@ import { LANGUAGES } from '../lib/languages'
 import { isDesktopBrowser, isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
 import { openWelcome } from '../lib/welcome'
 import { useData } from '../stores/data'
-import { mode, setTheme, theme, type ThemeName } from '../lib/theme'
+import { entries, mode, setTheme, theme, type EntryColor, type ThemeName } from '../lib/theme'
 
-/** Swatch = page colour of the scheme with a dot in its "to buy" colour. */
-const schemes: Array<{ key: ThemeName, label: string, bg: string, buy: string }> = [
-	{ key: 'blue', label: t('Blue'), bg: '#13283f', buy: '#ef7350' },
-	{ key: 'red', label: t('Red'), bg: '#3a1520', buy: '#e39a35' },
-	{ key: 'green', label: t('Green'), bg: '#153b33', buy: '#e8833a' },
-	{ key: 'purple', label: t('Purple'), bg: '#271a3a', buy: '#e65a73' },
+/** Background swatch = page colour of the scheme in the current light/dark mode. */
+const schemes: Array<{ key: ThemeName, label: string, dark: string, light: string }> = [
+	{ key: 'blue', label: t('Blue'), dark: '#13283f', light: '#eef3f9' },
+	{ key: 'red', label: t('Red'), dark: '#3a1520', light: '#f8eff1' },
+	{ key: 'green', label: t('Green'), dark: '#153b33', light: '#eef5f1' },
+	{ key: 'purple', label: t('Purple'), dark: '#271a3a', light: '#f3f0f8' },
+]
+/** Colour of the tiles of items still to buy (theme.css, data-entries). */
+const entryColors: Array<{ key: EntryColor, label: string, color: string }> = [
+	{ key: 'coral', label: t('Coral'), color: '#ef7350' },
+	{ key: 'amber', label: t('Amber'), color: '#e39a35' },
+	{ key: 'orange', label: t('Orange'), color: '#e8833a' },
+	{ key: 'pink', label: t('Pink'), color: '#e65a73' },
 ]
 
 const data = useData()
@@ -271,18 +293,10 @@ async function logout() {
 	height: 38px;
 	border: 3px solid transparent;
 	border-radius: 50%;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	box-shadow: inset 0 0 0 1px rgba(var(--app-text-rgb), 0.25);
 }
 .swatch.on {
 	border-color: var(--app-accent);
-}
-.dot {
-	position: absolute;
-	right: 2px;
-	bottom: 2px;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
 }
 .hidden {
 	display: none;
