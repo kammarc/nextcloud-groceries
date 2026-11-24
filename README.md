@@ -1,7 +1,7 @@
 # Groceries for Nextcloud
 
-Shared shopping lists for the whole family. Groceries is a [Nextcloud](https://nextcloud.com) app
-that you install on iPhone and Android like a native app. A short guide in the app shows how.
+Shared shopping lists for the whole family. Groceries is a [Nextcloud app](https://apps.nextcloud.com/apps/groceries)
+that you can install on iPhone and Android like a native app.
 
 <p>
   <img src="docs/screenshots/all_lists.png" alt="Overview of all lists" width="24%">
@@ -11,23 +11,15 @@ that you install on iPhone and Android like a native app. A short guide in the a
 </p>
 
 ## Features
-
-- Stay logged in: one app password per phone, no repeated logins
-- Live updates within seconds for everyone on the list
-- Items sorted by store department, with a saved order per store
-- "In the cart" section while shopping, cleared automatically
-- Several lists, shared with users or groups as editor or viewer
-- List types for groceries, pharmacy and hardware store
-- List or tile view
-- Catalog of about 600 items with icons, synonyms and brand names
-- Suggestions from your own shopping history
-- Works offline in the store and syncs later
-- Statistics and a year-in-review story
-- Backup and restore of all lists, history and statistics as one file
-- Light and dark mode in four colours
-- 20 languages: English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech,
-  Swedish, Danish, Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek, Japanese
-- API for other apps, e.g. to add recipe ingredients
+- Items grouped by category and sorted by the aisle order of the store you are in
+- Multiple lists (groceries, pharmacy, hardware store …) shared with users or groups
+- List or icon grid view, history of previously bought items, 600+ built-in items with synonyms and brand names
+- Available in 20 languages
+- Live updates when family members add or tick items
+- Install to the home screen on your phone, log in once, stay logged in (per-device app password)
+- Statistics per list and a yearly review
+- Works offline in the store and syncs when back online
+- API for other apps (e.g. Cookbook) to add recipe ingredients
 
 ## Requirements
 
@@ -35,23 +27,12 @@ that you install on iPhone and Android like a native app. A short guide in the a
 - HTTPS
 - Nextcloud background jobs (cron), to clear the cart automatically
 
-Groceries will be available in the Nextcloud app store soon.
-
-## Security
-
-- Each device gets its own Nextcloud app password, revocable under
-  *Settings → Security → Devices & sessions*. Logging out in the app revokes it.
-- The password is stored encrypted on the device. Logging out deletes it and all cached lists.
-- Every request checks your access to the list. Sharing follows your Nextcloud's sharing settings.
-- Strict Content Security Policy, no third-party resources, no tracking.
-- Rate and size limits against abuse.
-
-Please report vulnerabilities privately, see [SECURITY.md](SECURITY.md).
-
 ## Contributing
 
 Bug reports, catalog additions, translations and pull requests are welcome. See
 [CONTRIBUTING.md](CONTRIBUTING.md) and the [development guide](docs/development.md).
+
+Please report vulnerabilities privately, see [SECURITY.md](SECURITY.md).
 
 ## Built with AI assistance
 
