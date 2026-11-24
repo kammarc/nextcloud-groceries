@@ -13,7 +13,7 @@ import { whenVisible } from '../lib/sketch'
 import { cachedEmoji, sketchEmoji } from '../lib/sketchRender'
 
 /**
- * An emoji as a "hand-drawn icons" pen sketch (callers show the plain emoji when the list setting
+ * An emoji as a "hand-drawn icons" pen sketch (callers show the plain emoji when the app setting
  * is off). `lazy`: draw only once it scrolls into view, for long grids like the emoji picker.
  */
 const props = defineProps<{ emoji: string, size: number, lazy?: boolean }>()

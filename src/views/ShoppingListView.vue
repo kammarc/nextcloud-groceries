@@ -173,25 +173,8 @@
 			<AddItemPanel v-if="adding" :list-id="listId" @close="adding = false" @added="onAdded" />
 		</ion-modal>
 
-		<!-- edit sheet (long press / swipe): same sheet behaviour as adding -->
-		<ion-modal
-			:is-open="editing !== null"
-			:initial-breakpoint="SHEET"
-			:breakpoints="[0, SHEET]"
-			:backdrop-breakpoint="SHEET"
-			:expand-to-scroll="false"
-			:handle="true"
-			class="add-sheet"
-			@didDismiss="editing = null">
-			<EditItemPanel
-				v-if="editing"
-				:item="editing"
-				:template="list?.template ?? 'grocery'"
-				:custom="meta?.categories ?? []"
-				@close="editing = null"
-				@save="saveEdit"
-				@delete="deleteEditing" />
-		</ion-modal>
+		<!-- long press / swipe: the same sheet as a long press in the add sheet (AddItemPanel) -->
+		<ItemSheetModal :entry="editingEntry" @submit="saveEdit" @delete="deleteEditing" @close="editing = null" />
 	</ion-page>
 </template>
 
@@ -209,7 +192,9 @@ import { computed, nextTick, onBeforeUnmount, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import AddItemPanel from '../components/AddItemPanel.vue'
 import AppIcon from '../components/AppIcon.vue'
-import EditItemPanel from '../components/EditItemPanel.vue'
+import type { ItemSheetValue } from '../components/ItemSheet.vue'
+import ItemSheetModal from '../components/ItemSheetModal.vue'
+import { itemChanges, type ItemSheetEntry } from '../lib/itemSheet'
 import ItemRow from '../components/ItemRow.vue'
 import ItemTile from '../components/ItemTile.vue'
 import SyncStatus from '../components/SyncStatus.vue'
@@ -218,10 +203,9 @@ import { lang, t } from '../i18n'
 import { buildSections } from '../lib/sorting'
 import { setLastList } from '../lib/lastList'
 import { acquireWakeLock, haptic, isIos, releaseWakeLock } from '../lib/platform'
-import { provideSketchIcons } from '../lib/sketch'
 import { useData } from '../stores/data'
 import { usePolling } from '../sync/polling'
-import type { Item, ItemData } from '../types'
+import type { Item } from '../types'
 
 const route = useRoute()
 const router = useRouter()
@@ -230,7 +214,6 @@ const ios = isIos()
 
 // Ionic keeps this page alive underneath pushed pages, so pin the id instead of following the route
 const listId = Number(route.params.id)
-provideSketchIcons(listId)
 const state = computed(() => data.state(listId))
 const meta = computed(() => state.value.meta)
 const list = computed(() => data.list(listId))
@@ -285,6 +268,17 @@ async function scrollToItem(identity: string, flash: boolean) {
 const cartOpen = ref(false)
 const adding = ref(false)
 const editing = ref<Item | null>(null)
+const editingEntry = computed<ItemSheetEntry | null>(() => editing.value && {
+	name: editing.value.name,
+	icon: editing.value.icon,
+	catalogKey: editing.value.catalogKey,
+	category: editing.value.category,
+	quantity: editing.value.quantity,
+	existing: true,
+	inList: true,
+	template: list.value?.template ?? 'grocery',
+	custom: meta.value?.categories ?? [],
+})
 /** add or edit sheet open: the toolbar slides out and the list gets room to scroll */
 const sheetOpen = computed(() => adding.value || editing.value !== null)
 // the edited item moves into view above the edit sheet
@@ -367,9 +361,12 @@ async function remove(item: Item) {
 	await toast.present()
 }
 
-function saveEdit(d: ItemData) {
-	if (editing.value && Object.keys(d).length) data.updateItem(listId, editing.value.id, d)
+function saveEdit(v: ItemSheetValue) {
+	const item = editing.value
 	editing.value = null
+	if (!item) return
+	const changes = itemChanges(item, v)
+	if (Object.keys(changes).length) data.updateItem(listId, item.id, changes)
 }
 
 function deleteEditing() {

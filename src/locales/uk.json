@@ -24,7 +24,6 @@
 	"Frequently bought": "Часто купуєте",
 	"Suggestions": "Пропозиції",
 	"Quantity": "Кількість",
-	"Note": "Нотатка",
 	"Category": "Категорія",
 	"Edit item": "Редагувати товар",
 	"In the cart ({count})": "У кошику ({count})",
@@ -184,7 +183,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Створіть список кнопкою ＋ угорі, наприклад для покупок на тиждень, аптеки чи будівельного магазину.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "У списку торкніться поля внизу та почніть пошук. Кількість можна вказати одразу, наприклад «2 л молоко».",
 	"Shopping": "Покупки",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Торкніться товару, щойно він опиниться в кошику. Довге натискання відкриває кількість, нотатку та відділ.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Торкніться товару, щойно він опиниться у візку. Довге натискання змінює кількість, категорію та значок.",
 	"Together": "Разом",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Поділіться списком через ⋯ → Налаштування списку. Зміни бачать усі за кілька секунд.",
 	"Sorted like your store": "Як у вашому магазині",
@@ -226,5 +225,8 @@
 	"People": "Люди",
 	"Symbols": "Символи",
 	"Flags": "Прапори",
-	"Let's go": "Почнімо"
+	"Let's go": "Почнімо",
+	"Font of the entries": "Шрифт позицій",
+	"Design": "Оформлення",
+	"System default": "Системний"
 }

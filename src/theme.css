@@ -234,6 +234,47 @@
 	--ion-text-color-step-600: color-mix(in srgb, var(--app-text), var(--app-bg) 60%);
 }
 
+/*
+ * Font of the item names (tiles, rows, add sheet), chosen per device in the app settings:
+ * <html data-item-font="standard|patrick|quicksand">. The bundled fonts are only downloaded once
+ * something uses them; characters a font lacks fall back to the system font.
+ * --app-item-weight: the system font is shown bold; Quicksand has only a bold cut.
+ * --app-item-stroke: Patrick Hand has only a regular cut; a thin outline in the text colour makes
+ * it bolder, the same on every browser (a bold font-weight would be faked differently by each).
+ *  - Patrick Hand: SIL Open Font License (src/assets/fonts/PatrickHand-OFL.txt). Its letters are
+ *    small for their size, so it is scaled up (size-adjust) to match the other fonts.
+ *  - Quicksand: SIL Open Font License (src/assets/fonts/Quicksand-OFL.txt)
+ */
+@font-face {
+	font-family: 'Patrick Hand';
+	src: url('./assets/fonts/PatrickHand-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	size-adjust: 118%;
+}
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./assets/fonts/Quicksand-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+:root {
+	--app-item-font: inherit;
+	--app-item-weight: 700;
+	--app-item-stroke: 0;
+}
+:root[data-item-font='patrick'] {
+	--app-item-font: 'Patrick Hand', var(--ion-font-family, system-ui), sans-serif;
+	--app-item-weight: 400;
+	--app-item-stroke: 0.03em;
+}
+:root[data-item-font='quicksand'] {
+	--app-item-font: 'Quicksand', var(--ion-font-family, system-ui), sans-serif;
+	--app-item-weight: 700;
+}
+
 html,
 body {
 	background: var(--app-bg);
@@ -325,6 +366,10 @@ ion-list.list-inset {
 }
 ion-list-header {
 	--color: var(--app-muted);
+}
+/* settings pages: the card sits close under its section heading (Ionic's default gap is 16px) */
+ion-list-header + ion-list.list-inset {
+	margin-top: 6px;
 }
 
 /* section headings ("Fruit & vegetables", "In the cart") */

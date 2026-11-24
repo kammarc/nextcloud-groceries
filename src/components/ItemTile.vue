@@ -2,28 +2,26 @@
 	<button
 		type="button"
 		class="tile ion-activatable"
-		:class="[item.checked ? 'tone-done' : 'tone-buy', fit, { leaving, pending: item.pending }]"
+		:class="[item.checked ? 'tone-done' : 'tone-buy', { leaving, pending: item.pending }]"
 		:disabled="readonly"
 		v-bind="longPress.handlers"
 		@click="onClick">
 		<ion-ripple-effect />
 		<span v-if="item.quantity" class="badge">{{ item.quantity }}</span>
 		<ItemIcon :icon="item.icon" :catalog-key="item.catalogKey" :category="item.category" :name="item.name" large />
-		<span class="name">{{ item.name }}</span>
+		<span v-fit-text="item.name" class="name"><span class="name-text">{{ item.name }}</span></span>
 	</button>
 </template>
 
 <script setup lang="ts">
 import { IonRippleEffect } from '@ionic/vue'
-import { computed } from 'vue'
 import ItemIcon from './ItemIcon.vue'
-import { nameFit } from '../lib/fit'
+import { vFitText } from '../lib/fit'
 import { useLongPress } from '../lib/longpress'
 import type { Item } from '../types'
 
 const props = defineProps<{ item: Item, readonly?: boolean, leaving?: boolean }>()
 const emit = defineEmits<{ toggle: [], edit: [] }>()
-const fit = computed(() => nameFit(props.item.name))
 const longPress = useLongPress(() => { if (!props.readonly) emit('edit') })
 
 function onClick() {
@@ -34,6 +32,8 @@ function onClick() {
 
 <style scoped>
 .tile {
+	/* children size against the tile width (cqw), so every tile looks the same */
+	container-type: inline-size;
 	position: relative;
 	overflow: hidden;
 	display: flex;
@@ -42,7 +42,7 @@ function onClick() {
 	justify-content: center;
 	gap: 6px;
 	aspect-ratio: 1;
-	padding: 8px 4px;
+	padding: 6px 5px;
 	border: none;
 	border-radius: 10px;
 	background: var(--app-buy);
@@ -64,43 +64,43 @@ function onClick() {
 	transform: scale(0.6);
 	opacity: 0;
 }
-.tone-done .name {
-	text-decoration: line-through;
-	opacity: 0.75;
+/* the icon has one size for all tiles, whatever the name: long names shrink their text instead */
+.tile :deep(.item-icon.large) {
+	width: 46cqw;
+	height: 46cqw;
+	font-size: 35cqw;
 }
+.tile :deep(.item-icon.letter.large) {
+	font-size: 21cqw;
+}
+/* a fixed two-line box, so the labels of all tiles sit at the same height;
+   v-fit-text shrinks the font when a name needs more than two lines */
 .name {
-	font-size: 13px;
-	font-weight: 500;
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 2.4em;
+	font-size: 15px;
+	line-height: 1.2;
+	overflow: hidden;
+}
+.name-text {
+	display: block;
+	max-width: 100%;
+	font-family: var(--app-item-font);
+	font-weight: var(--app-item-weight);
+	-webkit-text-stroke: var(--app-item-stroke) currentColor;
 	line-height: 1.15;
 	text-align: center;
-	/* a plain block capped at 3 lines: -webkit-box/line-clamp with hyphenation reserved more
-	   height than the drawn lines on Android, which pushed icon and name off-centre */
-	display: block;
-	flex: 0 0 auto;
-	width: 100%;
-	max-height: 3.45em;
-	overflow: hidden;
 	overflow-wrap: break-word;
 	-webkit-hyphens: auto;
 	hyphens: auto;
 }
-/* long names: smaller text and icon so the whole name fits the tile */
-.long .name {
-	font-size: 12px;
-}
-.xlong .name {
-	font-size: 11px;
-	letter-spacing: -0.1px;
-}
-.long :deep(.item-icon.large) {
-	width: 44px;
-	height: 44px;
-	font-size: 34px;
-}
-.xlong :deep(.item-icon.large) {
-	width: 36px;
-	height: 36px;
-	font-size: 28px;
+.tone-done .name-text {
+	text-decoration: line-through;
+	opacity: 0.75;
 }
 .badge {
 	position: absolute;
@@ -117,7 +117,7 @@ function onClick() {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.tile.pending .name::after {
+.tile.pending .name-text::after {
 	content: ' •';
 	opacity: 0.6;
 }

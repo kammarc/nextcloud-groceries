@@ -24,7 +24,6 @@
 	"Frequently bought": "Часто покупаемые",
 	"Suggestions": "Предложения",
 	"Quantity": "Количество",
-	"Note": "Заметка",
 	"Category": "Категория",
 	"Edit item": "Изменить товар",
 	"In the cart ({count})": "В корзине ({count})",
@@ -184,7 +183,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Создайте список кнопкой ＋ вверху, например для покупок на неделю, аптеки или строительного магазина.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "В списке нажмите на поле внизу и начните поиск. Количество можно указать сразу, например «2 л молоко».",
 	"Shopping": "Покупки",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Нажмите на товар, как только он окажется в корзине. Долгое нажатие открывает количество, заметку и отдел.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Нажмите на товар, как только он окажется в тележке. Долгое нажатие меняет количество, категорию и значок.",
 	"Together": "Вместе",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Поделитесь списком через ⋯ → Настройки списка. Изменения видны всем за несколько секунд.",
 	"Sorted like your store": "Как в вашем магазине",
@@ -226,5 +225,8 @@
 	"People": "Люди",
 	"Symbols": "Символы",
 	"Flags": "Флаги",
-	"Let's go": "Поехали"
+	"Let's go": "Поехали",
+	"Font of the entries": "Шрифт позиций",
+	"Design": "Оформление",
+	"System default": "Системный"
 }

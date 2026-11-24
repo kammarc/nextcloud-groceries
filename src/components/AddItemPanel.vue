@@ -37,8 +37,8 @@
 			<ion-item v-if="showRaw" button :detail="false" v-bind="pressFor(rawSuggestion)" @click="tapRaw">
 				<ion-icon slot="start" :icon="addCircle" color="primary" class="raw-icon" />
 				<ion-label class="ion-text-wrap">
-					<h2>{{ t('Add "{name}"', { name: parsed.name }) }}</h2>
-					<p v-if="parsed.quantity || parsed.note">{{ [parsed.quantity, parsed.note].filter(Boolean).join(' · ') }}</p>
+					<h2>{{ rawLabel }}</h2>
+					<p v-if="parsed.quantity">{{ parsed.quantity }}</p>
 				</ion-label>
 			</ion-item>
 		</ion-list>
@@ -49,26 +49,25 @@
 				:key="s.identity"
 				type="button"
 				class="pick ion-activatable"
-				:class="[nameFit(s.name), { on: onList.has(s.identity) }]"
+				:class="{ on: onList.has(s.identity) }"
 				v-bind="pressFor(s)"
 				@click="tap(s)">
 				<ion-ripple-effect />
 				<span v-if="onList.get(s.identity)?.quantity" class="badge">{{ onList.get(s.identity)?.quantity }}</span>
 				<ItemIcon :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" large />
-				<span class="name">{{ s.name }}</span>
+				<span v-fit-text="s.name" class="name"><span class="name-text">{{ s.name }}</span></span>
 			</button>
 			<button
 				v-if="showRaw"
 				type="button"
 				class="pick raw ion-activatable"
-				:class="nameFit(parsed.name)"
 				:aria-label="rawLabel"
 				v-bind="pressFor(rawSuggestion)"
 				@click="tapRaw">
 				<ion-ripple-effect />
 				<span v-if="parsed.quantity" class="badge">{{ parsed.quantity }}</span>
 				<ion-icon :icon="addCircle" class="raw-tile-icon" />
-				<span class="name">{{ parsed.name }}</span>
+				<span v-fit-text="typedName" class="name"><span class="name-text">{{ typedName }}</span></span>
 			</button>
 		</div>
 
@@ -100,13 +99,13 @@
 								:key="s.identity"
 								type="button"
 								class="pick ion-activatable"
-								:class="[nameFit(s.name), { on: onList.has(s.identity) }]"
+								:class="{ on: onList.has(s.identity) }"
 								v-bind="pressFor(s)"
 								@click="tap(s)">
 								<ion-ripple-effect />
 								<span v-if="onList.get(s.identity)?.quantity" class="badge">{{ onList.get(s.identity)?.quantity }}</span>
 								<ItemIcon :icon="s.icon" :catalog-key="s.catalogKey" :category="s.category" :name="s.name" large />
-								<span class="name">{{ s.name }}</span>
+								<span v-fit-text="s.name" class="name"><span class="name-text">{{ s.name }}</span></span>
 							</button>
 						</div>
 					</template>
@@ -114,19 +113,9 @@
 			</template>
 		</template>
 
-		<!-- long press: amount + note before adding (or updating an item already on the list) -->
-		<ion-modal :is-open="details !== null" :initial-breakpoint="0.62" :breakpoints="[0, 0.62, 0.9]" @didDismiss="details = null">
-			<QuickAddPanel
-				v-if="details"
-				:name="details.s.name"
-				:icon="details.s.icon"
-				:catalog-key="details.s.catalogKey"
-				:category="details.s.category"
-				:initial-quantity="details.quantity"
-				:initial-note="details.note"
-				:existing="!!details.existing"
-				@submit="submitDetails" />
-		</ion-modal>
+		<!-- long press: amount before adding (or updating an item already on the list); pulled up
+		     it edits the entry itself. The same sheet as a long press in the list (ShoppingListView). -->
+		<ItemSheetModal :entry="detailsEntry" @submit="submitDetails" @delete="deleteDetails" @close="details = null" />
 	</ion-content>
 </template>
 
@@ -138,9 +127,11 @@ import {
 import { addCircle, checkmarkCircle, chevronDown, chevronForward } from 'ionicons/icons'
 import { computed, onMounted, ref } from 'vue'
 import ItemIcon from './ItemIcon.vue'
-import QuickAddPanel from './QuickAddPanel.vue'
+import type { ItemSheetValue } from './ItemSheet.vue'
+import ItemSheetModal from './ItemSheetModal.vue'
+import { itemChanges, type ItemSheetEntry } from '../lib/itemSheet'
 import { useLongPress } from '../lib/longpress'
-import { nameFit } from '../lib/fit'
+import { vFitText } from '../lib/fit'
 import { categoriesForTemplate, identityKey, itemCategory, items as catalogItems, itemName, searchCatalog, type CatalogItem } from '../lib/catalog'
 import { normalize } from '../lib/normalize'
 import { parseLine } from '../lib/parser'
@@ -177,9 +168,12 @@ const template = computed(() => data.list(props.listId)?.template ?? 'grocery')
 const items = computed(() => data.items(props.listId))
 const onList = computed(() => new Map(items.value.filter((i) => !i.checked).map((i) => [i.normName, i])))
 const parsed = computed(() => parseLine(query.value))
+/** Typed text without the amount. Entries have no notes, so what the parser splits off as one
+ * ("Mehl (Type 405)", "Milch, fettarm") stays part of the name. */
+const typedName = computed(() => (parsed.value.note ? `${parsed.value.name} (${parsed.value.note})` : parsed.value.name))
 /** search results look like the list: rows in list view, tiles in grid view */
 const viewMode = computed(() => state.value.meta?.prefs.viewMode ?? 'list')
-const rawLabel = computed(() => t('Add "{name}"', { name: parsed.value.name }))
+const rawLabel = computed(() => t('Add "{name}"', { name: typedName.value }))
 
 const fromHistory = (h: HistoryEntry): Suggestion => ({
 	identity: h.normName, name: h.name, catalogKey: h.catalogKey, category: h.category, icon: h.icon,
@@ -257,7 +251,7 @@ function toggleFrequent() {
 
 // ---- long press: set amount before adding --------------------------------------------------
 const rawSuggestion = computed<Suggestion>(() => ({
-	identity: identityKey(parsed.value.name), name: parsed.value.name, catalogKey: null, category: 'other', icon: null, raw: true,
+	identity: identityKey(typedName.value), name: typedName.value, catalogKey: null, category: 'other', icon: null, raw: true,
 }))
 let pressTarget: Suggestion | null = null
 const longPress = useLongPress(() => { if (pressTarget) openDetails(pressTarget) })
@@ -283,7 +277,21 @@ function tapRaw() {
 	submitRaw()
 }
 
-const details = ref<{ s: Suggestion, existing?: Item, quantity: string | null, note: string | null, refocus: boolean } | null>(null)
+const details = ref<{ s: Suggestion, existing?: Item, quantity: string | null, refocus: boolean } | null>(null)
+const detailsEntry = computed<ItemSheetEntry | null>(() => {
+	const d = details.value
+	if (!d) return null
+	return {
+		name: d.existing?.name ?? d.s.name,
+		icon: d.existing ? d.existing.icon : d.s.icon,
+		catalogKey: d.existing?.catalogKey ?? d.s.catalogKey,
+		category: d.existing?.category ?? d.s.category,
+		quantity: d.quantity,
+		existing: !!d.existing,
+		template: template.value,
+		custom: custom.value,
+	}
+})
 
 function openDetails(s: Suggestion) {
 	const existing = onList.value.get(s.identity)
@@ -293,27 +301,39 @@ function openDetails(s: Suggestion) {
 		s,
 		existing,
 		quantity: existing?.quantity ?? (typed ? parsed.value.quantity : null) ?? hist?.lastQuantity ?? null,
-		note: existing?.note ?? (typed ? parsed.value.note : null),
 		refocus: searchFocused.value || focusedAtPress.value,
 	}
 }
 
-async function submitDetails(v: { quantity: string | null, note: string | null }) {
+async function submitDetails(v: ItemSheetValue) {
 	const d = details.value
 	details.value = null
 	if (!d) return
 	if (d.existing) {
-		data.updateItem(props.listId, d.existing.id, { quantity: v.quantity, note: v.note })
+		const changes = itemChanges(d.existing, v)
+		if (Object.keys(changes).length) data.updateItem(props.listId, d.existing.id, changes)
 		emit('added', d.existing.normName)
 		haptic()
 		const toast = await toastController.create({ message: t('Updated {name}', { name: d.s.name }), duration: 900, position: 'bottom', cssClass: 'compact-toast' })
 		await toast.present()
 	} else {
-		data.addItem(props.listId, d.s.raw
-			? { name: d.s.name, quantity: v.quantity, note: v.note }
-			: { name: d.s.name, quantity: v.quantity, note: v.note, category: d.s.category, icon: d.s.icon })
-		added(d.s.name, d.s.raw ? identityKey(d.s.name) : d.s.identity)
+		// typed text: the server picks category and icon, unless they were chosen in the sheet
+		const keepGuess = d.s.raw && v.category === d.s.category && v.icon === d.s.icon
+		data.addItem(props.listId, keepGuess
+			? { name: v.name, quantity: v.quantity }
+			: { name: v.name, quantity: v.quantity, category: v.category, icon: v.icon })
+		added(v.name, d.s.raw || v.name !== d.s.name ? identityKey(v.name) : d.s.identity)
 	}
+	resetQuery(d.refocus)
+}
+
+/** Long-press sheet of an item already on the list: take it off. */
+function deleteDetails() {
+	const d = details.value
+	details.value = null
+	if (!d?.existing) return
+	data.deleteItem(props.listId, d.existing)
+	haptic(5)
 	resetQuery(d.refocus)
 }
 
@@ -334,7 +354,6 @@ function choose(s: Suggestion) {
 		data.addItem(props.listId, {
 			name: s.name,
 			quantity: query.value ? parsed.value.quantity : null,
-			note: query.value ? parsed.value.note : null,
 			category: s.category,
 			icon: s.icon,
 		})
@@ -344,10 +363,10 @@ function choose(s: Suggestion) {
 }
 
 function submitRaw() {
-	const p = parsed.value
-	if (!p.name.trim()) return
-	data.addItem(props.listId, { name: p.name, quantity: p.quantity, note: p.note })
-	added(p.name, identityKey(p.name))
+	const name = typedName.value
+	if (!name.trim()) return
+	data.addItem(props.listId, { name, quantity: parsed.value.quantity })
+	added(name, identityKey(name))
 	resetQuery()
 }
 
@@ -441,8 +460,12 @@ ion-list ion-item {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	gap: 4px;
-	padding: 10px 4px;
+	aspect-ratio: 1;
+	padding: 6px 4px;
+	/* children size against the tile width (cqw), so every tile looks the same */
+	container-type: inline-size;
 	border: none;
 	border-radius: 10px;
 	background: var(--app-recent);
@@ -463,38 +486,41 @@ ion-list ion-item {
 	box-shadow: inset 0 0 0 2px var(--ion-color-primary);
 }
 .raw-tile-icon {
-	font-size: 52px;
+	flex-shrink: 0;
+	font-size: 46cqw;
 	color: var(--ion-color-primary);
 }
+/* the icon has one size for all tiles, whatever the name: long names shrink their text instead */
+.pick :deep(.item-icon.large) {
+	width: 46cqw;
+	height: 46cqw;
+	font-size: 35cqw;
+}
+.pick :deep(.item-icon.letter.large) {
+	font-size: 21cqw;
+}
+/* a fixed two-line box, so the labels of all tiles sit at the same height;
+   v-fit-text shrinks the font when a name needs more than two lines */
 .pick .name {
-	max-width: 100%;
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 2.4em;
 	font-size: 12px;
-	text-align: center;
-	line-height: 1.15;
 	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-	overflow-wrap: anywhere;
+}
+.pick .name-text {
+	display: block;
+	max-width: 100%;
+	font-family: var(--app-item-font);
+	font-weight: var(--app-item-weight);
+	-webkit-text-stroke: var(--app-item-stroke) currentColor;
+	line-height: 1.15;
+	text-align: center;
+	overflow-wrap: break-word;
 	-webkit-hyphens: auto;
 	hyphens: auto;
-}
-/* long names: smaller text and icon so the whole name fits the tile */
-.pick.long .name {
-	font-size: 11px;
-}
-.pick.xlong .name {
-	font-size: 10.5px;
-	letter-spacing: -0.1px;
-}
-.pick.long :deep(.item-icon.large) {
-	width: 44px;
-	height: 44px;
-	font-size: 34px;
-}
-.pick.xlong :deep(.item-icon.large) {
-	width: 36px;
-	height: 36px;
-	font-size: 28px;
 }
 </style>

@@ -25,6 +25,13 @@
 					</ion-select>
 				</ion-item>
 				<ion-item>
+					<ion-toggle :checked="wakeLockEnabled" @ionChange="setWakeLockEnabled($event.detail.checked)">{{ t('Keep screen on while shopping') }}</ion-toggle>
+				</ion-item>
+			</ion-list>
+
+			<ion-list-header>{{ t('Design') }}</ion-list-header>
+			<ion-list :inset="true">
+				<ion-item>
 					<ion-toggle :checked="mode === 'light'" @ionChange="setTheme({ mode: $event.detail.checked ? 'light' : 'dark' })">{{ t('Light design') }}</ion-toggle>
 				</ion-item>
 				<div class="theme-row">
@@ -60,7 +67,13 @@
 					</div>
 				</div>
 				<ion-item>
-					<ion-toggle :checked="wakeLockEnabled" @ionChange="setWakeLockEnabled($event.detail.checked)">{{ t('Keep screen on while shopping') }}</ion-toggle>
+					<ion-toggle :checked="sketchIcons" @ionChange="setTheme({ sketchIcons: $event.detail.checked })">{{ t('Hand-drawn icons') }}</ion-toggle>
+				</ion-item>
+				<ion-item>
+					<ion-select :value="itemFont" :label="t('Font of the entries')" interface="action-sheet" :cancel-text="t('Cancel')" @ionChange="setTheme({ itemFont: $event.detail.value })">
+						<ion-select-option value="standard">{{ t('System default') }}</ion-select-option>
+						<ion-select-option v-for="(family, key) in ITEM_FONT_FAMILY" :key="key" :value="key">{{ family }}</ion-select-option>
+					</ion-select>
 				</ion-item>
 			</ion-list>
 
@@ -146,7 +159,7 @@ import { LANGUAGES } from '../lib/languages'
 import { isDesktopBrowser, isIos, setWakeLockEnabled, wakeLockEnabled } from '../lib/platform'
 import { openWelcome } from '../lib/welcome'
 import { useData } from '../stores/data'
-import { entries, mode, setTheme, theme, type EntryColor, type ThemeName } from '../lib/theme'
+import { entries, ITEM_FONT_FAMILY, itemFont, mode, setTheme, sketchIcons, theme, type EntryColor, type ThemeName } from '../lib/theme'
 
 /** Background swatch = page colour of the scheme in the current light/dark mode. */
 const schemes: Array<{ key: ThemeName, label: string, dark: string, light: string }> = [

@@ -40,7 +40,7 @@ const desktop = isDesktopBrowser()
 const steps = [
 	{ emoji: '🛒', title: t('Lists'), text: t('Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.') },
 	{ emoji: '➕', title: t('Add items'), text: t('In a list, tap the field at the bottom and search. You can type the amount right away, e.g. "2 l milk".') },
-	{ emoji: '✅', title: t('Shopping'), text: t('Tap an item as soon as it is in the cart. A long press edits amount, note and department.') },
+	{ emoji: '✅', title: t('Shopping'), text: t('Tap an item as soon as it is in the cart. A long press edits amount, category and icon.') },
 	{ emoji: '👨‍👩‍👧', title: t('Together'), text: t('Share a list under ⋯ → List settings. Changes show up for everyone within seconds.') },
 	{ emoji: '🏪', title: t('Sorted like your store'), text: t('Under ⋯ → Stores & aisle order you set the order of the departments in your store.') },
 ]

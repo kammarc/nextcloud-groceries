@@ -24,7 +24,6 @@
 	"Frequently bought": "Achetés souvent",
 	"Suggestions": "Suggestions",
 	"Quantity": "Quantité",
-	"Note": "Note",
 	"Category": "Catégorie",
 	"Edit item": "Modifier l’article",
 	"In the cart ({count})": "Dans le panier ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Créez une liste avec ＋ en haut, par ex. pour les courses de la semaine, la pharmacie ou le magasin de bricolage.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Dans une liste, touchez le champ en bas et recherchez. Vous pouvez saisir la quantité directement, par ex. « 2 l lait ».",
 	"Shopping": "Faire les courses",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Touchez un article dès qu’il est dans le panier. Un appui long permet de modifier la quantité, la note et le rayon.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Touchez un article dès qu'il est dans le chariot. Un appui long modifie la quantité, la catégorie et l'icône.",
 	"Together": "Ensemble",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Partagez une liste via ⋯ → Paramètres de la liste. Les modifications apparaissent chez tout le monde en quelques secondes.",
 	"Sorted like your store": "Trié comme votre magasin",
@@ -224,5 +223,8 @@
 	"People": "Personnes",
 	"Symbols": "Symboles",
 	"Flags": "Drapeaux",
-	"Let's go": "C’est parti"
+	"Let's go": "C’est parti",
+	"Font of the entries": "Police des articles",
+	"Design": "Apparence",
+	"System default": "Police du système"
 }

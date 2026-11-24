@@ -43,9 +43,6 @@
 					<ion-toggle :checked="showFrequent" @ionChange="setShowFrequent($event.detail.checked)">{{ t('Show frequently bought') }}</ion-toggle>
 				</ion-item>
 				<ion-item>
-					<ion-toggle :checked="sketchIcons" @ionChange="setSketchIcons($event.detail.checked)">{{ t('Hand-drawn icons') }}</ion-toggle>
-				</ion-item>
-				<ion-item>
 					<ion-select v-model="form.autoClearHours" :cancel-text="t('Cancel')" :ok-text="t('OK')" :label="t('Remove ticked items automatically')" label-placement="stacked" :disabled="!canEdit" @ionChange="save({ autoClearHours: form.autoClearHours })">
 						<ion-select-option :value="0">{{ t('never') }}</ion-select-option>
 						<ion-select-option v-for="h in [1, 3, 6, 12, 24, 48]" :key="h" :value="h">{{ t('after {hours} h', { hours: h }) }}</ion-select-option>
@@ -162,12 +159,6 @@ function setGrouped(on: boolean) {
 const showFrequent = computed(() => data.state(listId).meta?.prefs.showFrequent ?? true)
 function setShowFrequent(on: boolean) {
 	if (on !== showFrequent.value) data.setPrefs(listId, { showFrequent: on }).catch(() => {})
-}
-
-/** Per person: draw item icons as one-colour pen sketches instead of colour emoji. */
-const sketchIcons = computed(() => data.state(listId).meta?.prefs.sketchIcons ?? false)
-function setSketchIcons(on: boolean) {
-	if (on !== sketchIcons.value) data.setPrefs(listId, { sketchIcons: on }).catch(() => {})
 }
 
 /** Per person, shared lists only: show "Added by …" under items others put on the list (off by default). */
