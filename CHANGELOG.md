@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Fix: on iPhone the app could stay on a blank page after a relaunch (installed app and Safari),
+  because the device's storage (IndexedDB) did not answer. The app now wakes it up and, if it
+  still does not answer, starts anyway
 - Settings: background and the colour of the entries (items to buy) are chosen separately and
   can be combined freely
 - List settings → "Hand-drawn icons": item icons are drawn as one-colour pen sketches in the

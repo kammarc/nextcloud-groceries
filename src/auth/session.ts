@@ -1,4 +1,4 @@
-import { get, set, del } from 'idb-keyval'
+import { get, set, del, IdbTimeoutError } from '../lib/idb'
 import { config } from '../config'
 
 /**
@@ -63,7 +63,10 @@ export async function getCredentials(): Promise<Credentials | null> {
 		cached = creds
 		// stored by an older version in plain text: encrypt it now
 		if (creds && legacy) await set(KEY, await seal(creds))
-	} catch {
+	} catch (e) {
+		// IndexedDB hangs (iOS, see lib/idb.ts): not "logged out", so ask again next time instead
+		// of remembering null
+		if (e instanceof IdbTimeoutError) return null
 		cached = null
 	}
 	return cached

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { del, get, set } from 'idb-keyval'
+import { del, get, IdbTimeoutError, set } from '../lib/idb'
 import { api, ApiError, isTransient } from '../api/client'
 import { project, resolveLocal, type ResolveContext } from '../sync/projection'
 import type { ChangesResponse, HistoryEntry, Item, ItemData, ItemId, ListSummary, Meta, Op, Prefs, Store } from '../types'
@@ -37,6 +37,12 @@ export function uuid(): string {
 const emptyState = (): ListState => ({ revision: 0, metaRevision: 0, items: {}, meta: null, history: [], lastSync: 0 })
 
 let persistTimer: ReturnType<typeof setTimeout> | null = null
+/**
+ * IndexedDB did not answer at startup (see lib/idb.ts), so the stored cache was never read. Then
+ * it must not be overwritten either: it may hold offline changes (outbox) that were not sent yet
+ * and go out on the next start that can read them.
+ */
+let cacheUnread = false
 
 export const useData = defineStore('data', {
 	state: () => ({
@@ -72,13 +78,15 @@ export const useData = defineStore('data', {
 					this.outbox = cache.outbox ?? []
 					this.pendingListOrder = cache.pendingListOrder ?? null
 				}
-			} catch {
-				// no IndexedDB (private mode): work online only
+			} catch (e) {
+				// no IndexedDB (private mode) or it hangs (iOS): work online only
+				if (e instanceof IdbTimeoutError) cacheUnread = true
 			}
 			this.hydrated = true
 		},
 
 		persist() {
+			if (cacheUnread) return
 			if (persistTimer) clearTimeout(persistTimer)
 			persistTimer = setTimeout(() => {
 				const snapshot: CacheShape = JSON.parse(JSON.stringify({
