@@ -24,7 +24,6 @@
 	"Frequently bought": "Cumpărate des",
 	"Suggestions": "Sugestii",
 	"Quantity": "Cantitate",
-	"Note": "Notă",
 	"Category": "Categorie",
 	"Edit item": "Editează articolul",
 	"In the cart ({count})": "În coș ({count})",
@@ -183,7 +182,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Creează o listă cu ＋ din partea de sus, de exemplu pentru cumpărăturile săptămânale, farmacie sau magazinul de bricolaj.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Într-o listă, atinge câmpul de jos și caută. Poți scrie direct și cantitatea, de ex. „2 l lapte”.",
 	"Shopping": "La cumpărături",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Atinge un articol imediat ce e în coș. Cu o apăsare lungă editezi cantitatea, nota și raionul.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Atinge un articol imediat ce e în coș. O apăsare lungă modifică cantitatea, categoria și pictograma.",
 	"Together": "Împreună",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Partajează o listă din ⋯ → Setările listei. Modificările apar la toți în câteva secunde.",
 	"Sorted like your store": "Ordonat ca magazinul tău",
@@ -225,5 +224,8 @@
 	"People": "Oameni",
 	"Symbols": "Simboluri",
 	"Flags": "Steaguri",
-	"Let's go": "Să începem"
+	"Let's go": "Să începem",
+	"Font of the entries": "Fontul articolelor",
+	"Design": "Aspect",
+	"System default": "Implicit sistem"
 }

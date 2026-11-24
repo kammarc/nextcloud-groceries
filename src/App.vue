@@ -7,7 +7,7 @@
 		<!-- introduction on the first start (and from the app settings) -->
 		<WelcomeSheet />
 		<!--
-			"Sketch icons" list setting: turns a colour emoji into a hand-drawn line drawing in the text colour.
+			"Hand-drawn icons" app setting: turns a colour emoji into a hand-drawn line drawing in the text colour.
 			Flatten onto white, find edges in the grey image (both signs of a Laplacian), make the edge strength
 			the alpha, soften the stroke a little, let it wobble like a pen and fill it with the ink colour.
 		-->

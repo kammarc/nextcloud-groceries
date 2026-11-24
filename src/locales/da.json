@@ -24,7 +24,6 @@
 	"Frequently bought": "Ofte købt",
 	"Suggestions": "Forslag",
 	"Quantity": "Mængde",
-	"Note": "Note",
 	"Category": "Kategori",
 	"Edit item": "Rediger vare",
 	"In the cart ({count})": "I kurven ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Opret en liste med ＋ øverst, f.eks. til den ugentlige indkøbstur, apoteket eller byggemarkedet.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Tryk på feltet nederst i en liste, og søg. Du kan skrive mængden med det samme, f.eks. »2 l mælk«.",
 	"Shopping": "Indkøb",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Tryk på en vare, så snart den er i kurven. Et langt tryk redigerer mængde, note og afdeling.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Tryk på en vare, så snart den er i vognen. Et langt tryk ændrer mængde, kategori og ikon.",
 	"Together": "Sammen",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Del en liste under ⋯ → Listeindstillinger. Ændringer vises for alle i løbet af få sekunder.",
 	"Sorted like your store": "Sorteret som din butik",
@@ -224,5 +223,8 @@
 	"People": "Personer",
 	"Symbols": "Symboler",
 	"Flags": "Flag",
-	"Let's go": "Kom i gang"
+	"Let's go": "Kom i gang",
+	"Font of the entries": "Skrifttype for posterne",
+	"Design": "Udseende",
+	"System default": "Systemstandard"
 }

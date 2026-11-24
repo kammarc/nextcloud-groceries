@@ -24,7 +24,6 @@
 	"Frequently bought": "Sık alınanlar",
 	"Suggestions": "Öneriler",
 	"Quantity": "Miktar",
-	"Note": "Not",
 	"Category": "Kategori",
 	"Edit item": "Ürünü düzenle",
 	"In the cart ({count})": "Sepette ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Üstteki ＋ ile bir liste oluştur; örneğin haftalık alışveriş, eczane veya yapı market için.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Bir listede alttaki alana dokun ve ara. Miktarı hemen yazabilirsin, örn. “2 l süt”.",
 	"Shopping": "Alışveriş",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Ürün sepete girer girmez ona dokun. Uzun basarak miktarı, notu ve reyonu düzenleyebilirsin.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Bir ürün sepete girer girmez ona dokunun. Uzun basış miktarı, kategoriyi ve simgeyi düzenler.",
 	"Together": "Birlikte",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Bir listeyi ⋯ → Liste ayarları bölümünden paylaş. Değişiklikler saniyeler içinde herkeste görünür.",
 	"Sorted like your store": "Mağazana göre sıralı",
@@ -224,5 +223,8 @@
 	"People": "İnsanlar",
 	"Symbols": "Semboller",
 	"Flags": "Bayraklar",
-	"Let's go": "Hadi başlayalım"
+	"Let's go": "Hadi başlayalım",
+	"Font of the entries": "Öğelerin yazı tipi",
+	"Design": "Görünüm",
+	"System default": "Sistem varsayılanı"
 }

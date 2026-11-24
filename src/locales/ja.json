@@ -24,7 +24,6 @@
 	"Frequently bought": "よく買うもの",
 	"Suggestions": "候補",
 	"Quantity": "数量",
-	"Note": "メモ",
 	"Category": "カテゴリ",
 	"Edit item": "アイテムを編集",
 	"In the cart ({count})": "カゴの中 ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "上の ＋ でリストを作成します。たとえば毎週の買い物、ドラッグストア、ホームセンター用など。",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "リストを開いて下の入力欄をタップし、検索します。数量もそのまま入力できます（例：「牛乳 2 l」）。",
 	"Shopping": "買い物",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "カゴに入れたらアイテムをタップします。長押しすると数量・メモ・売り場を編集できます。",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "カートに入れたら項目をタップします。長押しで数量、カテゴリ、アイコンを編集できます。",
 	"Together": "みんなで",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "⋯ →「リストの設定」でリストを共有できます。変更は数秒で全員に反映されます。",
 	"Sorted like your store": "お店の順番に並び替え",
@@ -224,5 +223,8 @@
 	"People": "人",
 	"Symbols": "記号",
 	"Flags": "旗",
-	"Let's go": "はじめる"
+	"Let's go": "はじめる",
+	"Font of the entries": "項目のフォント",
+	"Design": "デザイン",
+	"System default": "システム標準"
 }

@@ -24,7 +24,6 @@
 	"Frequently bought": "Συχνές αγορές",
 	"Suggestions": "Προτάσεις",
 	"Quantity": "Ποσότητα",
-	"Note": "Σημείωση",
 	"Category": "Κατηγορία",
 	"Edit item": "Επεξεργασία είδους",
 	"In the cart ({count})": "Στο καλάθι ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Δημιουργήστε μια λίστα με το ＋ επάνω, π.χ. για τα εβδομαδιαία ψώνια, το φαρμακείο ή το σιδηροπωλείο.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Σε μια λίστα, πατήστε το πεδίο κάτω και αναζητήστε. Μπορείτε να γράψετε αμέσως και την ποσότητα, π.χ. «2 l γάλα».",
 	"Shopping": "Για ψώνια",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Πατήστε ένα είδος μόλις μπει στο καλάθι. Με παρατεταμένο πάτημα αλλάζετε ποσότητα, σημείωση και τμήμα.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Πατήστε ένα προϊόν μόλις μπει στο καλάθι. Με παρατεταμένο πάτημα αλλάζετε ποσότητα, κατηγορία και εικονίδιο.",
 	"Together": "Μαζί",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Μοιραστείτε μια λίστα από ⋯ → Ρυθμίσεις λίστας. Οι αλλαγές εμφανίζονται σε όλους μέσα σε δευτερόλεπτα.",
 	"Sorted like your store": "Ταξινόμηση όπως στο κατάστημά σας",
@@ -224,5 +223,8 @@
 	"People": "Άνθρωποι",
 	"Symbols": "Σύμβολα",
 	"Flags": "Σημαίες",
-	"Let's go": "Ας ξεκινήσουμε"
+	"Let's go": "Ας ξεκινήσουμε",
+	"Font of the entries": "Γραμματοσειρά των αντικειμένων",
+	"Design": "Εμφάνιση",
+	"System default": "Προεπιλογή συστήματος"
 }

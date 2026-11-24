@@ -105,8 +105,10 @@ async function remove() {
 	--background: var(--app-done);
 }
 .item-row h2 {
+	font-family: var(--app-item-font);
 	font-size: 17px;
-	font-weight: 600;
+	font-weight: var(--app-item-weight);
+	-webkit-text-stroke: var(--app-item-stroke) currentColor;
 	color: #ffffff;
 }
 .item-row p {

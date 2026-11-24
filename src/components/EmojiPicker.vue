@@ -76,7 +76,7 @@ const groupName = (g: EmojiGroup) => GROUP_NAMES[g.key] ?? g.names.en
 defineProps<{ selected?: string | null, allowImage?: boolean, hasImage?: boolean }>()
 const emit = defineEmits<{ pick: [emoji: string], pickImage: [dataUrl: string], removeImage: [], close: [] }>()
 
-/** "Hand-drawn icons" list setting (when opened from such a list): show the emoji as pen sketches. */
+/** "Hand-drawn icons" app setting: show the emoji as pen sketches. */
 const sketch = useSketchIcons()
 
 const groups = groupsData as EmojiGroup[]

@@ -2,11 +2,23 @@
 
 ## Unreleased
 
+- Settings → "Font of the entries": item names are shown in Quicksand by default; Patrick Hand or
+  the system font ("System default", bold) can be chosen instead (per device)
+- Grid view: larger item names on the tiles
+- Long press on an entry opens the same sheet in the list and in the add sheet: amount and the
+  add/update button first; pulled up, it also edits name, category and icon (and deletes an item on
+  the list), without scrolling
+- Entries no longer have notes: the note field is gone, and text the app used to split off as a
+  note ("Mehl (Type 405)", "Milch, fettarm") stays part of the name. Notes that already exist (or
+  come from a recipe import) are still shown under the entry
+- Fix: on iPhone the app could stay on a blank page after a relaunch (installed app and Safari),
+  because the device's storage (IndexedDB) did not answer. The app now wakes it up and, if it
+  still does not answer, starts anyway
 - Settings: background and the colour of the entries (items to buy) are chosen separately and
   can be combined freely
-- List settings → "Hand-drawn icons": item icons are drawn as one-colour pen sketches in the
-  text colour instead of colour emoji, also in the emoji picker for items (per person and list, off
-  by default)
+- Settings → "Hand-drawn icons": item icons are drawn as one-colour pen sketches in the text
+  colour instead of colour emoji, also in the emoji picker for items (per device, off by default;
+  was a per-list setting before)
 - 18 more languages: French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Swedish, Danish,
   Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek and Japanese, for the
   app, the item catalog and the settings page. The app follows the Nextcloud language, or the one

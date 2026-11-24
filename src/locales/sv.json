@@ -24,7 +24,6 @@
 	"Frequently bought": "Köps ofta",
 	"Suggestions": "Förslag",
 	"Quantity": "Mängd",
-	"Note": "Anteckning",
 	"Category": "Kategori",
 	"Edit item": "Redigera vara",
 	"In the cart ({count})": "I vagnen ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Skapa en lista med ＋ högst upp, t.ex. för veckohandlingen, apoteket eller byggvaruhuset.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Tryck på fältet längst ner i en lista och sök. Du kan skriva mängden direkt, t.ex. ”2 l mjölk”.",
 	"Shopping": "Handla",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Tryck på en vara så fort den ligger i vagnen. Tryck länge för att ändra mängd, anteckning och avdelning.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Tryck på en vara så snart den ligger i vagnen. Ett långt tryck ändrar mängd, kategori och ikon.",
 	"Together": "Tillsammans",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Dela en lista under ⋯ → Listinställningar. Ändringar syns för alla inom några sekunder.",
 	"Sorted like your store": "Sorterad som din butik",
@@ -224,5 +223,8 @@
 	"People": "Människor",
 	"Symbols": "Symboler",
 	"Flags": "Flaggor",
-	"Let's go": "Sätt igång"
+	"Let's go": "Sätt igång",
+	"Font of the entries": "Typsnitt för posterna",
+	"Design": "Utseende",
+	"System default": "Systemstandard"
 }

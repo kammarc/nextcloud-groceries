@@ -24,7 +24,6 @@
 	"Frequently bought": "Vaak gekocht",
 	"Suggestions": "Suggesties",
 	"Quantity": "Hoeveelheid",
-	"Note": "Notitie",
 	"Category": "Categorie",
 	"Edit item": "Item bewerken",
 	"In the cart ({count})": "In de kar ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Maak bovenaan met ＋ een lijst, bijvoorbeeld voor de weekboodschappen, de apotheek of de bouwmarkt.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Tik in een lijst onderaan op het invoerveld en zoek. Je kunt de hoeveelheid er meteen bij typen, bijv. ‘2 l melk’.",
 	"Shopping": "Boodschappen doen",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Tik op een item zodra het in de kar ligt. Lang indrukken om hoeveelheid, notitie en afdeling te bewerken.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Tik op een item zodra het in de kar ligt. Lang drukken wijzigt hoeveelheid, categorie en pictogram.",
 	"Together": "Samen",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Deel een lijst via ⋯ → Lijstinstellingen. Wijzigingen zijn binnen enkele seconden voor iedereen zichtbaar.",
 	"Sorted like your store": "Gesorteerd zoals je winkel",
@@ -224,5 +223,8 @@
 	"People": "Mensen",
 	"Symbols": "Symbolen",
 	"Flags": "Vlaggen",
-	"Let's go": "Aan de slag"
+	"Let's go": "Aan de slag",
+	"Font of the entries": "Lettertype van de items",
+	"Design": "Weergave",
+	"System default": "Systeemstandaard"
 }

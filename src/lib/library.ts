@@ -6,7 +6,7 @@ import { api } from '../api/client'
 import { getLanguagePreference, setLanguagePreference, type LanguagePreference } from '../i18n'
 import { isLang } from './languages'
 import { setWakeLockEnabled, wakeLockEnabled } from './platform'
-import { ENTRY_COLORS, entries, mode, setTheme, theme, THEMES, type EntryColor, type ThemeMode, type ThemeName } from './theme'
+import { ENTRY_COLORS, entries, ITEM_FONTS, itemFont, mode, setTheme, sketchIcons, theme, THEMES, type EntryColor, type ItemFont, type ThemeMode, type ThemeName } from './theme'
 
 export const LIBRARY_FORMAT = 'groceries-library'
 
@@ -14,6 +14,8 @@ export interface AppSettings {
 	theme: ThemeName
 	mode: ThemeMode
 	entries?: EntryColor
+	itemFont?: ItemFont
+	sketchIcons?: boolean
 	language: LanguagePreference
 	wakeLock: boolean
 }
@@ -42,7 +44,7 @@ export type ImportMode = 'add' | 'replace'
 const TIMEOUT = 180_000
 
 export function currentSettings(): AppSettings {
-	return { theme: theme.value, mode: mode.value, entries: entries.value, language: getLanguagePreference(), wakeLock: wakeLockEnabled.value }
+	return { theme: theme.value, mode: mode.value, entries: entries.value, itemFont: itemFont.value, sketchIcons: sketchIcons.value, language: getLanguagePreference(), wakeLock: wakeLockEnabled.value }
 }
 
 export async function fetchLibrary(): Promise<Library> {
@@ -70,11 +72,13 @@ export async function importLibrary(library: Library, importMode: ImportMode): P
 /** Applies the app settings of an export on this device. Returns true when the language changed (needs a reload). */
 export function applySettings(s: Partial<AppSettings> | undefined): boolean {
 	if (!s || typeof s !== 'object') return false
-	const next: { theme?: ThemeName, mode?: ThemeMode, entries?: EntryColor } = {}
+	const next: { theme?: ThemeName, mode?: ThemeMode, entries?: EntryColor, itemFont?: ItemFont, sketchIcons?: boolean } = {}
 	if (THEMES.includes(s.theme as ThemeName)) next.theme = s.theme
 	if (s.mode === 'light' || s.mode === 'dark') next.mode = s.mode
 	if (ENTRY_COLORS.includes(s.entries as EntryColor)) next.entries = s.entries
-	if (next.theme || next.mode || next.entries) setTheme(next)
+	if (ITEM_FONTS.includes(s.itemFont as ItemFont)) next.itemFont = s.itemFont
+	if (typeof s.sketchIcons === 'boolean') next.sketchIcons = s.sketchIcons
+	if (Object.keys(next).length) setTheme(next)
 	if (typeof s.wakeLock === 'boolean') setWakeLockEnabled(s.wakeLock)
 	if ((s.language === 'auto' || isLang(s.language)) && s.language !== getLanguagePreference()) {
 		setLanguagePreference(s.language)

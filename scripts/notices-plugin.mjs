@@ -91,8 +91,24 @@ export function thirdPartyNotices() {
 				'',
 				'Emoji are drawn by the device\'s system font; no emoji images are bundled.',
 				'',
+				'The optional fonts for item names (`src/assets/fonts/`, built into `js/assets/`) are listed',
+				'at the end.',
+				'',
 			].join('\n')
-			writeFileSync(join(root, 'THIRD-PARTY-NOTICES.md'), head + '\n' + sections.join('\n\n') + '\n')
+			const fontDir = join(root, 'src/assets/fonts')
+			const fonts = [
+				...[['Patrick Hand', 'PatrickHand-Regular.ttf', 'PatrickHand-OFL.txt'], ['Quicksand', 'Quicksand-Bold.ttf', 'Quicksand-OFL.txt']]
+					.flatMap(([name, file, license], i) => [
+						...(i ? [''] : []),
+						`## Font: ${name}`,
+						'',
+						`License: OFL-1.1  `,
+						`File: \`${file}\``,
+						'',
+						'```\n' + readFileSync(join(fontDir, license), 'utf8').trim() + '\n```',
+					]),
+			].join('\n')
+			writeFileSync(join(root, 'THIRD-PARTY-NOTICES.md'), head + '\n' + sections.join('\n\n') + '\n\n' + fonts + '\n')
 		},
 	}
 }

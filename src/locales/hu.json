@@ -24,7 +24,6 @@
 	"Frequently bought": "Gyakran vásárolt",
 	"Suggestions": "Javaslatok",
 	"Quantity": "Mennyiség",
-	"Note": "Megjegyzés",
 	"Category": "Kategória",
 	"Edit item": "Tétel szerkesztése",
 	"In the cart ({count})": "A kosárban ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Hozz létre egy listát fent a ＋ gombbal, pl. a heti bevásárláshoz, a gyógyszertárhoz vagy a barkácsáruházhoz.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Egy listában koppints a lenti mezőre, és keress. A mennyiséget rögtön beírhatod, pl. „2 l tej”.",
 	"Shopping": "Vásárlás",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Koppints egy tételre, amint a kosárba került. Hosszú nyomással szerkesztheted a mennyiséget, a megjegyzést és a részleget.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Koppints a tételre, amint a kosárban van. Hosszú nyomással szerkesztheted a mennyiséget, a kategóriát és az ikont.",
 	"Together": "Együtt",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Listát a ⋯ → Lista beállításai menüpontban oszthatsz meg. A módosításokat másodperceken belül mindenki látja.",
 	"Sorted like your store": "Úgy rendezve, mint az üzleted",
@@ -224,5 +223,8 @@
 	"People": "Emberek",
 	"Symbols": "Szimbólumok",
 	"Flags": "Zászlók",
-	"Let's go": "Kezdjük"
+	"Let's go": "Kezdjük",
+	"Font of the entries": "A tételek betűtípusa",
+	"Design": "Megjelenés",
+	"System default": "Rendszer alapértelmezése"
 }

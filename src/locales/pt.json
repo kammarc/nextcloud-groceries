@@ -24,7 +24,6 @@
 	"Frequently bought": "Comprados com frequência",
 	"Suggestions": "Sugestões",
 	"Quantity": "Quantidade",
-	"Note": "Observação",
 	"Category": "Categoria",
 	"Edit item": "Editar item",
 	"In the cart ({count})": "No carrinho ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Crie uma lista com ＋ no topo, por exemplo, para as compras da semana, a farmácia ou a loja de ferragens.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Em uma lista, toque no campo na parte de baixo e pesquise. Você já pode digitar a quantidade, por exemplo, \"2 l leite\".",
 	"Shopping": "Compras",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Toque em um item assim que ele estiver no carrinho. Toque e segure para editar quantidade, observação e seção.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Toque num item assim que estiver no carrinho. Um toque longo edita a quantidade, a categoria e o ícone.",
 	"Together": "Juntos",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Compartilhe uma lista em ⋯ → Configurações da lista. As alterações aparecem para todos em segundos.",
 	"Sorted like your store": "Na ordem da sua loja",
@@ -224,5 +223,8 @@
 	"People": "Pessoas",
 	"Symbols": "Símbolos",
 	"Flags": "Bandeiras",
-	"Let's go": "Vamos lá"
+	"Let's go": "Vamos lá",
+	"Font of the entries": "Tipo de letra dos itens",
+	"Design": "Aparência",
+	"System default": "Padrão do sistema"
 }

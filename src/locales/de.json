@@ -24,7 +24,6 @@
 	"Frequently bought": "Häufig gekauft",
 	"Suggestions": "Vorschläge",
 	"Quantity": "Menge",
-	"Note": "Notiz",
 	"Category": "Kategorie",
 	"Edit item": "Artikel bearbeiten",
 	"In the cart ({count})": "Im Wagen ({count})",
@@ -182,7 +181,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Lege oben mit ＋ eine Liste an, zum Beispiel für den Wocheneinkauf, die Apotheke oder den Baumarkt.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "Tippe in einer Liste unten auf das Eingabefeld und suche. Die Menge kannst du gleich mittippen, z. B. „2 l Milch“.",
 	"Shopping": "Einkaufen",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Tippe einen Artikel an, sobald er im Wagen liegt. Lange drücken öffnet Menge, Notiz und Abteilung.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Tippe ein Produkt an, sobald es im Wagen liegt. Lange drücken ändert Menge, Kategorie und Symbol.",
 	"Together": "Gemeinsam",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Teile eine Liste unter ⋯ → Listeneinstellungen. Änderungen sehen alle nach wenigen Sekunden.",
 	"Sorted like your store": "Sortiert wie dein Laden",
@@ -224,5 +223,8 @@
 	"People": "Menschen",
 	"Symbols": "Symbole",
 	"Flags": "Flaggen",
-	"Let's go": "Los geht’s"
+	"Let's go": "Los geht’s",
+	"Font of the entries": "Schrift der Einträge",
+	"Design": "Design",
+	"System default": "Systemstandard"
 }

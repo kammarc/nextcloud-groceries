@@ -24,7 +24,6 @@
 	"Frequently bought": "Často kupované",
 	"Suggestions": "Návrhy",
 	"Quantity": "Množství",
-	"Note": "Poznámka",
 	"Category": "Kategorie",
 	"Edit item": "Upravit položku",
 	"In the cart ({count})": "V košíku ({count})",
@@ -183,7 +182,7 @@
 	"Create a list with ＋ at the top, e.g. for the weekly shop, the pharmacy or the hardware store.": "Seznam vytvoříte pomocí ＋ nahoře, např. na týdenní nákup, do lékárny nebo do železářství.",
 	"In a list, tap the field at the bottom and search. You can type the amount right away, e.g. \"2 l milk\".": "V seznamu klepněte na pole dole a hledejte. Množství můžete zadat rovnou, např. „2 l mléko“.",
 	"Shopping": "Nakupování",
-	"Tap an item as soon as it is in the cart. A long press edits amount, note and department.": "Klepněte na položku, jakmile je v košíku. Dlouhým stisknutím upravíte množství, poznámku a oddělení.",
+	"Tap an item as soon as it is in the cart. A long press edits amount, category and icon.": "Klepněte na položku, jakmile je v košíku. Dlouhým stiskem upravíte množství, kategorii a ikonu.",
 	"Together": "Společně",
 	"Share a list under ⋯ → List settings. Changes show up for everyone within seconds.": "Seznam nasdílíte v ⋯ → Nastavení seznamu. Změny se všem zobrazí během několika sekund.",
 	"Sorted like your store": "Seřazeno jako ve vašem obchodě",
@@ -225,5 +224,8 @@
 	"People": "Lidé",
 	"Symbols": "Symboly",
 	"Flags": "Vlajky",
-	"Let's go": "Jdeme na to"
+	"Let's go": "Jdeme na to",
+	"Font of the entries": "Písmo položek",
+	"Design": "Vzhled",
+	"System default": "Výchozí systémové"
 }
