@@ -18,15 +18,13 @@ that you install on iPhone and Android like a native app. A short guide in the a
 - "In the cart" section while shopping, cleared automatically
 - Several lists, shared with users or groups as editor or viewer
 - List types for groceries, pharmacy and hardware store
-- List or tile view
+- List or grid view
 - Catalog of about 600 items with icons, synonyms and brand names
 - Suggestions from your own shopping history
 - Works offline in the store and syncs later
 - Statistics and a year-in-review story
-- Backup and restore of all lists, history and statistics as one file
 - Light and dark mode in four colours
-- 20 languages: English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech,
-  Swedish, Danish, Norwegian, Finnish, Hungarian, Romanian, Turkish, Russian, Ukrainian, Greek, Japanese
+- 20 languages
 - API for other apps, e.g. to add recipe ingredients
 
 ## Requirements
