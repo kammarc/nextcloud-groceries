@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Kijelentkezel a Nextcloudból ezen az eszközön? Utána újra be kell jelentkezned.",
 	"App": "Alkalmazás",
 	"Choose icon": "Ikon kiválasztása",
+	"Search emoji": "Emoji keresése",
+	"No emoji found": "Nem található emoji",
 	"Choose image": "Kép kiválasztása",
 	"Remove image": "Kép eltávolítása",
 	"Edit store": "Üzlet szerkesztése",

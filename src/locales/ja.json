@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "このデバイスで Nextcloud からログアウトしますか？再度ログインが必要になります。",
 	"App": "アプリ",
 	"Choose icon": "アイコンを選択",
+	"Search emoji": "絵文字を検索",
+	"No emoji found": "絵文字が見つかりません",
 	"Choose image": "画像を選択",
 	"Remove image": "画像を削除",
 	"Edit store": "お店を編集",

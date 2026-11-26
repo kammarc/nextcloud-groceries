@@ -95,6 +95,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Odhlásit se z Nextcloudu na tomto zařízení? Poté se budete muset znovu přihlásit.",
 	"App": "Aplikace",
 	"Choose icon": "Vybrat ikonu",
+	"Search emoji": "Hledat emoji",
+	"No emoji found": "Žádné emoji nenalezeno",
 	"Choose image": "Vybrat obrázek",
 	"Remove image": "Odebrat obrázek",
 	"Edit store": "Upravit obchod",

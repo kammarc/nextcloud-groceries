@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Logge ut av Nextcloud på denne enheten? Du må logge inn på nytt.",
 	"App": "App",
 	"Choose icon": "Velg ikon",
+	"Search emoji": "Søk etter emoji",
+	"No emoji found": "Fant ingen emoji",
 	"Choose image": "Velg bilde",
 	"Remove image": "Fjern bilde",
 	"Edit store": "Rediger butikk",
