@@ -454,6 +454,12 @@ ion-list ion-item {
 	gap: 6px;
 	padding: 0 12px;
 }
+/* phones: always 3 per row, whatever the screen width */
+@media (max-width: 599px) {
+	.tile-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
 .pick {
 	position: relative;
 	overflow: hidden;

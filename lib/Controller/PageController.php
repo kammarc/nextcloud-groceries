@@ -200,11 +200,18 @@ class PageController extends Controller {
 			]),
 			'__APP_ASSET_PREFIX__' => json_encode($this->urlGenerator->linkTo(Application::APP_ID, '')),
 		]);
-		return new DataDisplayResponse($js, 200, [
+		$response = new DataDisplayResponse($js, 200, [
 			'Content-Type' => 'application/javascript; charset=utf-8',
 			'Service-Worker-Allowed' => $this->urlGenerator->linkToRoute('groceries.page.index'),
 			'Cache-Control' => 'no-cache',
 		]);
+		// A service worker is governed by the CSP of its own script response. Nextcloud's default
+		// (default-src 'none') blocks every fetch() in the worker: nothing got precached and, once the
+		// worker controlled the app, every launch failed (iOS: page stops loading / blank app).
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedConnectDomain("'self'");
+		$response->setContentSecurityPolicy($csp);
+		return $response;
 	}
 
 	/**

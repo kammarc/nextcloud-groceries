@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Fix: the app could not be opened any more once it had been opened before (iPhone: page stops
+  loading or the home-screen app stays blank; Android too), and never worked offline. The
+  service worker was served with Nextcloud's default Content Security Policy, which blocked all of
+  its requests. Phones that already have the broken worker get the fixed one on the next launch
+  and open the app again from the launch after that
+- Icon picker: search field above the categories; finds emoji by name in English and in the
+  app's language
+- Grid view on phones: always three tiles per row
 - Settings → "Font of the entries": item names are shown in Quicksand by default; Patrick Hand or
   the system font ("System default", bold) can be chosen instead (per device)
 - Grid view: larger item names on the tiles

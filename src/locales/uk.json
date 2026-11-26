@@ -96,6 +96,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Вийти з Nextcloud на цьому пристрої? Потрібно буде увійти знову.",
 	"App": "Застосунок",
 	"Choose icon": "Вибрати значок",
+	"Search emoji": "Пошук емодзі",
+	"No emoji found": "Емодзі не знайдено",
 	"Choose image": "Вибрати зображення",
 	"Remove image": "Вилучити зображення",
 	"Edit store": "Редагувати магазин",

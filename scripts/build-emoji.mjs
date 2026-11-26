@@ -5,9 +5,15 @@
  * re-ordered for a shopping app, and emoji newer than Emoji 14 are left out because many phones
  * cannot render them yet.
  *
+ * Also writes src/lib/emoji-names/<lang>.js for the picker's search: per emoji its Unicode CLDR
+ * name and keywords (devDependencies cldr-annotations-full and cldr-annotations-derived-full),
+ * as one string "name|keyword|keyword…". These are loaded on demand, not bundled. The content is
+ * JSON, but the extension is .js: Nextcloud's .htaccess only serves a few file types (css, js, fonts,
+ * images, …) straight from app folders and routes .json requests to index.php (404).
+ *
  * Usage: node scripts/build-emoji.mjs
  */
-import { readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -42,3 +48,35 @@ const out = GROUPS.map(([key, icon, en, de]) => {
 })
 writeFileSync(join(root, 'src', 'lib', 'emoji-groups.json'), JSON.stringify(out) + '\n')
 console.log('emoji-groups.json: ' + out.map((g) => `${g.key} ${g.emojis.length}`).join(', '))
+
+// search names: CLDR annotations (derived ones cover flags, keycaps, skin tones, …)
+const codes = readFileSync(join(root, 'src', 'lib', 'languages.ts'), 'utf8').match(/code: '([a-z]+)'/g).map((m) => m.slice(7, -1))
+const strip = (e) => e.replace(/️/g, '')
+const load = (pkg, dir, locale) => {
+	try {
+		const json = JSON.parse(readFileSync(require.resolve(`${pkg}/${dir}/${locale}/annotations.json`), 'utf8'))
+		return json[dir].annotations
+	} catch {
+		return {}
+	}
+}
+const namesDir = join(root, 'src', 'lib', 'emoji-names')
+mkdirSync(namesDir, { recursive: true })
+const counts = []
+for (const code of codes) {
+	const locale = code === 'nb' ? 'no' : code // CLDR files Norwegian bokmål under "no"
+	const all = { ...load('cldr-annotations-derived-full', 'annotationsDerived', locale), ...load('cldr-annotations-full', 'annotations', locale) }
+	const byStripped = new Map(Object.entries(all).map(([e, a]) => [strip(e), a]))
+	const names = {}
+	for (const g of out) {
+		for (const e of g.emojis) {
+			const a = all[e] ?? byStripped.get(strip(e))
+			if (!a) continue
+			const words = [...(a.tts ?? []), ...(a.default ?? [])].map((w) => w.trim()).filter(Boolean)
+			if (words.length) names[e] = [...new Set(words)].join('|')
+		}
+	}
+	writeFileSync(join(namesDir, code + '.js'), JSON.stringify(names) + '\n')
+	counts.push(`${code} ${Object.keys(names).length}`)
+}
+console.log('emoji-names: ' + counts.join(', '))

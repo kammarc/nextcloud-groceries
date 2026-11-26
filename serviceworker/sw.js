@@ -4,9 +4,15 @@
  *  - app shell (navigations inside the scope): network first, cached copy when offline
  *  - versioned app assets (js/css/img): cache first
  *  - API calls (/ocs/) and everything else: not intercepted (the app keeps its own IndexedDB cache)
+ *
+ * fetch() in here is governed by the CSP of this script's response (PageController::serviceWorker
+ * allows connect-src 'self'). Browsers only replace an installed worker when these bytes change, so
+ * bump WORKER_REVISION when a fix is in the response headers only: workers installed before 2 were
+ * served with "default-src 'none'", could not fetch anything and made the app fail to open.
  */
+const WORKER_REVISION = 2
 /* eslint-disable no-undef */
-const CACHE = 'groceries-' + __CACHE_VERSION__
+const CACHE = 'groceries-' + __CACHE_VERSION__ + '-r' + WORKER_REVISION
 const SHELL_URL = __SHELL_URL__
 const PRECACHE = __PRECACHE__
 const ASSET_PREFIX = __APP_ASSET_PREFIX__

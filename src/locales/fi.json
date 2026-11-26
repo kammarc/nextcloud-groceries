@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Kirjaudutaanko ulos Nextcloudista tällä laitteella? Sinun täytyy kirjautua uudelleen.",
 	"App": "Sovellus",
 	"Choose icon": "Valitse kuvake",
+	"Search emoji": "Hae emojia",
+	"No emoji found": "Emojia ei löytynyt",
 	"Choose image": "Valitse kuva",
 	"Remove image": "Poista kuva",
 	"Edit store": "Muokkaa kauppaa",

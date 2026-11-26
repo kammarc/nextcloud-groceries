@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "¿Cerrar la sesión de Nextcloud en este dispositivo? Tendrás que volver a iniciar sesión.",
 	"App": "App",
 	"Choose icon": "Elegir icono",
+	"Search emoji": "Buscar emoji",
+	"No emoji found": "No se encontró ningún emoji",
 	"Choose image": "Elegir imagen",
 	"Remove image": "Quitar imagen",
 	"Edit store": "Editar tienda",

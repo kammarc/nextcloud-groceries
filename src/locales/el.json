@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Αποσύνδεση από το Nextcloud σε αυτή τη συσκευή; Θα χρειαστεί να συνδεθείτε ξανά.",
 	"App": "Εφαρμογή",
 	"Choose icon": "Επιλογή εικονιδίου",
+	"Search emoji": "Αναζήτηση emoji",
+	"No emoji found": "Δεν βρέθηκαν emoji",
 	"Choose image": "Επιλογή εικόνας",
 	"Remove image": "Αφαίρεση εικόνας",
 	"Edit store": "Επεξεργασία καταστήματος",

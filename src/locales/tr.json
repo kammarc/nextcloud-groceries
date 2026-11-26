@@ -94,6 +94,8 @@
 	"Log out of Nextcloud on this device? You will need to log in again.": "Bu cihazda Nextcloud oturumu kapatılsın mı? Ardından tekrar giriş yapman gerekecek.",
 	"App": "Uygulama",
 	"Choose icon": "Simge seç",
+	"Search emoji": "Emoji ara",
+	"No emoji found": "Emoji bulunamadı",
 	"Choose image": "Resim seç",
 	"Remove image": "Resmi kaldır",
 	"Edit store": "Mağazayı düzenle",
